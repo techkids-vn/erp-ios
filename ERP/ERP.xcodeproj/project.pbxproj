@@ -16,6 +16,7 @@
 		998278651D0DDD5C004F6846 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278641D0DDD5C004F6846 /* Login.swift */; };
 		998278671D0DDF85004F6846 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278661D0DDF85004F6846 /* DB.swift */; };
 		998278691D0DE489004F6846 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278681D0DE489004F6846 /* SearchViewController.swift */; };
+		9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */; };
 		EB193EC43AC418277F51351C /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B6D77DCDC73CB055F26A13 /* Pods_ERP.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		998278641D0DDD5C004F6846 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		998278661D0DDF85004F6846 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		998278681D0DE489004F6846 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JASON+Alamofire.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +137,17 @@
 		995319FA1D0D693E00097E42 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9982786A1D0DEF16004F6846 /* Alamofire Extension */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		9982786A1D0DEF16004F6846 /* Alamofire Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */,
+			);
+			name = "Alamofire Extension";
 			sourceTree = "<group>";
 		};
 		D8EDF020D1445E72C28A3FA4 /* Pods */ = {
@@ -292,6 +303,7 @@
 				84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */,
 				998278631D0DDA39004F6846 /* StartViewController.swift in Sources */,
 				998278671D0DDF85004F6846 /* DB.swift in Sources */,
+				9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */,
 				998278651D0DDD5C004F6846 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

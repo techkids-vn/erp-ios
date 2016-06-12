@@ -10,4 +10,5 @@ pod 'RxSwift'
 pod 'RxCocoa'
 pod 'Alamofire'
 pod 'RealmSwift'
+pod 'JASON'
 end

@@ -30,8 +30,25 @@ class LoginViewController: UIViewController {
     
     func login() {
         _ = self.btnLogin.rx_tap.subscribeNext {
-            Login.create()
+            Login.checkLogin(self.txtUsername.text!, password: self.txtPassword.text!, requestDone: self.checkLogin)
             print("xxx")
+        }
+    }
+    
+    func checkLogin(statusLogin : Int) {
+        if statusLogin == 1 {
+            Login.create()
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as! SearchViewController
+            self.presentViewController(vc, animated: false, completion: {
+
+            })
+        }
+        else {
+            let alert = UIAlertController(title: "", message: "Login Failed", preferredStyle: .Alert)
+            self.presentViewController(alert, animated: true, completion: nil)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction) in
+            }
+            alert.addAction(OKAction)
         }
     }
 

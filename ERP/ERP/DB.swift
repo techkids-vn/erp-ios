@@ -20,7 +20,6 @@ class DB: Object {
     
     static func getLogin() -> Login? {
         let result = realm.objects(Login.self).first
-        print(result)
         return result
     }
 
