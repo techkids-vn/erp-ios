@@ -7,19 +7,33 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtUsername: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.setupUI()
+        self.login()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setupUI() {
+        self.btnLogin.layer.cornerRadius = 6.0
+        self.txtUsername.text = "admin"
+        self.txtPassword.text = "admin"
     }
-
+    
+    func login() {
+        _ = self.btnLogin.rx_tap.subscribeNext {
+            Login.create()
+            print("xxx")
+        }
+    }
 
 }
 
