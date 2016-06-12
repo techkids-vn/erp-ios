@@ -71,12 +71,60 @@
 			children = (
 				84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */,
 				84EB36AB1D0D63E00032F0F9 /* ViewController.swift */,
-				84EB36AD1D0D63E00032F0F9 /* Main.storyboard */,
-				84EB36B01D0D63E00032F0F9 /* Assets.xcassets */,
-				84EB36B21D0D63E00032F0F9 /* LaunchScreen.storyboard */,
+				995319F81D0D68F500097E42 /* Libs */,
+				995319F71D0D68DC00097E42 /* Model */,
+				995319F61D0D68CA00097E42 /* Controller */,
+				995319F51D0D68AF00097E42 /* View */,
 				84EB36B51D0D63E00032F0F9 /* Info.plist */,
 			);
 			path = ERP;
+			sourceTree = "<group>";
+		};
+		995319F51D0D68AF00097E42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84EB36B01D0D63E00032F0F9 /* Assets.xcassets */,
+				84EB36AD1D0D63E00032F0F9 /* Main.storyboard */,
+				84EB36B21D0D63E00032F0F9 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		995319F61D0D68CA00097E42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		995319F71D0D68DC00097E42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		995319F81D0D68F500097E42 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				995319FA1D0D693E00097E42 /* Other */,
+				995319F91D0D692B00097E42 /* Apple */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		995319F91D0D692B00097E42 /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Apple;
+			sourceTree = "<group>";
+		};
+		995319FA1D0D693E00097E42 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		D8EDF020D1445E72C28A3FA4 /* Pods */ = {
@@ -101,6 +149,7 @@
 				84EB36A41D0D63E00032F0F9 /* Resources */,
 				B1A2084AFF90DEF78A108266 /* 📦 Embed Pods Frameworks */,
 				D727B87FDDB6EA55CC688539 /* 📦 Copy Pods Resources */,
+				FDB3634467502CB5B37B4B46 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +251,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ERP/Pods-ERP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDB3634467502CB5B37B4B46 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ERP/Pods-ERP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
