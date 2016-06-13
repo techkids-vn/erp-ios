@@ -12,6 +12,7 @@ import RxCocoa
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtUsername: UITextField!
@@ -26,16 +27,19 @@ class LoginViewController: UIViewController {
         self.btnLogin.layer.cornerRadius = 6.0
         self.txtUsername.text = "admin"
         self.txtPassword.text = "admin"
+        self.waitIndicator.hidesWhenStopped = true
+        self.waitIndicator.activityIndicatorViewStyle = .Gray
     }
     
     func login() {
         _ = self.btnLogin.rx_tap.subscribeNext {
             Login.checkLogin(self.txtUsername.text!, password: self.txtPassword.text!, requestDone: self.checkLogin)
-            print("xxx")
+            self.waitIndicator.startAnimating()
         }
     }
     
     func checkLogin(statusLogin : Int) {
+        self.waitIndicator.stopAnimating()
         if statusLogin == 1 {
             Login.create()
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as! SearchViewController
@@ -44,6 +48,7 @@ class LoginViewController: UIViewController {
             })
         }
         else {
+            
             let alert = UIAlertController(title: "", message: "Login Failed", preferredStyle: .Alert)
             self.presentViewController(alert, animated: true, completion: nil)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction) in
