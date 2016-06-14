@@ -14,4 +14,17 @@ class InstructorCell: UICollectionViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblTeam: UILabel!
     @IBOutlet weak var lblCode: UILabel!
+    
+    var instructor : Instructor? {
+        didSet {
+            self.layout()
+        }
+    }
+    
+    func layout() {
+        self.lblName.text = "Name: \(instructor!.name)"
+        self.lblTeam.text = "Team: \(instructor!.team)"
+        self.lblCode.text = "Code: \(instructor!.code)"
+        LazyImage.showForImageView(self.imvAvatar, url: instructor?.imgUrl)
+    }
 }

@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (3.4.0)
   - JASON (2.2)
+  - ReachabilitySwift (2.3.3)
   - Realm (0.103.1):
     - Realm/Headers (= 0.103.1)
   - Realm/Headers (0.103.1)
@@ -13,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - JASON
+  - ReachabilitySwift
   - RealmSwift
   - RxCocoa
   - RxSwift
@@ -20,11 +22,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   JASON: 0daa2c3ed902ccbfa94d6bb4cb356d252b9607ce
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   Realm: 9ed57109332e95bdc48a7caedff80b70c51d5ef4
   RealmSwift: 56629adb4acd2dc33eb2c8199fe856585dfd3ba3
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
 
-PODFILE CHECKSUM: baaf5d8ec421434d682282a16155059df1543344
-
-COCOAPODS: 1.0.0
+COCOAPODS: 0.39.0
