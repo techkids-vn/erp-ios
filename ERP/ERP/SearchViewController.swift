@@ -10,4 +10,11 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    override func viewDidLoad() {
+        self.setupUI()
+    }
+    
+    func setupUI() {
+        self.navigationItem.title = "INSTRUCTOR"
+    }
 }

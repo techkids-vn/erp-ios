@@ -42,8 +42,8 @@ class LoginViewController: UIViewController {
         self.waitIndicator.stopAnimating()
         if statusLogin == 1 {
             Login.create()
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as! SearchViewController
-            self.presentViewController(vc, animated: false, completion: {
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController
+            self.presentViewController(vc, animated: true, completion: {
 
             })
         }
