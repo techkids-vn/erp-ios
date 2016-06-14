@@ -29,7 +29,7 @@ class StartViewController: UIViewController {
         }
         
         /* Testing only */
-        InstructorTest.testAddInstructor()
+        //InstructorTest.testAddInstructor()
     }
 
 }
