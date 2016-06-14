@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
 		84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */; };
 		84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB36AD1D0D63E00032F0F9 /* Main.storyboard */; };
@@ -23,13 +24,12 @@
 		998278671D0DDF85004F6846 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278661D0DDF85004F6846 /* DB.swift */; };
 		998278691D0DE489004F6846 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278681D0DE489004F6846 /* SearchViewController.swift */; };
 		9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */; };
-		EB193EC43AC418277F51351C /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B6D77DCDC73CB055F26A13 /* Pods_ERP.framework */; };
+		9E74FD0E71B649476E6725CF /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6EA2CDD37166BACCB9C7BB /* Pods_ERP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		28C561CF5E595B8DA881ABAA /* Pods-ERP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.debug.xcconfig"; sourceTree = "<group>"; };
-		2D101C9B8E5C3A7317D0A495 /* Pods-ERP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.release.xcconfig"; sourceTree = "<group>"; };
-		54B6D77DCDC73CB055F26A13 /* Pods_ERP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57624B90152372E8A669147B /* Pods-ERP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.debug.xcconfig"; sourceTree = "<group>"; };
+		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		998278661D0DDF85004F6846 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		998278681D0DE489004F6846 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JASON+Alamofire.swift"; sourceTree = "<group>"; };
+		9F6EA2CDD37166BACCB9C7BB /* Pods_ERP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADEAEBCACFC93462AA62EB28 /* Pods-ERP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,28 +57,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB193EC43AC418277F51351C /* Pods_ERP.framework in Frameworks */,
+				9E74FD0E71B649476E6725CF /* Pods_ERP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18B0964247523D7EE87CAADF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				54B6D77DCDC73CB055F26A13 /* Pods_ERP.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		84EB369D1D0D63E00032F0F9 = {
 			isa = PBXGroup;
 			children = (
 				84EB36A81D0D63E00032F0F9 /* ERP */,
 				84EB36A71D0D63E00032F0F9 /* Products */,
-				D8EDF020D1445E72C28A3FA4 /* Pods */,
-				18B0964247523D7EE87CAADF /* Frameworks */,
+				DE213822A5F5D4C714102713 /* Pods */,
+				9B679BD0CADD88211CD78098 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +156,7 @@
 				998278641D0DDD5C004F6846 /* Login.swift */,
 				998278661D0DDF85004F6846 /* DB.swift */,
 				99422DE31D0F2BF7006BD11E /* Instructor.swift */,
+				845D77C21D1032EC007064EF /* ClassRole.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -200,11 +195,19 @@
 			name = "Alamofire Extension";
 			sourceTree = "<group>";
 		};
-		D8EDF020D1445E72C28A3FA4 /* Pods */ = {
+		9B679BD0CADD88211CD78098 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				28C561CF5E595B8DA881ABAA /* Pods-ERP.debug.xcconfig */,
-				2D101C9B8E5C3A7317D0A495 /* Pods-ERP.release.xcconfig */,
+				9F6EA2CDD37166BACCB9C7BB /* Pods_ERP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE213822A5F5D4C714102713 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57624B90152372E8A669147B /* Pods-ERP.debug.xcconfig */,
+				ADEAEBCACFC93462AA62EB28 /* Pods-ERP.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -216,13 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84EB36B81D0D63E00032F0F9 /* Build configuration list for PBXNativeTarget "ERP" */;
 			buildPhases = (
-				77C18EA9BD695BE0CE3BEA53 /* 📦 Check Pods Manifest.lock */,
+				1D0405EA291E09047373F5A5 /* 📦 Check Pods Manifest.lock */,
 				84EB36A21D0D63E00032F0F9 /* Sources */,
 				84EB36A31D0D63E00032F0F9 /* Frameworks */,
 				84EB36A41D0D63E00032F0F9 /* Resources */,
-				B1A2084AFF90DEF78A108266 /* 📦 Embed Pods Frameworks */,
-				D727B87FDDB6EA55CC688539 /* 📦 Copy Pods Resources */,
-				FDB3634467502CB5B37B4B46 /* Embed Pods Frameworks */,
+				91D54C33580471755E0CC094 /* 📦 Embed Pods Frameworks */,
+				85BCEA0A038ED9F9268027FE /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,7 +283,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		77C18EA9BD695BE0CE3BEA53 /* 📦 Check Pods Manifest.lock */ = {
+		1D0405EA291E09047373F5A5 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,22 +298,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B1A2084AFF90DEF78A108266 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ERP/Pods-ERP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D727B87FDDB6EA55CC688539 /* 📦 Copy Pods Resources */ = {
+		85BCEA0A038ED9F9268027FE /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -326,14 +313,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ERP/Pods-ERP-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FDB3634467502CB5B37B4B46 /* Embed Pods Frameworks */ = {
+		91D54C33580471755E0CC094 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +337,7 @@
 			files = (
 				99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */,
 				99422DE91D0F2FDD006BD11E /* JsonKeysExtension.swift in Sources */,
+				845D77C31D1032EC007064EF /* ClassRole.swift in Sources */,
 				998278691D0DE489004F6846 /* SearchViewController.swift in Sources */,
 				99422DDD1D0F10BD006BD11E /* NavigationController.swift in Sources */,
 				84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */,
@@ -471,7 +459,7 @@
 		};
 		84EB36B91D0D63E00032F0F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28C561CF5E595B8DA881ABAA /* Pods-ERP.debug.xcconfig */;
+			baseConfigurationReference = 57624B90152372E8A669147B /* Pods-ERP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -488,7 +476,7 @@
 		};
 		84EB36BA1D0D63E00032F0F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D101C9B8E5C3A7317D0A495 /* Pods-ERP.release.xcconfig */;
+			baseConfigurationReference = ADEAEBCACFC93462AA62EB28 /* Pods-ERP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

@@ -7,22 +7,25 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Instructor: NSObject {
+class Instructor: Object {
     
     dynamic var imgUrl = ""
     dynamic var name = ""
     dynamic var code = ""
     dynamic var team = ""
     dynamic var numberAttendance = 0
+    dynamic var classRoles : [ClassRole] = [];
     
-    func create(imgUrl : String, name : String, team : String, code : String, numberAttendace : Int) -> Instructor {
+    static func create(imgUrl : String, name : String, team : String, code : String, classRoles : [ClassRole]) -> Instructor {
+        
         let instructor = Instructor()
         instructor.imgUrl = imgUrl
         instructor.name = name
         instructor.team = team
         instructor.code = code
-        instructor.numberAttendance = numberAttendance
+        instructor.classRoles = classRoles;
         
         return instructor
     }
