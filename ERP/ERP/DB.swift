@@ -18,6 +18,28 @@ class DB: Object {
         }
     }
     
+    static func addInstructor(instructor: Instructor) {
+        try! realm.write {
+            realm.add(instructor);
+        }
+    }
+    
+    static func getAllInstructors() -> [Instructor] {
+        return realm.objects(Instructor).map({
+            instructor in
+            return instructor
+        })
+    }
+    
+    static func deleteAllInstructors() {
+        let instructors = getAllInstructors()
+        for instructor in instructors {
+            try!  realm.write {
+                realm.delete(instructor)
+            }
+        }
+    }
+    
     static func getLogin() -> Login? {
         let result = realm.objects(Login.self).first
         return result

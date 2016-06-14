@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
+		845D77C81D103E17007064EF /* InstructorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C71D103E17007064EF /* InstructorTest.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
 		84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */; };
 		84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB36AD1D0D63E00032F0F9 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		57624B90152372E8A669147B /* Pods-ERP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.debug.xcconfig"; sourceTree = "<group>"; };
 		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
+		845D77C71D103E17007064EF /* InstructorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTest.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845D77C61D103E09007064EF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				845D77C71D103E17007064EF /* InstructorTest.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		84EB369D1D0D63E00032F0F9 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		84EB36A81D0D63E00032F0F9 /* ERP */ = {
 			isa = PBXGroup;
 			children = (
+				845D77C61D103E09007064EF /* Tests */,
 				84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */,
 				995319F81D0D68F500097E42 /* Libs */,
 				99422DE51D0F2F24006BD11E /* Utilities */,
@@ -348,6 +359,7 @@
 				998278671D0DDF85004F6846 /* DB.swift in Sources */,
 				99422DEB1D0F36B3006BD11E /* Role.swift in Sources */,
 				9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */,
+				845D77C81D103E17007064EF /* InstructorTest.swift in Sources */,
 				998278651D0DDD5C004F6846 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -481,6 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
