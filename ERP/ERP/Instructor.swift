@@ -14,15 +14,13 @@ class Instructor: NSObject {
     dynamic var name = ""
     dynamic var code = ""
     dynamic var team = ""
-    dynamic var numberAttendance = 0
     
-    func create(imgUrl : String, name : String, team : String, code : String, numberAttendace : Int) -> Instructor {
+    func create(imgUrl : String, name : String, team : String, code : String) -> Instructor {
         let instructor = Instructor()
         instructor.imgUrl = imgUrl
         instructor.name = name
         instructor.team = team
         instructor.code = code
-        instructor.numberAttendance = numberAttendance
         
         return instructor
     }

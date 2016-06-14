@@ -8,7 +8,7 @@
 
 import JASON
 
-class Role: NSObject {
+class Class: NSObject {
     
     var role : NSArray = []
     var code : String = ""
@@ -17,7 +17,6 @@ class Role: NSObject {
         code = json[.code]
         let roleKey    = JSONKey<NSArray>("role")
         role = json[roleKey]
-
     }
     
 }
