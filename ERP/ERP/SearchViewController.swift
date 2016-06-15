@@ -14,6 +14,7 @@ import JASON
 import RealmSwift
 
 class SearchViewController: UIViewController {
+    @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var clvInstructor: UICollectionView!
     
     let INSTRUCTOR_API = "https://erp-dump.herokuapp.com/api/instructors"
@@ -34,6 +35,10 @@ class SearchViewController: UIViewController {
     
     func setupUI() {
         self.navigationItem.title = "INSTRUCTOR"
+        self.waitIndicator.hidesWhenStopped = true
+        self.waitIndicator.activityIndicatorViewStyle = .White
+        self.waitIndicator.center = self.clvInstructor.center
+        self.waitIndicator.startAnimating()
         self.setupLayout()
     }
     
@@ -69,6 +74,7 @@ class SearchViewController: UIViewController {
                         instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code, classRoles: classRoles))
                     }
                     self.instructors.value = instructors
+                    self.waitIndicator.stopAnimating()
                 }
                 
         }
