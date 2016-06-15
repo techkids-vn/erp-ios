@@ -10,6 +10,8 @@
 		17FBFAA6C3416489C836324A /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA5430244ECE6134BAA1E97 /* Pods_ERP.framework */; };
 		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
 		845D77C81D103E17007064EF /* InstructorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C71D103E17007064EF /* InstructorTest.swift */; };
+		845D77D01D11121F007064EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77CF1D11121F007064EF /* Constants.swift */; };
+		845D77D21D11135D007064EF /* InstructorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77D11D11135D007064EF /* InstructorDetailViewController.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
 		84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */; };
 		84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB36AD1D0D63E00032F0F9 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		4E276E25480534B47FE6F1E3 /* Pods-ERP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.release.xcconfig"; sourceTree = "<group>"; };
 		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
 		845D77C71D103E17007064EF /* InstructorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTest.swift; sourceTree = "<group>"; };
+		845D77CF1D11121F007064EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		845D77D11D11135D007064EF /* InstructorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorDetailViewController.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,14 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		845D77CE1D11120A007064EF /* Contants */ = {
+			isa = PBXGroup;
+			children = (
+				845D77CF1D11121F007064EF /* Constants.swift */,
+			);
+			name = Contants;
+			sourceTree = "<group>";
+		};
 		84EB369D1D0D63E00032F0F9 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +118,7 @@
 		84EB36A81D0D63E00032F0F9 /* ERP */ = {
 			isa = PBXGroup;
 			children = (
+				845D77CE1D11120A007064EF /* Contants */,
 				845D77C61D103E09007064EF /* Tests */,
 				84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */,
 				995319F81D0D68F500097E42 /* Libs */,
@@ -176,6 +189,7 @@
 				998278621D0DDA39004F6846 /* StartViewController.swift */,
 				84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */,
 				998278681D0DE489004F6846 /* SearchViewController.swift */,
+				845D77D11D11135D007064EF /* InstructorDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -357,7 +371,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845D77D21D11135D007064EF /* InstructorDetailViewController.swift in Sources */,
 				99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */,
+				845D77D01D11121F007064EF /* Constants.swift in Sources */,
 				99422DE91D0F2FDD006BD11E /* JsonKeysExtension.swift in Sources */,
 				845D77C31D1032EC007064EF /* ClassRole.swift in Sources */,
 				992846DB1D1055A600C7FC3F /* RequestInstructor.swift in Sources */,
