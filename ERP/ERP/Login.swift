@@ -10,13 +10,16 @@ import UIKit
 import RealmSwift
 import Alamofire
 
-let loginAPI = "https://erp-dump.herokuapp.com/api/login"
 
 class Login: Object {
     dynamic var didLogin : Int = 0
+    dynamic var userName : String = ""
+    dynamic var password : String = ""
     
-    static func create() ->Login {
+    static func create(userName: String, password: String) -> Login {
         let login = Login()
+        login.userName = userName
+        login.password = password
         login.didLogin = 1
         DB.loginFirstTime(login)
         return login
@@ -38,12 +41,12 @@ extension Login {
             let urlEncoding = Alamofire.ParameterEncoding.URLEncodedInURL
             let (urlRequest, error) = urlEncoding.encode(request, parameters: params)
             let mutableRequest = urlRequest.mutableCopy() as! NSMutableURLRequest
-            mutableRequest.URL = NSURL(string: loginAPI)
+            mutableRequest.URL = NSURL(string: LOGIN_API)
             mutableRequest.HTTPBody = urlRequest.URL?.query?.dataUsingEncoding(NSUTF8StringEncoding)
             return (mutableRequest, error)
         }
         
-        Alamofire.request(.POST, loginAPI, parameters: loginRequest, encoding: paramURLEncoding, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) -> Void in
+        Alamofire.request(.POST, LOGIN_API, parameters: loginRequest, encoding: paramURLEncoding, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) -> Void in
             if let reportData = response.result.value {
                 let statusLogin = reportData["login_status"] as! Int
                 requestDone(statusLogin)

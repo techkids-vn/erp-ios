@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     func checkLogin(statusLogin : Int) {
         self.waitIndicator.stopAnimating()
         if statusLogin == 1 {
-            Login.create()
+            Login.create(self.txtUsername.text!, password: self.txtPassword.text!)
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController
             self.presentViewController(vc, animated: true, completion: {
 

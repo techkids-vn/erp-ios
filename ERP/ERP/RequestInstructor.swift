@@ -10,7 +10,6 @@ import Alamofire
 import JASON
 import RealmSwift
 
-let INSTRUCTOR_API = "https://erp-dump.herokuapp.com/api/instructors"
 class RequestInstructor: NSObject {
    
     static func getInstructor() -> [Instructor] {
@@ -39,6 +38,5 @@ class RequestInstructor: NSObject {
         }
         return instructors
     }
-    
     
 }
