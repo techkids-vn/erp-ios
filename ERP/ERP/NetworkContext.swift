@@ -29,9 +29,9 @@ class NetworkContext {
                 response in
                 if let json = response.result.value {
                     print(json)
-                    let responseMessage = ResponseMessage.init(json: json)
+                    let responseMessage = ResponseMessageWithRecordId.init(json: json)
                     if responseMessage.isSuccess {
-                        DB.updateInstructorTeachingRecordSent(instTeachingRecord, sent: true)
+                        DB.updateInstructorTeachingRecord(instTeachingRecord, recordId: responseMessage.recordId!)
                         if let done = requestDone {
                             done(RESULT_CODE_SUCCESS, "Request suceedded")
                             return

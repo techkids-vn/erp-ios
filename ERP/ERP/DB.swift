@@ -73,9 +73,9 @@ class DB: Object {
         }
     }
     
-    static func updateInstructorTeachingRecordSent(instTeachingRecord : InstructorTeachingRecord, sent : Bool) {
+    static func updateInstructorTeachingRecord(instTeachingRecord : InstructorTeachingRecord, recordId : Int) {
         try! realm.write {
-            instTeachingRecord.sent = sent
+            instTeachingRecord.recordId = recordId
         }
     }
     

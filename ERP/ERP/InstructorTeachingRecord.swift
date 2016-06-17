@@ -14,7 +14,7 @@ class InstructorTeachingRecord : Object {
     dynamic var classCode = ""
     dynamic var roleCode = ""
     dynamic var date = NSDate()
-    dynamic var sent = false
+    dynamic var recordId = -1
     
     static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> InstructorTeachingRecord {
         let instTeachingRecord = InstructorTeachingRecord()
@@ -36,7 +36,8 @@ extension InstructorTeachingRecord {
                 "code" : self.code,
                 "class" : self.classCode,
                 "role" : self.roleCode,
-                "date" : dateFormater.stringFromDate(self.date)
+                "date" : dateFormater.stringFromDate(self.date),
+                "record_id" : "\(self.recordId)"
             ]
         }
     }

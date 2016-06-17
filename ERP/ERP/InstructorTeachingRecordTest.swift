@@ -46,19 +46,21 @@ class InstructorTeachingRecordTest : NSObject {
         assert(oneRecord.roleCode == "coach")
         assert(now.isEqualToDate(oneRecord.date))
         
-        assert(!oneRecord.sent)
+        assert(oneRecord.recordId == -1)
         
-        DB.updateInstructorTeachingRecordSent(oneRecord, sent: true)
+        DB.updateInstructorTeachingRecord(oneRecord, recordId: 123456)
         
         let allRecords2 = DB.getAllInstructorTeachingRecords()
         assert(allRecords.count == 1)
         let oneRecord2 = allRecords2[0]
-        assert(oneRecord2.sent)
+        assert(oneRecord2.recordId == 123456)
         
         DB.deleteAllInstructorTeachingRecords()
     }
     
     static func testPostRecord() {
+        
+        DB.deleteAllInstructorTeachingRecords()
         
         let now = NSDate.init(timeIntervalSinceNow: 0)
         
