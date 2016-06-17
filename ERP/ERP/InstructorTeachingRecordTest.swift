@@ -33,6 +33,8 @@ class InstructorTeachingRecordTest : NSObject {
         DB.deleteAllInstructorTeachingRecords()
         
         let now = NSDate.init(timeIntervalSinceNow: 0)
+        let dateFormater = NSDateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd"
         
         _ = InstructorTeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
         
@@ -62,8 +64,9 @@ class InstructorTeachingRecordTest : NSObject {
         
         let record = InstructorTeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
         
-        NetworkContext.postInstructorTeachingRecord(record, requestDone: nil)
-        
-        DB.deleteAllInstructorTeachingRecords()
+        NetworkContext.postInstructorTeachingRecord(record, requestDone: {
+            code, message in
+            DB.deleteAllInstructorTeachingRecords()
+        })
     }
 }

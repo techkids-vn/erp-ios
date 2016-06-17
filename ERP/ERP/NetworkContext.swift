@@ -36,6 +36,16 @@ class NetworkContext {
                             done(RESULT_CODE_SUCCESS, "Request suceedded")
                             return
                         }
+                    } else {
+                        if let done = requestDone {
+                            done(RESULT_CODE_FAILURE, "Server responded but request failed")
+                            return
+                        }
+                    }
+                } else {
+                    if let done = requestDone {
+                        done(RESULT_CODE_FAILURE, "Server did not respond or did not understand the paramters")
+                        return
                     }
                 }
             }

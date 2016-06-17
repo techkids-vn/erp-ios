@@ -16,6 +16,7 @@
 		845D77D21D11135D007064EF /* InstructorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77D11D11135D007064EF /* InstructorDetailViewController.swift */; };
 		847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */; };
 		847C2F221D1276EB002A8DD9 /* NetworkContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F211D1276EB002A8DD9 /* NetworkContext.swift */; };
+		84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D821D13E82E00938600 /* NSDateExtensions.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
 		84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */; };
 		84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB36AD1D0D63E00032F0F9 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		845D77D11D11135D007064EF /* InstructorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorDetailViewController.swift; sourceTree = "<group>"; };
 		847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecord.swift; sourceTree = "<group>"; };
 		847C2F211D1276EB002A8DD9 /* NetworkContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkContext.swift; sourceTree = "<group>"; };
+		84E33D821D13E82E00938600 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 			name = Rx;
 			sourceTree = "<group>";
 		};
+		84E33D811D13E81A00938600 /* StringFormats */ = {
+			isa = PBXGroup;
+			children = (
+				84E33D821D13E82E00938600 /* NSDateExtensions.swift */,
+			);
+			name = StringFormats;
+			sourceTree = "<group>";
+		};
 		84EB369D1D0D63E00032F0F9 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +186,7 @@
 		99422DE51D0F2F24006BD11E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				84E33D811D13E81A00938600 /* StringFormats */,
 				992846D91D10556900C7FC3F /* Networking */,
 			);
 			name = Utilities;
@@ -403,6 +414,7 @@
 				99422DDD1D0F10BD006BD11E /* NavigationController.swift in Sources */,
 				84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */,
 				847C2F221D1276EB002A8DD9 /* NetworkContext.swift in Sources */,
+				84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */,
 				84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */,
 				998278631D0DDA39004F6846 /* StartViewController.swift in Sources */,
 				99422DDF1D0F1665006BD11E /* UIColorExtension.swift in Sources */,

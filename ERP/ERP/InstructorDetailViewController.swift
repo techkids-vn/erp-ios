@@ -15,6 +15,7 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
     var instructor : Instructor?
     var selectedClassCode : String?
     var selectedRoleCode : String?
+    var selectedDate : NSDate?
     
     @IBOutlet weak var imvAvatar: UIImageView!
     @IBOutlet weak var lblInstructorName: UILabel!
@@ -22,6 +23,8 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var txfClass: UITextField!
     @IBOutlet weak var txfRole: UITextField!
     @IBOutlet weak var txfDate: UITextField!
+    @IBOutlet weak var btnRecord: UIButton!
+    @IBOutlet weak var aivWait: UIActivityIndicatorView!
     
     var pcvClass : UIPickerView!
     var pcvRole : UIPickerView!
@@ -32,15 +35,22 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
         super.viewDidLoad()
         
         self.dumpData()
+        self.setupLayout()
 
-        self.viewInstructorInfo()
-        self.setUpPickerViewForTextFields()
-        self.setupGestures()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupLayout() {
+        self.viewInstructorInfo()
+        self.setUpPickerViewForTextFields()
+        self.setupGestures()
+        self.setupButtons()
+        
+        self.aivWait.hidesWhenStopped = true
     }
     
     // MARK: Setup layout
@@ -61,16 +71,35 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
         self.pcvRole.delegate = self
         self.pcvClass.dataSource = self
         self.pcvRole.dataSource = self
-        self.dpvDate.addTarget(self,
-                               action: #selector(InstructorDetailViewController.dateChanged(_:)),
-                               forControlEvents: UIControlEvents.ValueChanged)
+        
+        _ = self.dpvDate.rx_date.subscribeNext {
+            date in
+            self.selectedDate  = date
+            self.txfDate.text = date.string
+        }
         
         self.txfClass.inputView = self.pcvClass
         self.txfRole.inputView = self.pcvRole
         self.txfDate.inputView = self.dpvDate
     }
     
-
+    func setupButtons() {
+        _ = self.btnRecord.rx_tap.subscribeNext {
+            if let classCode = self.selectedClassCode {
+                if let roleCode = self.selectedRoleCode {
+                    if let date = self.selectedDate {
+                        self.aivWait.startAnimating()
+                        let instTeachingRecord = InstructorTeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+                        NetworkContext.postInstructorTeachingRecord(instTeachingRecord, requestDone: {
+                            code, message in
+                            self.aivWait.stopAnimating()
+                            print(message)
+                        })
+                    }
+                }
+            }
+        }
+    }
 
     // MARK: PickerView
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -124,11 +153,7 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
         }
         self.view.addGestureRecognizer(tapGesture)
     }
-    
-    // MARK: DatePickerView
-    func dateChanged(sender : UIDatePicker) {
-        print("Date changed")
-    }
+  
     
     func dumpData() {
         
