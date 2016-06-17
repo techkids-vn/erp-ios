@@ -31,3 +31,31 @@ class Instructor: Object {
     }
     
 }
+
+extension Instructor {
+    var classes : [String] {
+        get {
+            var classCodes : [String] = []
+            for classRole in self.classRoles {
+                let classCode = classRole.classCode
+                if !classCodes.contains(classCode) {
+                    classCodes.append(classRole.classCode)
+                }
+            }
+            return classCodes
+        }
+    }
+    
+    var roles : [String] {
+        get {
+            var roleCodes : [String] = []
+            for classRole in self.classRoles {
+                let roleCode = classRole.roleCode
+                if !roleCodes.contains(roleCode) {
+                    roleCodes.append(roleCode)
+                }
+            }
+            return roleCodes
+        }
+    }
+}

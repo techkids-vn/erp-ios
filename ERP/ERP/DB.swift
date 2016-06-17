@@ -13,19 +13,18 @@ class DB: Object {
     static let realm = try! Realm()
     
     // MARK: Login
-    static func loginFirstTime(login : Login) {
+    static func loginFirstTime(login : User) {
         try! realm.write {
             realm.add(login)
         }
     }
     
-    static func getLogin() -> Login? {
-        let result = realm.objects(Login.self).first
+    static func getLogin() -> User? {
+        let result = realm.objects(User).first
         return result
     }
     
     // MARK: Instructor
-    
     static func addInstructor(instructor: Instructor) {
         try! realm.write {
             realm.add(instructor);
@@ -56,6 +55,34 @@ class DB: Object {
         for instructor in instructors {
             try! realm.write {
                 realm.delete(instructor)
+            }
+        }
+    }
+    
+    // MARK: InstructorTeachingRecord
+    static func addInstructorTeachingRecord(instTeachingRecord : InstructorTeachingRecord) {
+        try! realm.write {
+            realm.add(instTeachingRecord)
+        }
+    }
+    
+    static func getAllInstructorTeachingRecords() -> [InstructorTeachingRecord] {
+        return realm.objects(InstructorTeachingRecord).map {
+            record in
+            return record
+        }
+    }
+    
+    static func updateInstructorTeachingRecordSent(instTeachingRecord : InstructorTeachingRecord, sent : Bool) {
+        try! realm.write {
+            instTeachingRecord.sent = sent
+        }
+    }
+    
+    static func deleteAllInstructorTeachingRecords() {
+        for instRecord in getAllInstructorTeachingRecords() {
+            try! realm.write {
+                realm.delete(instRecord)
             }
         }
     }

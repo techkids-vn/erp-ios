@@ -33,15 +33,15 @@ class LoginViewController: UIViewController {
     
     func login() {
         _ = self.btnLogin.rx_tap.subscribeNext {
-            Login.checkLogin(self.txtUsername.text!, password: self.txtPassword.text!, requestDone: self.checkLogin)
+            User.checkLogin(self.txtUsername.text!, password: self.txtPassword.text!, requestDone: self.checkLogin)
             self.waitIndicator.startAnimating()
         }
     }
     
-    func checkLogin(statusLogin : Int) {
+    func checkLogin(statusLogin : Int, message: String) {
         self.waitIndicator.stopAnimating()
         if statusLogin == 1 {
-            Login.create(self.txtUsername.text!, password: self.txtPassword.text!)
+            User.create(self.txtUsername.text!, password: self.txtPassword.text!)
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController
             self.presentViewController(vc, animated: true, completion: {
 
