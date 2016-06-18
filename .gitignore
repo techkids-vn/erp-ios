@@ -668,3 +668,10 @@ ERP/Pods/STPopup/README.md
 ERP/Pods/STPopup/STPopup/STPopup.h
 ERP/Pods/STPopup/STPopup/STPopupController.h
 ERP/Pods/STPopup/STPopup/STPopupController.m
+ERP/Pods/Headers/Private/STPopup/STPopup.h
+ERP/Pods/Headers/Private/STPopup/STPopupController.h
+ERP/Pods/Headers/Private/STPopup/STPopupLeftBarItem.h
+ERP/Pods/Headers/Private/STPopup/STPopupNavigationBar.h
+ERP/Pods/Headers/Private/STPopup/UIResponder+STPopup.h
+ERP/Pods/Headers/Private/STPopup/UIViewController+STPopup.h
+ERP/Pods/Pods.xcodeproj/xcuserdata/Mr.Vu.xcuserdatad/xcschemes/STPopup.xcscheme
