@@ -32,20 +32,10 @@ extension User {
             "username" : username,
             "password" : password
         ]
-
-        let paramURLEncoding = ParameterEncoding.Custom { (request, params) -> (NSMutableURLRequest, NSError?) in
-            
-            let urlEncoding = Alamofire.ParameterEncoding.URLEncodedInURL
-            let (urlRequest, error) = urlEncoding.encode(request, parameters: params)
-            let mutableRequest = urlRequest.mutableCopy() as! NSMutableURLRequest
-            mutableRequest.URL = NSURL(string: LOGIN_API)
-            mutableRequest.HTTPBody = urlRequest.URL?.query?.dataUsingEncoding(NSUTF8StringEncoding)
-            return (mutableRequest, error)
-        }
         
-        Alamofire.request(.POST, LOGIN_API, parameters: loginRequest, encoding: paramURLEncoding, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) -> Void in
+        Alamofire.request(.POST, LOGIN_API, parameters: loginRequest, encoding: .URL, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) -> Void in
             if let reportData = response.result.value {
-                let statusLogin = reportData["login_status"] as! Int
+                let statusLogin = reportData["result_code"] as! Int
                 requestDone(statusLogin, "Login done")
             }
         }

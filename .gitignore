@@ -679,3 +679,10 @@ ERP/Pods/Target Support Files/STZPopupView/STZPopupView-prefix.pch
 ERP/Pods/Target Support Files/STZPopupView/STZPopupView-umbrella.h
 ERP/Pods/Target Support Files/STZPopupView/STZPopupView.modulemap
 ERP/Pods/Target Support Files/STZPopupView/STZPopupView.xcconfig
+ERP/Pods/Headers/Private/STPopup/STPopup.h
+ERP/Pods/Headers/Private/STPopup/STPopupController.h
+ERP/Pods/Headers/Private/STPopup/STPopupLeftBarItem.h
+ERP/Pods/Headers/Private/STPopup/STPopupNavigationBar.h
+ERP/Pods/Headers/Private/STPopup/UIResponder+STPopup.h
+ERP/Pods/Headers/Private/STPopup/UIViewController+STPopup.h
+ERP/Pods/Pods.xcodeproj/xcuserdata/Mr.Vu.xcuserdatad/xcschemes/STPopup.xcscheme
