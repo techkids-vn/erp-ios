@@ -5,7 +5,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target">
+            <connections>
+                <outlet property="imvAvatar" destination="5t1-th-VpJ" id="QA5-Js-PPs"/>
+                <outlet property="lblInstructorName" destination="wnT-Hf-6U5" id="p0a-Rd-274"/>
+                <outlet property="lblTeam" destination="fjO-HW-V2o" id="hAL-dZ-S8c"/>
+                <outlet property="txfClass" destination="qGK-5f-utD" id="QDQ-jS-bOd"/>
+                <outlet property="txfDate" destination="FYc-Zc-8wJ" id="r73-zn-hNY"/>
+                <outlet property="txfRole" destination="SEu-rx-Wsh" id="tHI-53-w8f"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
