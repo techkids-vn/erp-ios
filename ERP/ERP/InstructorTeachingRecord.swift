@@ -31,7 +31,7 @@ extension InstructorTeachingRecord {
     var JSON : [String : String] {
         get {
             let dateFormater = NSDateFormatter()
-            dateFormater.dateFormat = "yyy-MM-dd"
+            dateFormater.dateFormat = "yyyy-MM-dd"
             return [
                 "code" : self.code,
                 "class" : self.classCode,
