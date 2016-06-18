@@ -10,6 +10,8 @@
 		17FBFAA6C3416489C836324A /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA5430244ECE6134BAA1E97 /* Pods_ERP.framework */; };
 		84113C341D12DF750071966E /* InstructorTeachingRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84113C331D12DF750071966E /* InstructorTeachingRecordTest.swift */; };
 		8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */; };
+		84162E791D15B61F00CF6319 /* InstructorDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84162E781D15B61F00CF6319 /* InstructorDetailView.xib */; };
+		84162E7B1D15B95100CF6319 /* InstructorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */; };
 		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
 		845D77C81D103E17007064EF /* InstructorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C71D103E17007064EF /* InstructorTest.swift */; };
 		845D77D01D11121F007064EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77CF1D11121F007064EF /* Constants.swift */; };
@@ -41,6 +43,8 @@
 		4E276E25480534B47FE6F1E3 /* Pods-ERP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.release.xcconfig"; sourceTree = "<group>"; };
 		84113C331D12DF750071966E /* InstructorTeachingRecordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecordTest.swift; sourceTree = "<group>"; };
 		8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessage.swift; sourceTree = "<group>"; };
+		84162E781D15B61F00CF6319 /* InstructorDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructorDetailView.xib; sourceTree = "<group>"; };
+		84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorDetailView.swift; sourceTree = "<group>"; };
 		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
 		845D77C71D103E17007064EF /* InstructorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTest.swift; sourceTree = "<group>"; };
 		845D77CF1D11121F007064EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				84EB36AD1D0D63E00032F0F9 /* Main.storyboard */,
 				84EB36B21D0D63E00032F0F9 /* LaunchScreen.storyboard */,
 				99422DE01D0F1E17006BD11E /* Instructor Cell */,
+				84162E781D15B61F00CF6319 /* InstructorDetailView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */,
 				998278681D0DE489004F6846 /* SearchViewController.swift */,
 				845D77D11D11135D007064EF /* InstructorDetailViewController.swift */,
+				84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				84EB36B41D0D63E00032F0F9 /* LaunchScreen.storyboard in Resources */,
 				84EB36B11D0D63E00032F0F9 /* Assets.xcassets in Resources */,
 				84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */,
+				84162E791D15B61F00CF6319 /* InstructorDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +452,7 @@
 				8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */,
 				845D77C81D103E17007064EF /* InstructorTest.swift in Sources */,
 				998278651D0DDD5C004F6846 /* User.swift in Sources */,
+				84162E7B1D15B95100CF6319 /* InstructorDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
