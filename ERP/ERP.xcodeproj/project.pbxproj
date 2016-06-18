@@ -16,8 +16,6 @@
 		845D77D21D11135D007064EF /* InstructorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77D11D11135D007064EF /* InstructorDetailViewController.swift */; };
 		847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */; };
 		847C2F221D1276EB002A8DD9 /* NetworkContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F211D1276EB002A8DD9 /* NetworkContext.swift */; };
-		847C2FAC1D154C8A00401007 /* InstructorTeachingRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847C2FAB1D154C8A00401007 /* InstructorTeachingRecordView.xib */; };
-		847C2FAE1D154E8D00401007 /* InstructorTeachingRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2FAD1D154E8D00401007 /* InstructorTeachingRecordView.swift */; };
 		84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D821D13E82E00938600 /* NSDateExtensions.swift */; };
 		84E33D851D13F68800938600 /* ResponseMessageWithRecordId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
@@ -49,8 +47,6 @@
 		845D77D11D11135D007064EF /* InstructorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorDetailViewController.swift; sourceTree = "<group>"; };
 		847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecord.swift; sourceTree = "<group>"; };
 		847C2F211D1276EB002A8DD9 /* NetworkContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkContext.swift; sourceTree = "<group>"; };
-		847C2FAB1D154C8A00401007 /* InstructorTeachingRecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructorTeachingRecordView.xib; sourceTree = "<group>"; };
-		847C2FAD1D154E8D00401007 /* InstructorTeachingRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecordView.swift; sourceTree = "<group>"; };
 		84E33D821D13E82E00938600 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessageWithRecordId.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +210,6 @@
 				84EB36AD1D0D63E00032F0F9 /* Main.storyboard */,
 				84EB36B21D0D63E00032F0F9 /* LaunchScreen.storyboard */,
 				99422DE01D0F1E17006BD11E /* Instructor Cell */,
-				847C2FAB1D154C8A00401007 /* InstructorTeachingRecordView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -227,7 +222,6 @@
 				84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */,
 				998278681D0DE489004F6846 /* SearchViewController.swift */,
 				845D77D11D11135D007064EF /* InstructorDetailViewController.swift */,
-				847C2FAD1D154E8D00401007 /* InstructorTeachingRecordView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -353,7 +347,6 @@
 			files = (
 				84EB36B41D0D63E00032F0F9 /* LaunchScreen.storyboard in Resources */,
 				84EB36B11D0D63E00032F0F9 /* Assets.xcassets in Resources */,
-				847C2FAC1D154C8A00401007 /* InstructorTeachingRecordView.xib in Resources */,
 				84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,7 +441,6 @@
 				99422DE21D0F2A6E006BD11E /* InstructorCell.swift in Sources */,
 				998278671D0DDF85004F6846 /* DB.swift in Sources */,
 				9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */,
-				847C2FAE1D154E8D00401007 /* InstructorTeachingRecordView.swift in Sources */,
 				992846DE1D105D2600C7FC3F /* LazyImage.swift in Sources */,
 				8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */,
 				845D77C81D103E17007064EF /* InstructorTest.swift in Sources */,
