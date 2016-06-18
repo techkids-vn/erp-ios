@@ -31,12 +31,9 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
     var dpvDate : UIDatePicker!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         self.dumpData()
         self.setupLayout()
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,11 +85,9 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
             if let classCode = self.selectedClassCode {
                 if let roleCode = self.selectedRoleCode {
                     if let date = self.selectedDate {
-                        self.aivWait.startAnimating()
                         let instTeachingRecord = InstructorTeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
                         NetworkContext.postInstructorTeachingRecord(instTeachingRecord, requestDone: {
                             code, message in
-                            self.aivWait.stopAnimating()
                             print(message)
                         })
                     }

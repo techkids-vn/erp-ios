@@ -419,9 +419,6 @@
                                     <constraint firstItem="DMd-xG-LnK" firstAttribute="leading" secondItem="bHN-Qc-OZ3" secondAttribute="leading" id="zsd-oe-4ch"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FlU-Y0-mqv" userLabel="waitIndicator">
-                                <rect key="frame" x="0.0" y="220" width="600" height="342"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lP1-zq-qUM" userLabel="btnRecord">
                                 <rect key="frame" x="219" y="562" width="163" height="30"/>
                                 <constraints>
@@ -440,18 +437,13 @@
                             <constraint firstItem="lP1-zq-qUM" firstAttribute="centerX" secondItem="ye2-UM-Fxt" secondAttribute="centerX" id="Ep8-ZF-yMD"/>
                             <constraint firstItem="H45-7y-np6" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leadingMargin" id="Jfx-N9-FPJ"/>
                             <constraint firstItem="81B-Q5-Rjt" firstAttribute="top" secondItem="Z4Q-YU-SkA" secondAttribute="bottom" id="JmH-gF-FQV"/>
-                            <constraint firstItem="FlU-Y0-mqv" firstAttribute="top" secondItem="H45-7y-np6" secondAttribute="bottom" id="KTz-4S-bzt"/>
                             <constraint firstItem="bHN-Qc-OZ3" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leadingMargin" constant="7" id="OTT-Jj-Kyk"/>
-                            <constraint firstItem="lP1-zq-qUM" firstAttribute="top" secondItem="FlU-Y0-mqv" secondAttribute="bottom" id="fvT-HB-MLR"/>
                             <constraint firstItem="bHN-Qc-OZ3" firstAttribute="top" secondItem="81B-Q5-Rjt" secondAttribute="bottom" constant="24" id="gSN-j1-OCB"/>
-                            <constraint firstAttribute="trailing" secondItem="FlU-Y0-mqv" secondAttribute="trailing" id="jyx-5Y-V5C"/>
-                            <constraint firstItem="FlU-Y0-mqv" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leading" id="p9M-w3-N8S"/>
                             <constraint firstItem="81B-Q5-Rjt" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leadingMargin" id="wRm-X3-Bbs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bHN-Qc-OZ3" secondAttribute="trailing" constant="7" id="zKT-hR-wsL"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="aivWait" destination="FlU-Y0-mqv" id="OUH-hf-WZ4"/>
                         <outlet property="btnRecord" destination="lP1-zq-qUM" id="Tcz-p6-A2F"/>
                         <outlet property="imvAvatar" destination="81B-Q5-Rjt" id="pV4-Pg-jRT"/>
                         <outlet property="lblInstructorName" destination="H45-7y-np6" id="98w-0h-p5s"/>
