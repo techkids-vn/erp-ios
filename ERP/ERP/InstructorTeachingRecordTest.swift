@@ -71,4 +71,12 @@ class InstructorTeachingRecordTest : NSObject {
             DB.deleteAllInstructorTeachingRecords()
         })
     }
+    
+    static func dumpInstructorRecord() {
+        let instructors = DB.getAllInstructors()
+        let now = NSDate.init(timeIntervalSinceNow: 0)
+        for i in 0..<instructors.count {
+            _ = InstructorTeachingRecord.create(instructors[i].code, classCode: "ios4" , roleCode: "coach", date: now)
+        }
+    }
 }

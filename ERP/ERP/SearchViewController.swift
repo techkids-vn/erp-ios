@@ -14,6 +14,7 @@ import JASON
 import RealmSwift
 import Foundation
 
+
 class SearchViewController: UIViewController {
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var clvInstructor: UICollectionView!
@@ -39,6 +40,15 @@ class SearchViewController: UIViewController {
         _ = self.vInstructors.asObservable().bindTo(self.clvInstructor.rx_itemsWithCellIdentifier("InstructorCell", cellType: InstructorCell.self)){
             row,data,cell in
             cell.instructor = data
+        }.addDisposableTo(rx_disposeBag)
+        
+        self.clvInstructor.rx_itemSelected.subscribeNext {
+            indexPath in
+            /* Get the selected instructor and open detail instructor view */
+            let instructor = self.vInstructors.value[indexPath.row]
+            let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("InstructorDetailViewController") as! InstructorDetailViewController
+            instructorDetailVC.instructor = instructor
+            self.navigationController?.pushViewController(instructorDetailVC, animated: true);
         }.addDisposableTo(rx_disposeBag)
     }
     
@@ -106,5 +116,8 @@ class SearchViewController: UIViewController {
         }
     }
     
-    
+    // MARK: Test - Remove in production
+    func dumpTeachingRecord() {
+        
+    }
 }

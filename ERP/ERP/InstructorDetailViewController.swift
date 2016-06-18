@@ -24,7 +24,6 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var txfRole: UITextField!
     @IBOutlet weak var txfDate: UITextField!
     @IBOutlet weak var btnRecord: UIButton!
-    @IBOutlet weak var aivWait: UIActivityIndicatorView!
     
     var pcvClass : UIPickerView!
     var pcvRole : UIPickerView!
@@ -32,7 +31,6 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dumpData()
         self.setupLayout()
     }
     
@@ -42,16 +40,19 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
     }
     
     func setupLayout() {
-        self.viewInstructorInfo()
+
+        self.setupInstructorInfoLayout()
         self.setUpPickerViewForTextFields()
         self.setupGestures()
         self.setupButtons()
-        
-        self.aivWait.hidesWhenStopped = true
     }
     
     // MARK: Setup layout
-    func viewInstructorInfo() {
+    func setupInstructorInfoLayout() {
+        
+        self.imvAvatar.layer.cornerRadius = self.imvAvatar.frame.size.width/2
+        self.imvAvatar.clipsToBounds = true
+        
         if let inst = self.instructor {
             LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
             self.lblInstructorName.text = inst.name
@@ -90,6 +91,8 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
                             code, message in
                             print(message)
                         })
+                        /* Come back to instructor list */
+                        self.navigationController?.popViewControllerAnimated(true)
                     }
                 }
             }
