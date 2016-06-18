@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -29,6 +31,8 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     var selectedRoleCode : String?
     var selectedDate : NSDate?
     
+    var rx_disposeBag = DisposeBag()
+    
     var instructor : Instructor? {
         didSet {
             self.viewInstructorInfo()
@@ -46,7 +50,6 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         self.layoutIfNeeded()
         view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(view)
-        self.dumpData()
     }
     
     // MARK: Update instructor info into view
@@ -78,11 +81,16 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
             date in
             self.selectedDate  = date
             self.txfDate.text = date.string
-        }
+        }.addDisposableTo(self.rx_disposeBag)
         
         self.txfClass.inputView = self.pcvClass
         self.txfRole.inputView = self.pcvRole
         self.txfDate.inputView = self.dpvDate
+    }
+   
+
+    func donePicker(pickerView : UIBarButtonItem) {
+        self.dimissKeyboard()
     }
     
     // MARK: PickerView delegate and datasource
@@ -131,6 +139,22 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         self.txfRole.resignFirstResponder()
         self.txfClass.resignFirstResponder()
         self.txfDate.resignFirstResponder()
+    }
+    
+    // MARK: Add or edit teaching record
+    func addOrUpdateTeachingRecord() {
+        if let classCode = self.selectedClassCode {
+            if let roleCode = self.selectedRoleCode {
+                if let date = self.selectedDate {
+                    let instTeachingRecord = InstructorTeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+                    NetworkContext.postInstructorTeachingRecord(instTeachingRecord, requestDone: {
+                        code, message in
+                        print(message)
+                    })
+                }
+            }
+        }
+
     }
     
     func dumpData() {

@@ -46,7 +46,7 @@ class SearchViewController: UIViewController {
             indexPath in
             /* Get the selected instructor and open detail instructor view */
             let instructor = self.vInstructors.value[indexPath.row]
-            let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("InstructorDetailViewController") as! InstructorDetailViewController
+            let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddTeachingRecord") as! AddTeachingRecord
             instructorDetailVC.instructor = instructor
             self.navigationController?.pushViewController(instructorDetailVC, animated: true);
         }.addDisposableTo(rx_disposeBag)
