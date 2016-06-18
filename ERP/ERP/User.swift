@@ -10,25 +10,22 @@ import UIKit
 import RealmSwift
 import Alamofire
 
-
-class Login: Object {
+class User: Object {
     dynamic var didLogin : Int = 0
     dynamic var userName : String = ""
     dynamic var password : String = ""
     
-    static func create(userName: String, password: String) -> Login {
-        let login = Login()
+    static func create(userName: String, password: String) -> User {
+        let login = User()
         login.userName = userName
         login.password = password
         login.didLogin = 1
         DB.loginFirstTime(login)
         return login
     }
-    
 }
 
-extension Login {
-    typealias RequestDone = (Int) -> Void
+extension User {
     
     static func checkLogin(username : String, password : String, requestDone: RequestDone) {
         let loginRequest = [
@@ -49,7 +46,7 @@ extension Login {
         Alamofire.request(.POST, LOGIN_API, parameters: loginRequest, encoding: paramURLEncoding, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) -> Void in
             if let reportData = response.result.value {
                 let statusLogin = reportData["login_status"] as! Int
-                requestDone(statusLogin)
+                requestDone(statusLogin, "Login done")
             }
         }
         

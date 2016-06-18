@@ -648,3 +648,23 @@ ERP/Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift-prefix.pch
 ERP/Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift-umbrella.h
 ERP/Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift.modulemap
 ERP/Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift.xcconfig
+ERP/Pods/STPopup/STPopup/STPopupLeftBarItem.h
+ERP/Pods/STPopup/STPopup/STPopupLeftBarItem.m
+ERP/Pods/STPopup/STPopup/STPopupNavigationBar.h
+ERP/Pods/STPopup/STPopup/STPopupNavigationBar.m
+ERP/Pods/STPopup/STPopup/UIResponder+STPopup.h
+ERP/Pods/STPopup/STPopup/UIResponder+STPopup.m
+ERP/Pods/STPopup/STPopup/UIViewController+STPopup.h
+ERP/Pods/STPopup/STPopup/UIViewController+STPopup.m
+ERP/Pods/Target Support Files/STPopup/Info.plist
+ERP/Pods/Target Support Files/STPopup/STPopup-dummy.m
+ERP/Pods/Target Support Files/STPopup/STPopup-prefix.pch
+ERP/Pods/Target Support Files/STPopup/STPopup-umbrella.h
+ERP/Pods/Target Support Files/STPopup/STPopup.modulemap
+ERP/Pods/Target Support Files/STPopup/STPopup.xcconfig
+ERP/Pods/Pods.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/STPopup.xcscheme
+ERP/Pods/STPopup/LICENSE
+ERP/Pods/STPopup/README.md
+ERP/Pods/STPopup/STPopup/STPopup.h
+ERP/Pods/STPopup/STPopup/STPopupController.h
+ERP/Pods/STPopup/STPopup/STPopupController.m

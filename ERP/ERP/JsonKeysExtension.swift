@@ -17,4 +17,7 @@ extension JSONKeys {
     static let image   = JSONKey<String>("image")
     static let name    = JSONKey<String>("name")
     static let items    = JSONKey<JSON>("items")
+    static let resultCode = JSONKey<Int>("result_code")
+    static let resultMessage = JSONKey<String>("result_message")
+    static let recordId = JSONKey<Int>("record_id")
 }

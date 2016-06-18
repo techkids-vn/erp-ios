@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		17FBFAA6C3416489C836324A /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA5430244ECE6134BAA1E97 /* Pods_ERP.framework */; };
+		84113C341D12DF750071966E /* InstructorTeachingRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84113C331D12DF750071966E /* InstructorTeachingRecordTest.swift */; };
+		8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */; };
 		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
 		845D77C81D103E17007064EF /* InstructorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C71D103E17007064EF /* InstructorTest.swift */; };
 		845D77D01D11121F007064EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77CF1D11121F007064EF /* Constants.swift */; };
 		845D77D21D11135D007064EF /* InstructorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77D11D11135D007064EF /* InstructorDetailViewController.swift */; };
+		847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */; };
+		847C2F221D1276EB002A8DD9 /* NetworkContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F211D1276EB002A8DD9 /* NetworkContext.swift */; };
+		84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D821D13E82E00938600 /* NSDateExtensions.swift */; };
+		84E33D851D13F68800938600 /* ResponseMessageWithRecordId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
 		84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */; };
 		84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB36AD1D0D63E00032F0F9 /* Main.storyboard */; };
@@ -25,7 +31,7 @@
 		99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99422DE31D0F2BF7006BD11E /* Instructor.swift */; };
 		99422DE91D0F2FDD006BD11E /* JsonKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99422DE81D0F2FDD006BD11E /* JsonKeysExtension.swift */; };
 		998278631D0DDA39004F6846 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278621D0DDA39004F6846 /* StartViewController.swift */; };
-		998278651D0DDD5C004F6846 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278641D0DDD5C004F6846 /* Login.swift */; };
+		998278651D0DDD5C004F6846 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278641D0DDD5C004F6846 /* User.swift */; };
 		998278671D0DDF85004F6846 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278661D0DDF85004F6846 /* DB.swift */; };
 		998278691D0DE489004F6846 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278681D0DE489004F6846 /* SearchViewController.swift */; };
 		9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */; };
@@ -33,10 +39,16 @@
 
 /* Begin PBXFileReference section */
 		4E276E25480534B47FE6F1E3 /* Pods-ERP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.release.xcconfig"; sourceTree = "<group>"; };
+		84113C331D12DF750071966E /* InstructorTeachingRecordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecordTest.swift; sourceTree = "<group>"; };
+		8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessage.swift; sourceTree = "<group>"; };
 		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
 		845D77C71D103E17007064EF /* InstructorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTest.swift; sourceTree = "<group>"; };
 		845D77CF1D11121F007064EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		845D77D11D11135D007064EF /* InstructorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorDetailViewController.swift; sourceTree = "<group>"; };
+		847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecord.swift; sourceTree = "<group>"; };
+		847C2F211D1276EB002A8DD9 /* NetworkContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkContext.swift; sourceTree = "<group>"; };
+		84E33D821D13E82E00938600 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
+		84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessageWithRecordId.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +64,7 @@
 		99422DE31D0F2BF7006BD11E /* Instructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		99422DE81D0F2FDD006BD11E /* JsonKeysExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeysExtension.swift; sourceTree = "<group>"; };
 		998278621D0DDA39004F6846 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		998278641D0DDD5C004F6846 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		998278641D0DDD5C004F6846 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		998278661D0DDF85004F6846 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		998278681D0DE489004F6846 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JASON+Alamofire.swift"; sourceTree = "<group>"; };
@@ -85,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				845D77C71D103E17007064EF /* InstructorTest.swift */,
+				84113C331D12DF750071966E /* InstructorTeachingRecordTest.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -95,6 +108,21 @@
 				845D77CF1D11121F007064EF /* Constants.swift */,
 			);
 			name = Contants;
+			sourceTree = "<group>";
+		};
+		847C2F1A1D126C62002A8DD9 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Rx;
+			sourceTree = "<group>";
+		};
+		84E33D811D13E81A00938600 /* StringFormats */ = {
+			isa = PBXGroup;
+			children = (
+				84E33D821D13E82E00938600 /* NSDateExtensions.swift */,
+			);
+			name = StringFormats;
 			sourceTree = "<group>";
 		};
 		84EB369D1D0D63E00032F0F9 = {
@@ -135,6 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				992846DA1D1055A600C7FC3F /* RequestInstructor.swift */,
+				847C2F211D1276EB002A8DD9 /* NetworkContext.swift */,
+				8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */,
+				84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -158,6 +189,7 @@
 		99422DE51D0F2F24006BD11E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				84E33D811D13E81A00938600 /* StringFormats */,
 				992846D91D10556900C7FC3F /* Networking */,
 			);
 			name = Utilities;
@@ -198,9 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				998278661D0DDF85004F6846 /* DB.swift */,
-				998278641D0DDD5C004F6846 /* Login.swift */,
+				998278641D0DDD5C004F6846 /* User.swift */,
 				99422DE31D0F2BF7006BD11E /* Instructor.swift */,
 				845D77C21D1032EC007064EF /* ClassRole.swift */,
+				847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -225,6 +258,7 @@
 		995319FA1D0D693E00097E42 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				847C2F1A1D126C62002A8DD9 /* Rx */,
 				992846DC1D105D0F00C7FC3F /* Lazy Image */,
 				99422DE71D0F2FBD006BD11E /* JSONKeys Extension */,
 				9982786A1D0DEF16004F6846 /* Alamofire Extension */,
@@ -373,22 +407,28 @@
 			files = (
 				845D77D21D11135D007064EF /* InstructorDetailViewController.swift in Sources */,
 				99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */,
+				84113C341D12DF750071966E /* InstructorTeachingRecordTest.swift in Sources */,
 				845D77D01D11121F007064EF /* Constants.swift in Sources */,
 				99422DE91D0F2FDD006BD11E /* JsonKeysExtension.swift in Sources */,
 				845D77C31D1032EC007064EF /* ClassRole.swift in Sources */,
+				847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */,
 				992846DB1D1055A600C7FC3F /* RequestInstructor.swift in Sources */,
 				998278691D0DE489004F6846 /* SearchViewController.swift in Sources */,
 				99422DDD1D0F10BD006BD11E /* NavigationController.swift in Sources */,
 				84EB36AC1D0D63E00032F0F9 /* LoginViewController.swift in Sources */,
+				847C2F221D1276EB002A8DD9 /* NetworkContext.swift in Sources */,
+				84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */,
 				84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */,
 				998278631D0DDA39004F6846 /* StartViewController.swift in Sources */,
 				99422DDF1D0F1665006BD11E /* UIColorExtension.swift in Sources */,
+				84E33D851D13F68800938600 /* ResponseMessageWithRecordId.swift in Sources */,
 				99422DE21D0F2A6E006BD11E /* InstructorCell.swift in Sources */,
 				998278671D0DDF85004F6846 /* DB.swift in Sources */,
 				9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */,
 				992846DE1D105D2600C7FC3F /* LazyImage.swift in Sources */,
+				8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */,
 				845D77C81D103E17007064EF /* InstructorTest.swift in Sources */,
-				998278651D0DDD5C004F6846 /* Login.swift in Sources */,
+				998278651D0DDD5C004F6846 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

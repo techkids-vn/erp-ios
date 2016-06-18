@@ -12,4 +12,5 @@ pod 'Alamofire'
 pod 'RealmSwift'
 pod 'JASON'
 pod 'ReachabilitySwift'
+pod 'STPopup'
 end

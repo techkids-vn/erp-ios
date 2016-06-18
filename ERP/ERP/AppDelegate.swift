@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        
+        InstructorTeachingRecordTest.testUpdateInstructorTeachingRecordSent()
+        InstructorTeachingRecordTest.testPostRecord()
+        
         // Override point for customization after application launch.
         self.customApperance()
         return true

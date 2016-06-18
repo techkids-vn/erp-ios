@@ -17,7 +17,6 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var clvInstructor: UICollectionView!
     
-    let INSTRUCTOR_API = "https://erp-dump.herokuapp.com/api/instructors"
     var instructors : Variable<[Instructor]> = Variable([])
 
     override func viewDidLoad() {
