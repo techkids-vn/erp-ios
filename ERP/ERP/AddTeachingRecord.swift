@@ -19,6 +19,7 @@ class AddTeachingRecord: UIViewController {
     @IBOutlet weak var btnDone: UIButton!
     
     var rx_disposeBag = DisposeBag()
+    @IBOutlet weak var btiDone: UIBarButtonItem!
     
     var pcvClass : UIPickerView!
     var pcvRole : UIPickerView!
@@ -36,11 +37,12 @@ class AddTeachingRecord: UIViewController {
             self.vInstructorDetail.dimissKeyboard()
         }.addDisposableTo(self.rx_disposeBag)
         
-        // Setup button events
-        _ = self.btnDone.rx_tap.subscribeNext {
+        self.navigationItem.rightBarButtonItem = self.btiDone
+        
+        self.btiDone.rx_tap.subscribeNext {
             self.vInstructorDetail.addOrUpdateTeachingRecord()
             self.navigationController?.popViewControllerAnimated(true)
-        }
+        }.addDisposableTo(self.rx_disposeBag)
         
         self.view.addGestureRecognizer(tapGesture)
     }

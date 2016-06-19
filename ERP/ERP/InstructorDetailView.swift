@@ -59,6 +59,7 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
             self.lblInstructorName.text = inst.name
             self.lblTeam.text = inst.team
         }
+        
     }
     
     // MARK: Setup layout

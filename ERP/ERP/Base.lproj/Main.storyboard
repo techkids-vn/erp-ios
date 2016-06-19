@@ -309,27 +309,20 @@
                                     <constraint firstAttribute="height" constant="560" id="6OQ-q9-HEP"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TV5-hF-0GM" userLabel="btnDone">
-                                <rect key="frame" x="534" y="20" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="9hk-rA-Vji"/>
-                                    <constraint firstAttribute="height" constant="30" id="SKM-bz-5q5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Done"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="yoR-Ac-IDr" secondAttribute="trailing" id="gbq-BM-4Iq"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leadingMargin" id="oxc-xi-nZo"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="Z4Q-YU-SkA" secondAttribute="bottom" id="sUd-vM-MOz"/>
-                            <constraint firstItem="TV5-hF-0GM" firstAttribute="top" secondItem="Z4Q-YU-SkA" secondAttribute="bottom" id="tNx-lA-tk7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TV5-hF-0GM" secondAttribute="trailing" id="vB0-ep-4MB"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="done" id="OR0-LR-okK"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="btnDone" destination="TV5-hF-0GM" id="2V8-fL-Xau"/>
+                        <outlet property="btiDone" destination="OR0-LR-okK" id="bI1-Ly-eF6"/>
                         <outlet property="vInstructorDetail" destination="yoR-Ac-IDr" id="NWH-IJ-D4g"/>
                     </connections>
                 </viewController>
