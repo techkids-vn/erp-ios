@@ -1,62 +1,71 @@
 //
-//  InstructorDetailViewController.swift
+//  InstructorDetailView.swift
 //  ERP
 //
-//  Created by techkids on 6/15/16.
+//  Created by admin on 6/19/16.
 //  Copyright © 2016 Techkids. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
+import RxSwift
 import RxCocoa
 
-class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
-    var instructor : Instructor?
-    var selectedClassCode : String?
-    var selectedRoleCode : String?
-    var selectedDate : NSDate?
+class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    // MARK: View references
     @IBOutlet weak var imvAvatar: UIImageView!
     @IBOutlet weak var lblInstructorName: UILabel!
     @IBOutlet weak var lblTeam: UILabel!
     @IBOutlet weak var txfClass: UITextField!
     @IBOutlet weak var txfRole: UITextField!
     @IBOutlet weak var txfDate: UITextField!
-    @IBOutlet weak var btnRecord: UIButton!
-    @IBOutlet weak var aivWait: UIActivityIndicatorView!
     
+    // MARK: Pickers
     var pcvClass : UIPickerView!
     var pcvRole : UIPickerView!
     var dpvDate : UIDatePicker!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.dumpData()
-        self.setupLayout()
+    // MARK: Updated data
+    var selectedClassCode : String?
+    var selectedRoleCode : String?
+    var selectedDate : NSDate?
+    
+    var rx_disposeBag = DisposeBag()
+    
+    var instructor : Instructor? {
+        didSet {
+            self.viewInstructorInfo()
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func setupLayout() {
-        self.viewInstructorInfo()
+    override func awakeFromNib() {
+        self.setupAvatar()
         self.setUpPickerViewForTextFields()
-        self.setupGestures()
-        self.setupButtons()
-        
-        self.aivWait.hidesWhenStopped = true
     }
     
-    // MARK: Setup layout
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let view = NSBundle.mainBundle().loadNibNamed("InstructorDetailView", owner: self, options: nil)[0] as! UIView
+        self.layoutIfNeeded()
+        view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
+        self.addSubview(view)
+    }
+    
+    // MARK: Update instructor info into view
     func viewInstructorInfo() {
         if let inst = self.instructor {
             LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
             self.lblInstructorName.text = inst.name
             self.lblTeam.text = inst.team
         }
+        
+    }
+    
+    // MARK: Setup layout
+    func setupAvatar() {
+        self.imvAvatar.layer.cornerRadius = self.imvAvatar.frame.size.width/2
+        self.imvAvatar.clipsToBounds = true
     }
     
     func setUpPickerViewForTextFields() {
@@ -73,34 +82,23 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
             date in
             self.selectedDate  = date
             self.txfDate.text = date.string
-        }
+        }.addDisposableTo(self.rx_disposeBag)
         
         self.txfClass.inputView = self.pcvClass
         self.txfRole.inputView = self.pcvRole
         self.txfDate.inputView = self.dpvDate
     }
-    
-    func setupButtons() {
-        _ = self.btnRecord.rx_tap.subscribeNext {
-            if let classCode = self.selectedClassCode {
-                if let roleCode = self.selectedRoleCode {
-                    if let date = self.selectedDate {
-                        let instTeachingRecord = InstructorTeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
-                        NetworkContext.postInstructorTeachingRecord(instTeachingRecord, requestDone: {
-                            code, message in
-                            print(message)
-                        })
-                    }
-                }
-            }
-        }
-    }
+   
 
-    // MARK: PickerView
+    func donePicker(pickerView : UIBarButtonItem) {
+        self.dimissKeyboard()
+    }
+    
+    // MARK: PickerView delegate and datasource
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1;
     }
-
+    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
         case self.pcvClass:
@@ -137,18 +135,28 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
         }
     }
     
-    // MARK: Gestures
-    func setupGestures() {
-        let tapGesture = UITapGestureRecognizer()
-        _ = tapGesture.rx_event.subscribeNext {
-            tapGestureRecognizer in
-            self.txfRole.resignFirstResponder()
-            self.txfClass.resignFirstResponder()
-            self.txfDate.resignFirstResponder()
-        }
-        self.view.addGestureRecognizer(tapGesture)
+    // MARK: Dismiss keyboard
+    func dimissKeyboard() {
+        self.txfRole.resignFirstResponder()
+        self.txfClass.resignFirstResponder()
+        self.txfDate.resignFirstResponder()
     }
-  
+    
+    // MARK: Add or edit teaching record
+    func addOrUpdateTeachingRecord() {
+        if let classCode = self.selectedClassCode {
+            if let roleCode = self.selectedRoleCode {
+                if let date = self.selectedDate {
+                    let instTeachingRecord = InstructorTeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+                    NetworkContext.postInstructorTeachingRecord(instTeachingRecord, requestDone: {
+                        code, message in
+                        print(message)
+                    })
+                }
+            }
+        }
+
+    }
     
     func dumpData() {
         
@@ -161,5 +169,4 @@ class InstructorDetailViewController: UIViewController, UIPickerViewDelegate, UI
         classRoles.append(classRole3)
         self.instructor = Instructor.create("http://i.imgur.com/mSCSREI.jpg?1", name: "Nguyen Son Vu", team: "iOS", code: "TEC0010", classRoles: classRoles)
     }
-    
 }
