@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (3.4.1)
-  - JASON (2.2.1)
+  - Alamofire (3.4.0)
+  - JASON (2.2)
   - ReachabilitySwift (2.3.3)
-  - Realm (1.0.1):
-    - Realm/Headers (= 1.0.1)
-  - Realm/Headers (1.0.1)
-  - RealmSwift (1.0.1):
-    - Realm (= 1.0.1)
+  - Realm (0.103.1):
+    - Realm/Headers (= 0.103.1)
+  - Realm/Headers (0.103.1)
+  - RealmSwift (0.103.1):
+    - Realm (= 0.103.1)
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
   - RxSwift (2.5.0)
@@ -22,11 +22,11 @@ DEPENDENCIES:
   - STZPopupView
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  JASON: 2fdba956dfbf8663369b81a8176e6fcb225ebf10
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  JASON: 0daa2c3ed902ccbfa94d6bb4cb356d252b9607ce
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
-  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
-  RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
+  Realm: 9ed57109332e95bdc48a7caedff80b70c51d5ef4
+  RealmSwift: 56629adb4acd2dc33eb2c8199fe856585dfd3ba3
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
   STZPopupView: 4eb11a72c71d2942e23a4444d1bde40e563702e3
