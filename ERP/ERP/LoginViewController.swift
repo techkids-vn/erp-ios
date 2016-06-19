@@ -12,6 +12,7 @@ import RxCocoa
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var imvIcon: UIImageView!
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtPassword: UITextField!
@@ -21,9 +22,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         self.login()
+        self.hideKeyboardWhenTappedAround()
     }
-    
+        
     func setupUI() {
+        /* imv shadow */
+        self.imvIcon.layer.cornerRadius = self.imvIcon.frame.width/2
+        self.imvIcon.layer.shadowColor = UIColor.blackColor().CGColor;
+        self.imvIcon.layer.shadowOffset = CGSizeMake(0, 1);
+        self.imvIcon.layer.shadowOpacity = 1;
+        self.imvIcon.layer.shadowRadius = 1.0;
+        self.imvIcon.clipsToBounds = false;
+        
         self.btnLogin.layer.cornerRadius = 6.0
         self.txtUsername.text = "admin"
         self.txtPassword.text = "admin"
@@ -48,7 +58,6 @@ class LoginViewController: UIViewController {
             })
         }
         else {
-            
             let alert = UIAlertController(title: "", message: "Login Failed", preferredStyle: .Alert)
             self.presentViewController(alert, animated: true, completion: nil)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction) in
@@ -58,4 +67,5 @@ class LoginViewController: UIViewController {
     }
 
 }
+
 

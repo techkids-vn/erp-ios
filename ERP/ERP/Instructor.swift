@@ -58,4 +58,10 @@ extension Instructor {
             return roleCodes
         }
     }
+    
+    var recordCountToDay : Int  {
+        get {
+            return DB.getInstructorTeachingRecordCountForToday(self)
+        }
+    }
 }

@@ -27,6 +27,7 @@ class SearchViewController: UIViewController {
         self.configUI()
         self.getInstructor()
         self.configCollectionView()
+        self.hideKeyboardWhenTappedAround()
         
         _ = self.searchBar
             .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
@@ -54,9 +55,9 @@ class SearchViewController: UIViewController {
     func configLayout() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        layout.itemSize = CGSize(width:  (self.view.frame.width - 30)/2, height: (self.clvInstructor.frame.width - 60)/2)
+        layout.itemSize = CGSize(width:  (self.view.frame.width - 30)/2, height: (self.clvInstructor.frame.width - 100)/2)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 8
         self.clvInstructor.setCollectionViewLayout(layout, animated: true)
     }
     
