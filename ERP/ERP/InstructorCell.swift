@@ -12,7 +12,6 @@ class InstructorCell: UICollectionViewCell {
 
     @IBOutlet weak var imvAvatar: UIImageView!
     @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblTeam: UILabel!
     @IBOutlet weak var lblCode: UILabel!
     
     var instructor : Instructor? {
@@ -23,8 +22,8 @@ class InstructorCell: UICollectionViewCell {
     
     func layout() {
         self.lblName.text = "Name: \(instructor!.name)"
-        self.lblTeam.text = "Team: \(instructor!.team)"
         self.lblCode.text = "Code: \(instructor!.code)"
+        self.imvAvatar.layer.cornerRadius = self.imvAvatar.frame.width/2
         LazyImage.showForImageView(self.imvAvatar, url: instructor?.imgUrl)
     }
 }
