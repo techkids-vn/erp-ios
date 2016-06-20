@@ -21,10 +21,13 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     @IBOutlet weak var txfRole: UITextField!
     @IBOutlet weak var txfDate: UITextField!
     
+    @IBOutlet weak var vDetailContainer: UIView!
+    
     // MARK: Pickers
     var pcvClass : UIPickerView!
     var pcvRole : UIPickerView!
     var dpvDate : UIDatePicker!
+    
     
     // MARK: Updated data
     var selectedClassCode : String?
@@ -58,8 +61,13 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
             LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
             self.lblInstructorName.text = inst.name
             self.lblTeam.text = inst.team
+            if inst.classes.count > 0 {
+                self.txfClass.text = inst.classes[0]
+            }
+            if inst.roles.count > 0 {
+                self.txfRole.text = inst.roles[0]
+            }
         }
-        
     }
     
     // MARK: Setup layout
@@ -87,11 +95,15 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         self.txfClass.inputView = self.pcvClass
         self.txfRole.inputView = self.pcvRole
         self.txfDate.inputView = self.dpvDate
+        
+        self.txfClass.inputAccessoryView = self.createToolbarWithDoneButton()
+        self.txfRole.inputAccessoryView = self.createToolbarWithDoneButton()
+        self.txfDate.inputAccessoryView = self.createToolbarWithDoneButton()
+        
     }
-   
 
     func donePicker(pickerView : UIBarButtonItem) {
-        self.dimissKeyboard()
+        self.dismissKeyboard()
     }
     
     // MARK: PickerView delegate and datasource
@@ -136,7 +148,7 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     // MARK: Dismiss keyboard
-    func dimissKeyboard() {
+    func dismissKeyboard() {
         self.txfRole.resignFirstResponder()
         self.txfClass.resignFirstResponder()
         self.txfDate.resignFirstResponder()
@@ -155,7 +167,25 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
                 }
             }
         }
-
+    }
+    
+    // MARK: Toolbars
+    func createToolbarWithDoneButton() -> UIToolbar {
+        let toolBar = UIToolbar()
+        
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(dismissKeyboard))
+        
+        toolBar.setItems([spaceButton, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        
+        return toolBar
     }
     
     func dumpData() {

@@ -18,6 +18,8 @@
 		845D77D21D11135D007064EF /* AddTeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77D11D11135D007064EF /* AddTeachingRecord.swift */; };
 		847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */; };
 		847C2F221D1276EB002A8DD9 /* NetworkContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F211D1276EB002A8DD9 /* NetworkContext.swift */; };
+		847EF7EC1D17ACF9008FAEE0 /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EF7EB1D17ACF9008FAEE0 /* NetworkUtil.swift */; };
+		847EF7F01D17B025008FAEE0 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EF7EF1D17B025008FAEE0 /* LaunchScreenViewController.swift */; };
 		84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D821D13E82E00938600 /* NSDateExtensions.swift */; };
 		84E33D851D13F68800938600 /* ResponseMessageWithRecordId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
@@ -51,6 +53,8 @@
 		845D77D11D11135D007064EF /* AddTeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeachingRecord.swift; sourceTree = "<group>"; };
 		847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecord.swift; sourceTree = "<group>"; };
 		847C2F211D1276EB002A8DD9 /* NetworkContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkContext.swift; sourceTree = "<group>"; };
+		847EF7EB1D17ACF9008FAEE0 /* NetworkUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
+		847EF7EF1D17B025008FAEE0 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		84E33D821D13E82E00938600 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessageWithRecordId.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,7 @@
 				995319F51D0D68AF00097E42 /* View */,
 				995319F61D0D68CA00097E42 /* Controller */,
 				84EB36B51D0D63E00032F0F9 /* Info.plist */,
+				847EF7EF1D17B025008FAEE0 /* LaunchScreenViewController.swift */,
 			);
 			path = ERP;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				847C2F211D1276EB002A8DD9 /* NetworkContext.swift */,
 				8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */,
 				84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */,
+				847EF7EB1D17ACF9008FAEE0 /* NetworkUtil.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -325,6 +331,11 @@
 					84EB36A51D0D63E00032F0F9 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 3CJF6M3857;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -428,12 +439,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847EF7EC1D17ACF9008FAEE0 /* NetworkUtil.swift in Sources */,
 				845D77D21D11135D007064EF /* AddTeachingRecord.swift in Sources */,
 				99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */,
 				84113C341D12DF750071966E /* InstructorTeachingRecordTest.swift in Sources */,
 				845D77D01D11121F007064EF /* Constants.swift in Sources */,
 				99422DE91D0F2FDD006BD11E /* JsonKeysExtension.swift in Sources */,
 				845D77C31D1032EC007064EF /* ClassRole.swift in Sources */,
+				847EF7F01D17B025008FAEE0 /* LaunchScreenViewController.swift in Sources */,
 				847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */,
 				992846DB1D1055A600C7FC3F /* RequestInstructor.swift in Sources */,
 				998278691D0DE489004F6846 /* SearchViewController.swift in Sources */,
