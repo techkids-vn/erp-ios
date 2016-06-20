@@ -28,7 +28,8 @@ class SearchViewController: UIViewController {
         self.configUI()
         self.getInstructor()
         self.configCollectionView()
-        self.hideKeyboardWhenTappedAround()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         _ = self.searchBar
             .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
@@ -37,6 +38,18 @@ class SearchViewController: UIViewController {
         }.addDisposableTo(rx_disposeBag)
     }
     
+    //MARK: hide keyboard
+    func keyboardWillShow(notification: NSNotification) {
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        for recognizer in view.gestureRecognizers ?? [] {
+            view.removeGestureRecognizer(recognizer)
+        }
+    }
+    
+    //MARK: config UI, UICollectionView
     func configCollectionView() {
         _ = self.vInstructors.asObservable().bindTo(self.clvInstructor.rx_itemsWithCellIdentifier("InstructorCell", cellType: InstructorCell.self)){
             row,data,cell in
