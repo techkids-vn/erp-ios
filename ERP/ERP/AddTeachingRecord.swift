@@ -34,7 +34,7 @@ class AddTeachingRecord: UIViewController {
         let tapGesture = UITapGestureRecognizer()
         _ = tapGesture.rx_event.subscribeNext {
             tapGestureRecognizer in
-            self.vInstructorDetail.dimissKeyboard()
+            self.vInstructorDetail.dismissKeyboard()
         }.addDisposableTo(self.rx_disposeBag)
         
         self.navigationItem.rightBarButtonItem = self.btiDone

@@ -11,7 +11,7 @@ import RealmSwift
 import RxSwift
 import RxCocoa
 
-class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
+class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: View references
     @IBOutlet weak var imvAvatar: UIImageView!
@@ -34,6 +34,8 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     var selectedRoleCode : String?
     var selectedDate : NSDate?
     
+    var originalDetailFrame : CGRect!
+    
     var rx_disposeBag = DisposeBag()
     
     var instructor : Instructor? {
@@ -53,6 +55,9 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         self.layoutIfNeeded()
         view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(view)
+        
+        // Store original location of detail view
+        self.originalDetailFrame = self.vDetailContainer.frame
     }
     
     // MARK: Update instructor info into view
@@ -96,10 +101,9 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         self.txfRole.inputView = self.pcvRole
         self.txfDate.inputView = self.dpvDate
         
-        self.txfClass.inputAccessoryView = self.createToolbarWithDoneButton()
-        self.txfRole.inputAccessoryView = self.createToolbarWithDoneButton()
-        self.txfDate.inputAccessoryView = self.createToolbarWithDoneButton()
-        
+        self.txfRole.delegate = self;
+        self.txfClass.delegate = self;
+        self.txfDate.delegate = self;
     }
 
     func donePicker(pickerView : UIBarButtonItem) {
@@ -188,8 +192,25 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         return toolBar
     }
     
-    func dumpData() {
+    // MARK: TextField delegates
+    func textFieldDidBeginEditing(textField: UITextField) {
         
+        if let wnd = self.window {
+            if let inputView = textField.inputView {
+                let detailRectInView = self.vDetailContainer.frame
+                var detailRect = wnd.convertRect(detailRectInView, fromView: self)
+                detailRect.origin.y = wnd.bounds.size.height - inputView.bounds.size.height -  detailRectInView.height
+                let detailRectInViewAfterConvert = wnd.convertRect(detailRect, toView: self)
+                self.vDetailContainer.frame = detailRectInViewAfterConvert
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.vDetailContainer.frame = self.originalDetailFrame!
+    }
+    
+    func dumpData() {
         let classRole1 = ClassRole.create("ios5", roleCode: "coach")
         let classRole2 = ClassRole.create("ios6", roleCode: "coach")
         let classRole3 = ClassRole.create("ios6", roleCode: "inst")
