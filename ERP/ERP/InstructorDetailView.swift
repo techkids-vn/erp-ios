@@ -20,7 +20,6 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     @IBOutlet weak var txfClass: UITextField!
     @IBOutlet weak var txfRole: UITextField!
     @IBOutlet weak var txfDate: UITextField!
-    
     @IBOutlet weak var vDetailContainer: UIView!
     
     // MARK: Pickers
@@ -28,12 +27,12 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     var pcvRole : UIPickerView!
     var dpvDate : UIDatePicker!
     
-    
     // MARK: Updated data
     var selectedClassCode : String?
     var selectedRoleCode : String?
     var selectedDate : NSDate?
     
+    // Used to save the original frame of the detail view
     var originalDetailFrame : CGRect!
     
     var rx_disposeBag = DisposeBag()
@@ -173,33 +172,47 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         }
     }
     
-    // MARK: Toolbars
-    func createToolbarWithDoneButton() -> UIToolbar {
-        let toolBar = UIToolbar()
-        
-        toolBar.barStyle = UIBarStyle.Default
-        toolBar.translucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-        toolBar.sizeToFit()
-        
-        
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(dismissKeyboard))
-        
-        toolBar.setItems([spaceButton, doneButton], animated: false)
-        toolBar.userInteractionEnabled = true
-        
-        return toolBar
-    }
+    // Not Needed
+    
+//    // MARK: Toolbars
+//    func createToolbarWithDoneButton() -> UIToolbar {
+//        let toolBar = UIToolbar()
+//        
+//        toolBar.barStyle = UIBarStyle.Default
+//        toolBar.translucent = true
+//        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+//        toolBar.sizeToFit()
+//        
+//        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+//        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(dismissKeyboard))
+//        
+//        toolBar.setItems([spaceButton, doneButton], animated: false)
+//        toolBar.userInteractionEnabled = true
+//        
+//        return toolBar
+//    }
     
     // MARK: TextField delegates
     func textFieldDidBeginEditing(textField: UITextField) {
         
         if let wnd = self.window {
             if let inputView = textField.inputView {
+                /* Since the pickwerview does not belong to this view but the window, we have to convert the coordinate system to the window's, calculate the detailview frame and then convert it back to this view's coordinate */
                 let detailRectInView = self.vDetailContainer.frame
                 var detailRect = wnd.convertRect(detailRectInView, fromView: self)
+                /*
+                 |-----------------| -
+                 |                 | y
+                 |-----------------| -
+                 |   DetailView    |
+                 |                 |   ---> Window
+                 |-----------------|
+                 |    InputView    |
+                 |                 |
+                 |-----------------|
+                 */
                 detailRect.origin.y = wnd.bounds.size.height - inputView.bounds.size.height -  detailRectInView.height
+                
                 let detailRectInViewAfterConvert = wnd.convertRect(detailRect, toView: self)
                 self.vDetailContainer.frame = detailRectInViewAfterConvert
             }
