@@ -9,5 +9,9 @@
 import UIKit
 
 class NavigationController: UINavigationController {
+    
 
+    override func viewDidLoad() {
+        self.interactivePopGestureRecognizer?.enabled = false
+    }
 }

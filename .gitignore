@@ -686,3 +686,15 @@ ERP/Pods/Headers/Private/STPopup/STPopupNavigationBar.h
 ERP/Pods/Headers/Private/STPopup/UIResponder+STPopup.h
 ERP/Pods/Headers/Private/STPopup/UIViewController+STPopup.h
 ERP/Pods/Pods.xcodeproj/xcuserdata/Mr.Vu.xcuserdatad/xcschemes/STPopup.xcscheme
+ERP/Pods/Pods.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/SlideMenuControllerSwift.xcscheme
+ERP/Pods/SlideMenuControllerSwift/LICENSE
+ERP/Pods/SlideMenuControllerSwift/README.md
+ERP/Pods/SlideMenuControllerSwift/Source/Info.plist
+ERP/Pods/SlideMenuControllerSwift/Source/SlideMenuController.swift
+ERP/Pods/SlideMenuControllerSwift/Source/SlideMenuControllerSwift.h
+ERP/Pods/Target Support Files/SlideMenuControllerSwift/Info.plist
+ERP/Pods/Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift-dummy.m
+ERP/Pods/Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift-prefix.pch
+ERP/Pods/Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift-umbrella.h
+ERP/Pods/Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift.modulemap
+ERP/Pods/Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift.xcconfig

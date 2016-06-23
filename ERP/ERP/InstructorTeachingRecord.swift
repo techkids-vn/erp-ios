@@ -25,6 +25,15 @@ class InstructorTeachingRecord : Object {
         DB.addInstructorTeachingRecord(instTeachingRecord)
         return instTeachingRecord
     }
+    
+    static func groupByDate(teachingRecords: [InstructorTeachingRecord]) -> [String: InstructorTeachingRecord] {
+        var retDict : [String: InstructorTeachingRecord] = [:]
+        for teachingRecord in teachingRecords {
+            let date = teachingRecord.date.dateString
+            retDict[date] = teachingRecord
+        }
+        return retDict
+    }
 }
 
 extension InstructorTeachingRecord {

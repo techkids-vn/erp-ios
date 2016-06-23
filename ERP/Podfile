@@ -13,4 +13,5 @@ pod 'RealmSwift'
 pod 'JASON'
 pod 'ReachabilitySwift'
 pod 'STZPopupView'
+pod 'SlideMenuControllerSwift'
 end

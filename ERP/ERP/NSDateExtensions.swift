@@ -14,4 +14,12 @@ extension NSDate {
         formater.dateFormat = "yyyy-MM-dd"
         return formater.stringFromDate(self)
     }
+    
+    var dateString : String {
+        let formater = NSDateFormatter()
+        formater.dateFormat = "yyyy-MM-dd"
+        let dateString = formater.stringFromDate(self)
+        let dateStringEndIndex = dateString.endIndex
+        return dateString.substringFromIndex(dateStringEndIndex.advancedBy(-2))
+    }
 }
