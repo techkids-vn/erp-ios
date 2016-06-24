@@ -6,7 +6,12 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target">
+            <connections>
+                <outlet property="imvAvatar" destination="OL7-gq-4kF" id="lIF-Ss-2AA"/>
+                <outlet property="lblIntructorName" destination="G4D-Om-vIH" id="f6C-Oi-Gdb"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="617" height="421"/>
@@ -31,27 +36,19 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OL7-gq-4kF">
-                    <rect key="frame" x="0.0" y="62" width="617" height="295"/>
+                    <rect key="frame" x="0.0" y="63" width="617" height="358"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04D-kd-kV8">
-                    <rect key="frame" x="0.0" y="354" width="617" height="67"/>
-                    <color key="backgroundColor" red="0.39215686274509803" green="0.8666666666666667" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.4823529411764706" green="0.69019607843137254" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="04D-kd-kV8" secondAttribute="bottom" id="3zv-md-mvA"/>
                 <constraint firstItem="7Tr-fr-sNN" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.15" id="7GN-zF-u4B"/>
                 <constraint firstAttribute="trailing" secondItem="OL7-gq-4kF" secondAttribute="trailing" id="LKP-JB-hbd"/>
                 <constraint firstItem="7Tr-fr-sNN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ldc-UX-vyi"/>
-                <constraint firstItem="OL7-gq-4kF" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.7" id="N0h-53-jBY"/>
                 <constraint firstAttribute="trailing" secondItem="7Tr-fr-sNN" secondAttribute="trailing" id="RHS-DL-cfW"/>
-                <constraint firstItem="OL7-gq-4kF" firstAttribute="top" secondItem="7Tr-fr-sNN" secondAttribute="bottom" constant="-1" id="a0A-xx-gw9"/>
-                <constraint firstItem="04D-kd-kV8" firstAttribute="top" secondItem="OL7-gq-4kF" secondAttribute="bottom" constant="-3" id="a1Q-SV-tHC"/>
+                <constraint firstItem="OL7-gq-4kF" firstAttribute="top" secondItem="7Tr-fr-sNN" secondAttribute="bottom" id="a0A-xx-gw9"/>
                 <constraint firstItem="7Tr-fr-sNN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fL0-fX-nSA"/>
                 <constraint firstItem="OL7-gq-4kF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jbA-Eq-OX1"/>
-                <constraint firstAttribute="trailing" secondItem="04D-kd-kV8" secondAttribute="trailing" id="qCb-Sh-WuK"/>
-                <constraint firstItem="04D-kd-kV8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rA5-8k-7AV"/>
+                <constraint firstAttribute="bottom" secondItem="OL7-gq-4kF" secondAttribute="bottom" id="nej-6T-M5G"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="352.5" y="270.5"/>

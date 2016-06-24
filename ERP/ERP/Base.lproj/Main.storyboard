@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RWq-NJ-ztJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RWq-NJ-ztJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -363,8 +363,8 @@
                         <constraints>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="bottom" secondItem="ye2-UM-Fxt" secondAttribute="bottomMargin" id="92O-XK-V1N"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="ye2-UM-Fxt" secondAttribute="topMargin" id="f0A-dc-BZu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yoR-Ac-IDr" secondAttribute="trailing" constant="-20" id="gbq-BM-4Iq"/>
-                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leadingMargin" constant="-20" id="oxc-xi-nZo"/>
+                            <constraint firstAttribute="trailing" secondItem="yoR-Ac-IDr" secondAttribute="trailing" id="gbq-BM-4Iq"/>
+                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leading" id="oxc-xi-nZo"/>
                         </constraints>
                     </view>
                     <toolbarItems>
