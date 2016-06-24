@@ -358,7 +358,7 @@
 				TargetAttributes = {
 					84EB36A51D0D63E00032F0F9 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 3CJF6M3857;
+						DevelopmentTeam = 56YJ3N6KSG;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -605,7 +605,7 @@
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.edu.techkids.ERP;
+				PRODUCT_BUNDLE_IDENTIFIER = vu.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -623,7 +623,7 @@
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.edu.techkids.ERP;
+				PRODUCT_BUNDLE_IDENTIFIER = vu.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
