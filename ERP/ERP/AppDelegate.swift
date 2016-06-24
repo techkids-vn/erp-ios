@@ -42,9 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func customApperance() {
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+        UINavigationBar.appearance().tintColor = UIColor.init(red: 22, green: 160, blue: 134)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.init(red: 22, green: 160, blue: 134)]
+        UINavigationBar.appearance().barTintColor = UIColor(netHex: 0xD6D6D6)
     }
 
     func applicationWillResignActive(application: UIApplication) {
