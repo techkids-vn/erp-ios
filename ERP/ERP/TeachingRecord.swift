@@ -14,7 +14,7 @@ class TeachingRecord : Object {
     dynamic var classCode = ""
     dynamic var roleCode = ""
     dynamic var date = NSDate()
-    dynamic var recordId = -1
+    dynamic var recordId = ""
     
     static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> TeachingRecord {
         let instTeachingRecord = TeachingRecord()
@@ -39,16 +39,16 @@ class TeachingRecord : Object {
 extension TeachingRecord {
     var JSON : [String : String] {
         get {
-            let dateFormater = NSDateFormatter()
-            dateFormater.dateFormat = "yyyy-MM-dd"
             return [
                 "code" : self.code,
                 "class" : self.classCode,
                 "role" : self.roleCode,
-                "date" : dateFormater.stringFromDate(self.date),
-                "record_id" : "\(self.recordId)"
+                "date" : self.date.string,
+                "record_id" : self.recordId
             ]
         }
     }
 }
+
+
 

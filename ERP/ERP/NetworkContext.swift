@@ -11,18 +11,39 @@ import JASON
 
 typealias RequestDone = (Int, String) -> Void
 
+
 class NetworkContext {
     
     static let RESULT_CODE_FAILURE = 0
     static let RESULT_CODE_SUCCESS = 1
-
-    static func postInstructorTeachingRecord(instTeachingRecord : TeachingRecord, requestDone : RequestDone?) {
+    
+    static func addUserName(inout json : [String:String]) -> [String:String]{
+        if let user = DB.getUser() {
+            json["username"] = user.userName
+        }
+        return json
+    }
+    
+    static func sendTeachingRecordRequest(request : TeachingRecordRequest, requestDone : RequestDone?) {
+        var parameters = request.record?.JSON
+        _ = addUserName(&parameters!)
         
-        let paramters = instTeachingRecord.JSON
+        var apiUrl = ""
+        switch request.requestType {
+        case RequestType.CREATE:
+            apiUrl = ADD_RECORD_INSTRUCTOR_API
+            break
+        case RequestType.UPDATE:
+            apiUrl = UPDATE_RECORD_INSTRUCTOR_API
+            break
+        case RequestType.DELETE:
+            apiUrl = DELETE_RECORD_INSTRUCTOR_API
+            break
+        }
         
         Alamofire.request(.POST,
-            ADD_RECORD_INSTRUCTOR_API,
-            parameters: paramters,
+            apiUrl,
+            parameters: parameters,
             encoding: .URL,
             headers: nil)
             .responseJASON {
@@ -31,24 +52,23 @@ class NetworkContext {
                     print(json)
                     let responseMessage = ResponseMessageWithRecordId.init(json: json)
                     if responseMessage.isSuccess {
-                        DB.updateInstructorTeachingRecord(instTeachingRecord, recordId: responseMessage.recordId!)
+                        DB.updateInstructorTeachingRecord(request.record!, recordId: responseMessage.recordId!)
+                        DB.updateTeachingRecordRequest(request, status: RequestStatus.SENT_AND_SUCCEDED)
                         if let done = requestDone {
-                            done(RESULT_CODE_SUCCESS, "Request suceedded")
-                            return
+                            done(RESULT_CODE_SUCCESS, "Requested sucessfully")
                         }
                     } else {
                         if let done = requestDone {
+                            DB.updateTeachingRecordRequest(request, status: RequestStatus.SENT_AND_FAILED)
                             done(RESULT_CODE_FAILURE, "Server responded but request failed")
-                            return
                         }
                     }
                 } else {
                     if let done = requestDone {
+                        DB.updateTeachingRecordRequest(request, status: RequestStatus.NOT_SENT)
                         done(RESULT_CODE_FAILURE, "Server did not respond or did not understand the paramters")
-                        return
                     }
                 }
-            }
-        
+        }
     }
 }

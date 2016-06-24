@@ -12,11 +12,15 @@ class DB: Object {
     
     static let realm = try! Realm()
     
-    // MARK: Login
+    // MARK: User
     static func loginFirstTime(login : User) {
         try! realm.write {
             realm.add(login)
         }
+    }
+    
+    static func getUser() -> User? {
+        return realm.objects(User).first
     }
     
     static func getLogin() -> User? {
@@ -59,7 +63,7 @@ class DB: Object {
         }
     }
     
-    // MARK: InstructorTeachingRecord
+    // MARK: TeachingRecord
     static func addInstructorTeachingRecord(instTeachingRecord : TeachingRecord) {
         try! realm.write {
             realm.add(instTeachingRecord)
@@ -73,7 +77,8 @@ class DB: Object {
         }
     }
     
-    static func updateInstructorTeachingRecord(instTeachingRecord : TeachingRecord, recordId : Int) {
+    static func updateInstructorTeachingRecord(instTeachingRecord : TeachingRecord, recordId :
+        String) {
         try! realm.write {
             instTeachingRecord.recordId = recordId
         }
@@ -107,5 +112,33 @@ class DB: Object {
         }
         
         return count
+    }
+    
+    // MARK: TeachingRecord Request
+    static func addTeachingRecordRequest(request : TeachingRecordRequest) {
+        try! realm.write {
+            realm.add(request)
+        }
+    }
+    
+    static func getAllTeachingRecordRequests() -> [TeachingRecordRequest] {
+        return realm.objects(TeachingRecordRequest).map {
+            item in
+            return item
+        }
+    }
+    
+    static func deleteAllTeachingRecordRequests() {
+        for request in getAllTeachingRecordRequests() {
+            try! realm.write {
+                realm.delete(request)
+            }
+        }
+    }
+    
+    static func updateTeachingRecordRequest(request : TeachingRecordRequest, status: RequestStatus) {
+        try! realm.write {
+            request.status = status
+        }
     }
 }

@@ -10,14 +10,14 @@ import Foundation
 import JASON
 
 class ResponseMessageWithRecordId: ResponseMessage {
-    let recordId : Int?
+    let recordId : String?
     
     override init(json: JSON) {
         self.recordId = json[.recordId]
         super.init(json: json)
     }
     
-    init(resultCode: Int, resultMessage: String, recordId : Int) {
+    init(resultCode: Int, resultMessage: String, recordId : String) {
         self.recordId = recordId
         super.init(resultCode: resultCode, resultMessage: resultMessage)
     }

@@ -9,10 +9,31 @@
 import Foundation
 import RealmSwift
 
-class TeachingRecordRequest : NSObject {
-    
+enum RequestStatus : Int {
+    case NOT_SENT
+    case SENT_AND_FAILED //for debugging only
+    case SENT_AND_SUCCEDED
 }
 
-extension TeachingRecordRequest {
-    
+enum RequestType : Int {
+    case CREATE
+    case UPDATE
+    case DELETE
 }
+
+class TeachingRecordRequest : Object {
+    
+    dynamic var record: TeachingRecord?
+    
+    var requestType = RequestType.CREATE
+    var status = RequestStatus.NOT_SENT
+    
+    static func create(record: TeachingRecord, requestType : RequestType) -> TeachingRecordRequest {
+        let request = TeachingRecordRequest()
+        request.record = record
+        request.requestType = requestType
+        request.status = RequestStatus.NOT_SENT
+        return request
+    }
+}
+

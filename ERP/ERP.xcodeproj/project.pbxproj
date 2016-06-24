@@ -24,6 +24,7 @@
 		847EF7EC1D17ACF9008FAEE0 /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EF7EB1D17ACF9008FAEE0 /* NetworkUtil.swift */; };
 		847EF7F01D17B025008FAEE0 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EF7EF1D17B025008FAEE0 /* LaunchScreenViewController.swift */; };
 		84A4ED9A1D1CE65C00974319 /* TeachingRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4ED991D1CE65C00974319 /* TeachingRecordRequest.swift */; };
+		84A4ED9C1D1CEB8900974319 /* TeachingRecordRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4ED9B1D1CEB8900974319 /* TeachingRecordRequestTest.swift */; };
 		84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D821D13E82E00938600 /* NSDateExtensions.swift */; };
 		84E33D851D13F68800938600 /* ResponseMessageWithRecordId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		847EF7EB1D17ACF9008FAEE0 /* NetworkUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
 		847EF7EF1D17B025008FAEE0 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		84A4ED991D1CE65C00974319 /* TeachingRecordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordRequest.swift; sourceTree = "<group>"; };
+		84A4ED9B1D1CEB8900974319 /* TeachingRecordRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordRequestTest.swift; sourceTree = "<group>"; };
 		84E33D821D13E82E00938600 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessageWithRecordId.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 			children = (
 				845D77C71D103E17007064EF /* InstructorTest.swift */,
 				84113C331D12DF750071966E /* InstructorTeachingRecordTest.swift */,
+				84A4ED9B1D1CEB8900974319 /* TeachingRecordRequestTest.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				99422DE21D0F2A6E006BD11E /* InstructorCell.swift in Sources */,
 				998278671D0DDF85004F6846 /* DB.swift in Sources */,
 				9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */,
+				84A4ED9C1D1CEB8900974319 /* TeachingRecordRequestTest.swift in Sources */,
 				992846DE1D105D2600C7FC3F /* LazyImage.swift in Sources */,
 				8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */,
 				99C505EF1D16E234000D0EDC /* UIViewControllerExtension.swift in Sources */,

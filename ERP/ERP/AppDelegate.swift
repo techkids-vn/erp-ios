@@ -9,13 +9,20 @@
 import UIKit
 import SlideMenuControllerSwift
 
+let TEST = true
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        if TEST {
+            TeachingRecordRequestTest.TestDB()
+            TeachingRecordRequestTest.testSendCreateRecord()
+        }
+        
         
         
         //InstructorTeachingRecordTest.testUpdateInstructorTeachingRecordSent()

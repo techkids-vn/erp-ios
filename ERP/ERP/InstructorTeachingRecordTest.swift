@@ -46,31 +46,18 @@ class InstructorTeachingRecordTest : NSObject {
         assert(oneRecord.roleCode == "coach")
         assert(now.isEqualToDate(oneRecord.date))
         
-        assert(oneRecord.recordId == -1)
+        assert(oneRecord.recordId == "")
         
-        DB.updateInstructorTeachingRecord(oneRecord, recordId: 123456)
+        DB.updateInstructorTeachingRecord(oneRecord, recordId: "123456")
         
         let allRecords2 = DB.getAllInstructorTeachingRecords()
         assert(allRecords.count == 1)
         let oneRecord2 = allRecords2[0]
-        assert(oneRecord2.recordId == 123456)
+        assert(oneRecord2.recordId == "123456")
         
         DB.deleteAllInstructorTeachingRecords()
     }
-    
-    static func testPostRecord() {
-        
-        DB.deleteAllInstructorTeachingRecords()
-        
-        let now = NSDate.init(timeIntervalSinceNow: 0)
-        
-        let record = TeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
-        
-        NetworkContext.postInstructorTeachingRecord(record, requestDone: {
-            code, message in
-            DB.deleteAllInstructorTeachingRecords()
-        })
-    }
+
     
     static func dumpInstructorRecord() {
         let instructors = DB.getAllInstructors()
