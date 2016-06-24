@@ -46,14 +46,40 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     override func awakeFromNib() {
         self.setupAvatar()
         self.setUpPickerViewForTextFields()
+        imvAvatar.layoutIfNeeded()
+        lblInstructorName.layoutIfNeeded()
+        lblTeam.layoutIfNeeded()
+        lblTeam.layoutIfNeeded()
+        txfClass.layoutIfNeeded()
+        txfRole.layoutIfNeeded()
+        txfDate.layoutIfNeeded()
+        vDetailContainer.layoutIfNeeded()
+
+        
     }
-    
+    /*@IBOutlet weak var imvAvatar: UIImageView!
+     @IBOutlet weak var lblInstructorName: UILabel!
+     @IBOutlet weak var lblTeam: UILabel!
+     @IBOutlet weak var txfClass: UITextField!
+     @IBOutlet weak var txfRole: UITextField!
+     @IBOutlet weak var txfDate: UITextField!
+     @IBOutlet weak var vDetailContainer: UIView!
+*/
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         let view = NSBundle.mainBundle().loadNibNamed("InstructorDetailView", owner: self, options: nil)[0] as! UIView
         self.layoutIfNeeded()
         view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(view)
+        view.layoutIfNeeded()
+        imvAvatar.layoutIfNeeded()
+        lblInstructorName.layoutIfNeeded()
+        lblTeam.layoutIfNeeded()
+        lblTeam.layoutIfNeeded()
+        txfClass.layoutIfNeeded()
+        txfRole.layoutIfNeeded()
+        txfDate.layoutIfNeeded()
+        vDetailContainer.layoutIfNeeded()
         
         // Store original location of detail view
         self.originalDetailFrame = self.vDetailContainer.frame
