@@ -14,9 +14,8 @@ import RxCocoa
 class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: View references
-    @IBOutlet weak var imvAvatar: UIImageView!
-    @IBOutlet weak var lblInstructorName: UILabel!
-    @IBOutlet weak var lblTeam: UILabel!
+   // @IBOutlet weak var imvAvatar: UIImageView!
+    //@IBOutlet weak var lblInstructorName: UILabel!
     @IBOutlet weak var txfClass: UITextField!
     @IBOutlet weak var txfRole: UITextField!
     @IBOutlet weak var txfDate: UITextField!
@@ -34,6 +33,7 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     
     // Used to save the original frame of the detail view
     var originalDetailFrame : CGRect!
+    var originalInforFrame : CGRect!
     
     var rx_disposeBag = DisposeBag()
     
@@ -46,10 +46,8 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     override func awakeFromNib() {
         self.setupAvatar()
         self.setUpPickerViewForTextFields()
-        imvAvatar.layoutIfNeeded()
-        lblInstructorName.layoutIfNeeded()
-        lblTeam.layoutIfNeeded()
-        lblTeam.layoutIfNeeded()
+       // imvAvatar.layoutIfNeeded()
+        //lblInstructorName.layoutIfNeeded()
         txfClass.layoutIfNeeded()
         txfRole.layoutIfNeeded()
         txfDate.layoutIfNeeded()
@@ -68,29 +66,23 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         let view = NSBundle.mainBundle().loadNibNamed("InstructorDetailView", owner: self, options: nil)[0] as! UIView
+        let viewInfo = NSBundle.mainBundle().loadNibNamed("InstructorInfo", owner: self, options: nil)[0] as! UIView
         self.layoutIfNeeded()
-        view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
+        view.frame = CGRectMake(0, self.frame.size.height/2, self.frame.size.width, self.frame.size.height/2)
+        viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/2)
         self.addSubview(view)
-        view.layoutIfNeeded()
-        imvAvatar.layoutIfNeeded()
-        lblInstructorName.layoutIfNeeded()
-        lblTeam.layoutIfNeeded()
-        lblTeam.layoutIfNeeded()
-        txfClass.layoutIfNeeded()
-        txfRole.layoutIfNeeded()
-        txfDate.layoutIfNeeded()
-        vDetailContainer.layoutIfNeeded()
-        
+        self.addSubview(viewInfo)
+       
         // Store original location of detail view
         self.originalDetailFrame = self.vDetailContainer.frame
+        
     }
     
     // MARK: Update instructor info into view
     func viewInstructorInfo() {
         if let inst = self.instructor {
-            LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
-            self.lblInstructorName.text = inst.name
-            self.lblTeam.text = inst.team
+           // LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
+           // self.lblInstructorName.text = inst.name
             if inst.classes.count > 0 {
                 self.txfClass.text = inst.classes[0]
             }
@@ -102,8 +94,10 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     
     // MARK: Setup layout
     func setupAvatar() {
-        self.imvAvatar.layer.cornerRadius = self.imvAvatar.frame.size.width/2
-        self.imvAvatar.clipsToBounds = true
+       // self.imvAvatar.layer.cornerRadius = self.imvAvatar.frame.size.width/2
+//        self.imvAvatar.layer.borderWidth = 1.0
+//        self.imvAvatar.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.imvAvatar.clipsToBounds = true
     }
     
     func setUpPickerViewForTextFields() {

@@ -357,17 +357,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-Ac-IDr" userLabel="vInstructorDetail" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="6OQ-q9-HEP"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="bottom" secondItem="ye2-UM-Fxt" secondAttribute="bottomMargin" id="92O-XK-V1N"/>
+                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="ye2-UM-Fxt" secondAttribute="topMargin" id="f0A-dc-BZu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yoR-Ac-IDr" secondAttribute="trailing" constant="-20" id="gbq-BM-4Iq"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leadingMargin" constant="-20" id="oxc-xi-nZo"/>
-                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="Z4Q-YU-SkA" secondAttribute="bottom" constant="-20" id="sUd-vM-MOz"/>
                         </constraints>
                     </view>
                     <toolbarItems>
