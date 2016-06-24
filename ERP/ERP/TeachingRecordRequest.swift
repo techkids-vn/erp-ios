@@ -33,6 +33,7 @@ class TeachingRecordRequest : Object {
         request.record = record
         request.requestType = requestType
         request.status = RequestStatus.NOT_SENT
+        DB.addTeachingRecordRequest(request)
         return request
     }
 }

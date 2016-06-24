@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TeachingRecordRequestTest.testSendCreateRecord()
         }
         
-        
-        
         //InstructorTeachingRecordTest.testUpdateInstructorTeachingRecordSent()
         //InstructorTeachingRecordTest.testPostRecord()
         
