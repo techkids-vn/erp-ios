@@ -162,7 +162,7 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         if let classCode = self.selectedClassCode {
             if let roleCode = self.selectedRoleCode {
                 if let date = self.selectedDate {
-                    let instTeachingRecord = InstructorTeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+                    let instTeachingRecord = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
                     NetworkContext.postInstructorTeachingRecord(instTeachingRecord, requestDone: {
                         code, message in
                         print(message)

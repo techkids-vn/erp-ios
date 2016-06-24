@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class InstructorTeachingRecord : Object {
+class TeachingRecord : Object {
     
     dynamic var code = ""
     dynamic var classCode = ""
@@ -16,8 +16,8 @@ class InstructorTeachingRecord : Object {
     dynamic var date = NSDate()
     dynamic var recordId = -1
     
-    static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> InstructorTeachingRecord {
-        let instTeachingRecord = InstructorTeachingRecord()
+    static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> TeachingRecord {
+        let instTeachingRecord = TeachingRecord()
         instTeachingRecord.code = code
         instTeachingRecord.classCode = classCode
         instTeachingRecord.roleCode = roleCode
@@ -26,8 +26,8 @@ class InstructorTeachingRecord : Object {
         return instTeachingRecord
     }
     
-    static func groupByDate(teachingRecords: [InstructorTeachingRecord]) -> [String: InstructorTeachingRecord] {
-        var retDict : [String: InstructorTeachingRecord] = [:]
+    static func groupByDate(teachingRecords: [TeachingRecord]) -> [String: TeachingRecord] {
+        var retDict : [String: TeachingRecord] = [:]
         for teachingRecord in teachingRecords {
             let date = teachingRecord.date.dateString
             retDict[date] = teachingRecord
@@ -36,7 +36,7 @@ class InstructorTeachingRecord : Object {
     }
 }
 
-extension InstructorTeachingRecord {
+extension TeachingRecord {
     var JSON : [String : String] {
         get {
             let dateFormater = NSDateFormatter()

@@ -60,20 +60,20 @@ class DB: Object {
     }
     
     // MARK: InstructorTeachingRecord
-    static func addInstructorTeachingRecord(instTeachingRecord : InstructorTeachingRecord) {
+    static func addInstructorTeachingRecord(instTeachingRecord : TeachingRecord) {
         try! realm.write {
             realm.add(instTeachingRecord)
         }
     }
     
-    static func getAllInstructorTeachingRecords() -> [InstructorTeachingRecord] {
-        return realm.objects(InstructorTeachingRecord).map {
+    static func getAllInstructorTeachingRecords() -> [TeachingRecord] {
+        return realm.objects(TeachingRecord).map {
             record in
             return record
         }
     }
     
-    static func updateInstructorTeachingRecord(instTeachingRecord : InstructorTeachingRecord, recordId : Int) {
+    static func updateInstructorTeachingRecord(instTeachingRecord : TeachingRecord, recordId : Int) {
         try! realm.write {
             instTeachingRecord.recordId = recordId
         }

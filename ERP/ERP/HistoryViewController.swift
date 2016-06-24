@@ -15,7 +15,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var tbvHistory: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar!
     
-    var teachingRecordDict : Variable<[String: InstructorTeachingRecord]> = Variable([:])
+    var teachingRecordDict : Variable<[String: TeachingRecord]> = Variable([:])
     
     override func viewDidLoad() {
         super.viewDidLoad()

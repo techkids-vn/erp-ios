@@ -19,10 +19,11 @@
 		846FBA1A1D1BD0620097B6E7 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBA191D1BD0620097B6E7 /* LeftViewController.swift */; };
 		846FBA1C1D1BDA920097B6E7 /* LeftMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBA1B1D1BDA920097B6E7 /* LeftMenuItem.swift */; };
 		846FBA1F1D1BDC3D0097B6E7 /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBA1E1D1BDC3D0097B6E7 /* LeftMenuCell.swift */; };
-		847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */; };
+		847C2F201D1272CA002A8DD9 /* TeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F1F1D1272CA002A8DD9 /* TeachingRecord.swift */; };
 		847C2F221D1276EB002A8DD9 /* NetworkContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2F211D1276EB002A8DD9 /* NetworkContext.swift */; };
 		847EF7EC1D17ACF9008FAEE0 /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EF7EB1D17ACF9008FAEE0 /* NetworkUtil.swift */; };
 		847EF7F01D17B025008FAEE0 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EF7EF1D17B025008FAEE0 /* LaunchScreenViewController.swift */; };
+		84A4ED9A1D1CE65C00974319 /* TeachingRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4ED991D1CE65C00974319 /* TeachingRecordRequest.swift */; };
 		84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D821D13E82E00938600 /* NSDateExtensions.swift */; };
 		84E33D851D13F68800938600 /* ResponseMessageWithRecordId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */; };
 		84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */; };
@@ -61,10 +62,11 @@
 		846FBA191D1BD0620097B6E7 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		846FBA1B1D1BDA920097B6E7 /* LeftMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuItem.swift; sourceTree = "<group>"; };
 		846FBA1E1D1BDC3D0097B6E7 /* LeftMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
-		847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTeachingRecord.swift; sourceTree = "<group>"; };
+		847C2F1F1D1272CA002A8DD9 /* TeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecord.swift; sourceTree = "<group>"; };
 		847C2F211D1276EB002A8DD9 /* NetworkContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkContext.swift; sourceTree = "<group>"; };
 		847EF7EB1D17ACF9008FAEE0 /* NetworkUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
 		847EF7EF1D17B025008FAEE0 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		84A4ED991D1CE65C00974319 /* TeachingRecordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordRequest.swift; sourceTree = "<group>"; };
 		84E33D821D13E82E00938600 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessageWithRecordId.swift; sourceTree = "<group>"; };
 		84EB36A61D0D63E00032F0F9 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,8 +276,9 @@
 				998278641D0DDD5C004F6846 /* User.swift */,
 				99422DE31D0F2BF7006BD11E /* Instructor.swift */,
 				845D77C21D1032EC007064EF /* ClassRole.swift */,
-				847C2F1F1D1272CA002A8DD9 /* InstructorTeachingRecord.swift */,
+				847C2F1F1D1272CA002A8DD9 /* TeachingRecord.swift */,
 				846FBA1B1D1BDA920097B6E7 /* LeftMenuItem.swift */,
+				84A4ED991D1CE65C00974319 /* TeachingRecordRequest.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -451,12 +454,13 @@
 				99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */,
 				846FBA1A1D1BD0620097B6E7 /* LeftViewController.swift in Sources */,
 				84113C341D12DF750071966E /* InstructorTeachingRecordTest.swift in Sources */,
+				84A4ED9A1D1CE65C00974319 /* TeachingRecordRequest.swift in Sources */,
 				845D77D01D11121F007064EF /* Constants.swift in Sources */,
 				99422DE91D0F2FDD006BD11E /* JsonKeysExtension.swift in Sources */,
 				845D77C31D1032EC007064EF /* ClassRole.swift in Sources */,
 				847EF7F01D17B025008FAEE0 /* LaunchScreenViewController.swift in Sources */,
 				846FB4221D1ABC14007BBB34 /* HistoryViewController.swift in Sources */,
-				847C2F201D1272CA002A8DD9 /* InstructorTeachingRecord.swift in Sources */,
+				847C2F201D1272CA002A8DD9 /* TeachingRecord.swift in Sources */,
 				846FBA1C1D1BDA920097B6E7 /* LeftMenuItem.swift in Sources */,
 				992846DB1D1055A600C7FC3F /* RequestInstructor.swift in Sources */,
 				846FBA1F1D1BDC3D0097B6E7 /* LeftMenuCell.swift in Sources */,

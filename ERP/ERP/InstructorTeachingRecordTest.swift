@@ -16,7 +16,7 @@ class InstructorTeachingRecordTest : NSObject {
         
         let now = NSDate.init(timeIntervalSinceNow: 0)
         
-        _ = InstructorTeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
+        _ = TeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
         
         let allRecords = DB.getAllInstructorTeachingRecords()
         assert(allRecords.count == 1)
@@ -36,7 +36,7 @@ class InstructorTeachingRecordTest : NSObject {
         let dateFormater = NSDateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd"
         
-        _ = InstructorTeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
+        _ = TeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
         
         let allRecords = DB.getAllInstructorTeachingRecords()
         assert(allRecords.count == 1)
@@ -64,7 +64,7 @@ class InstructorTeachingRecordTest : NSObject {
         
         let now = NSDate.init(timeIntervalSinceNow: 0)
         
-        let record = InstructorTeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
+        let record = TeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
         
         NetworkContext.postInstructorTeachingRecord(record, requestDone: {
             code, message in
@@ -76,7 +76,7 @@ class InstructorTeachingRecordTest : NSObject {
         let instructors = DB.getAllInstructors()
         let now = NSDate.init(timeIntervalSinceNow: 0)
         for i in 0..<instructors.count {
-            _ = InstructorTeachingRecord.create(instructors[i].code, classCode: "ios4" , roleCode: "coach", date: now)
+            _ = TeachingRecord.create(instructors[i].code, classCode: "ios4" , roleCode: "coach", date: now)
         }
     }
 }

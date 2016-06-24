@@ -16,7 +16,7 @@ class NetworkContext {
     static let RESULT_CODE_FAILURE = 0
     static let RESULT_CODE_SUCCESS = 1
 
-    static func postInstructorTeachingRecord(instTeachingRecord : InstructorTeachingRecord, requestDone : RequestDone?) {
+    static func postInstructorTeachingRecord(instTeachingRecord : TeachingRecord, requestDone : RequestDone?) {
         
         let paramters = instTeachingRecord.JSON
         
