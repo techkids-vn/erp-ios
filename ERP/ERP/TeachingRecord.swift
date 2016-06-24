@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import JASON
 
 class TeachingRecord : Object {
     
@@ -16,16 +17,38 @@ class TeachingRecord : Object {
     dynamic var date = NSDate()
     dynamic var recordId = ""
     
-    static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> TeachingRecord {
-        let instTeachingRecord = TeachingRecord()
-        instTeachingRecord.code = code
-        instTeachingRecord.classCode = classCode
-        instTeachingRecord.roleCode = roleCode
-        instTeachingRecord.date = date
-        DB.addInstructorTeachingRecord(instTeachingRecord)
-        return instTeachingRecord
+    static func create(code: String, classCode: String, roleCode: String, date: NSDate, recordId : String) -> TeachingRecord {
+        let teachingRecord = TeachingRecord()
+        teachingRecord.code = code
+        teachingRecord.classCode = classCode
+        teachingRecord.roleCode = roleCode
+        teachingRecord.date = date
+        teachingRecord.recordId = recordId
+        DB.addOrUpdateTeachingRecord(teachingRecord)
+        return teachingRecord
     }
     
+    static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> TeachingRecord {
+        return create(code, classCode: classCode, roleCode: roleCode, date: date, recordId: "")
+    }
+    
+    static func create(json : JSON) -> TeachingRecord {
+        print(json)
+        let code = json[.instructorCode]
+        let classCode = json[.classCode]
+        let roleCode = json[.roleCode]
+        let date = json[.date].date // MARK: Add code to secure date conversion
+        let recordId = json[.id]
+
+        let record = create(
+            code,
+            classCode: classCode,
+            roleCode: roleCode,
+            date: date,
+            recordId: recordId)
+        return record
+    }
+  
     static func groupByDate(teachingRecords: [TeachingRecord]) -> [String: TeachingRecord] {
         var retDict : [String: TeachingRecord] = [:]
         for teachingRecord in teachingRecords {
@@ -37,7 +60,7 @@ class TeachingRecord : Object {
 }
 
 extension TeachingRecord {
-    var JSON : [String : String] {
+    var Dict : [String : String] {
         get {
             return [
                 "code" : self.code,

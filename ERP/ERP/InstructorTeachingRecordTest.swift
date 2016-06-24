@@ -59,6 +59,18 @@ class InstructorTeachingRecordTest : NSObject {
     }
 
     
+    static func testFetchAllTeachingRecords () {
+        NetworkContext.fetchAllTeachingRecords(
+            {
+                records in
+                print(records.count)
+                for record in records {
+                    print(record.code)
+                }
+            }
+        )
+    }
+    
     static func dumpInstructorRecord() {
         let instructors = DB.getAllInstructors()
         let now = NSDate.init(timeIntervalSinceNow: 0)
@@ -66,4 +78,5 @@ class InstructorTeachingRecordTest : NSObject {
             _ = TeachingRecord.create(instructors[i].code, classCode: "ios4" , roleCode: "coach", date: now)
         }
     }
+    
 }

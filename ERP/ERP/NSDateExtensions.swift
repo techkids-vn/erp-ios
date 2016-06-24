@@ -23,3 +23,11 @@ extension NSDate {
         return dateString.substringFromIndex(dateStringEndIndex.advancedBy(-2))
     }
 }
+
+extension String {
+    var date : NSDate {
+        let formater = NSDateFormatter()
+        formater.dateFormat = "yyyy-MM-dd"
+        return formater.dateFromString(self)!
+    }
+}

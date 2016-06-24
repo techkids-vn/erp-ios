@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         if TEST {
-            TeachingRecordRequestTest.TestDB()
-            TeachingRecordRequestTest.testSendCreateRecord()
+//            TeachingRecordRequestTest.TestDB()
+//            TeachingRecordRequestTest.testSendCreateRecord()
+            InstructorTeachingRecordTest.testFetchAllTeachingRecords()
         }
         
         //InstructorTeachingRecordTest.testUpdateInstructorTeachingRecordSent()

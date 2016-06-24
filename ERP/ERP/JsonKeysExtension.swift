@@ -20,4 +20,11 @@ extension JSONKeys {
     static let resultCode = JSONKey<Int>("result_code")
     static let resultMessage = JSONKey<String>("result_message")
     static let recordId = JSONKey<String>("record_id")
+    static let instructorCode = JSONKey<String>("instructor_code")
+    static let roleCode = JSONKey<String>("role_code")
+    static let classCode = JSONKey<String>("class_code")
+    static let date = JSONKey<String>("date")
+    static let userName = JSONKey<String>("user_name")
+    static let id = JSONKey<String>("_id")
+    static let oid = JSONKey<String>("$oid")
 }
