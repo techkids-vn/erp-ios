@@ -14,6 +14,7 @@
 		8417C4B11D1D9B6700A77D20 /* TeachingRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417C4AF1D1D9B6700A77D20 /* TeachingRecordViewController.swift */; };
 		8417C4B21D1D9B6700A77D20 /* TeachingRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8417C4B01D1D9B6700A77D20 /* TeachingRecordViewController.xib */; };
 		8417C4B51D1D9DE300A77D20 /* TeachingRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417C4B31D1D9DE300A77D20 /* TeachingRecordCell.swift */; };
+		8417C4B81D1DA69D00A77D20 /* TeachingRecordGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417C4B71D1DA69D00A77D20 /* TeachingRecordGroup.swift */; };
 		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
 		845D77C81D103E17007064EF /* InstructorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C71D103E17007064EF /* InstructorTest.swift */; };
 		845D77D01D11121F007064EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77CF1D11121F007064EF /* Constants.swift */; };
@@ -62,6 +63,7 @@
 		8417C4AF1D1D9B6700A77D20 /* TeachingRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordViewController.swift; sourceTree = "<group>"; };
 		8417C4B01D1D9B6700A77D20 /* TeachingRecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeachingRecordViewController.xib; sourceTree = "<group>"; };
 		8417C4B31D1D9DE300A77D20 /* TeachingRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordCell.swift; sourceTree = "<group>"; };
+		8417C4B71D1DA69D00A77D20 /* TeachingRecordGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordGroup.swift; sourceTree = "<group>"; };
 		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
 		845D77C71D103E17007064EF /* InstructorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTest.swift; sourceTree = "<group>"; };
 		845D77CF1D11121F007064EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				847C2F1F1D1272CA002A8DD9 /* TeachingRecord.swift */,
 				846FBA1B1D1BDA920097B6E7 /* LeftMenuItem.swift */,
 				84A4ED991D1CE65C00974319 /* TeachingRecordRequest.swift */,
+				8417C4B71D1DA69D00A77D20 /* TeachingRecordGroup.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				84113C341D12DF750071966E /* InstructorTeachingRecordTest.swift in Sources */,
 				84A4ED9A1D1CE65C00974319 /* TeachingRecordRequest.swift in Sources */,
 				845D77D01D11121F007064EF /* Constants.swift in Sources */,
+				8417C4B81D1DA69D00A77D20 /* TeachingRecordGroup.swift in Sources */,
 				99422DE91D0F2FDD006BD11E /* JsonKeysExtension.swift in Sources */,
 				845D77C31D1032EC007064EF /* ClassRole.swift in Sources */,
 				847EF7F01D17B025008FAEE0 /* LaunchScreenViewController.swift in Sources */,

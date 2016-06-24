@@ -10,12 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HistoryViewController: UIViewController {
+class HistoryViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tbvHistory: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar!
     
-    var teachingRecordsDictVar : Variable<[String: TeachingRecord]> = Variable([:])
+    var teachingRecordGroupsVar : Variable<[TeachingRecordGroup]> = Variable([])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +28,7 @@ class HistoryViewController: UIViewController {
     func initLayout() {
         // TableView
         self.tbvHistory.backgroundView = nil
-        _ = self.teachingRecordsDictVar.asObservable().bindTo(self.tbvHistory.rx_itemsWithCellIdentifier("Cell", cellType: TeachingRecordCell.self)) {
-            row, data, cell in
-            
-        }
+        self.tbvHistory.dataSource = self
         
         // Search bar
         self.sbSearch.tintColor = UIColor.clearColor()
@@ -41,8 +38,26 @@ class HistoryViewController: UIViewController {
     func fetchTeachingRecords() {
         NetworkContext.fetchAllTeachingRecords( {
             teachingRecords in
-            self.teachingRecordsDictVar.value = TeachingRecord.groupByDate(teachingRecords)
+            self.teachingRecordGroupsVar.value = TeachingRecord.groupByDate(teachingRecords)
+            self.tbvHistory.reloadData()
         })
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.teachingRecordGroupsVar.value.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.teachingRecordGroupsVar.value[section].teachingRecords!.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TeachingRecordCell
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.teachingRecordGroupsVar.value[section].dateString
     }
 
     override func didReceiveMemoryWarning() {

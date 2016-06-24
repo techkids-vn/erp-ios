@@ -49,13 +49,21 @@ class TeachingRecord : Object {
         return record
     }
   
-    static func groupByDate(teachingRecords: [TeachingRecord]) -> [String: TeachingRecord] {
-        var retDict : [String: TeachingRecord] = [:]
+    static func groupByDate(teachingRecords: [TeachingRecord]) -> [TeachingRecordGroup] {
+        var retValue : [TeachingRecordGroup] = []
         for teachingRecord in teachingRecords {
-            let date = teachingRecord.date.dateString
-            retDict[date] = teachingRecord
+            let date = teachingRecord.date.string
+            let groupOpt = retValue.filter {
+                group in
+                return group.dateString! == date
+            }.first
+            if let group = groupOpt {
+                group.teachingRecords!.append(teachingRecord)
+            } else {
+                retValue.append(TeachingRecordGroup(dateString: date, teachingRecords: [teachingRecord]))
+            }
         }
-        return retDict
+        return retValue
     }
 }
 

@@ -9,6 +9,20 @@
 import UIKit
 
 class TeachingRecordCell: UITableViewCell {
+    
+    @IBOutlet weak var lblInstructorName: UILabel!
+    
+    var teachingRecord : TeachingRecord? {
+        didSet {
+            self.layout()
+        }
+    }
+    
+    func layout() {
+        if let teachingRecord = self.teachingRecord {
+            self.lblInstructorName.text = teachingRecord.code
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
