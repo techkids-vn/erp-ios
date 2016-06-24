@@ -32,19 +32,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let historyVC = mainStoryboard.instantiateViewControllerWithIdentifier("HistoryViewController")
+        if let user = DB.getUser() {
+            if user.didLogin == 1 {
+                
+                let leftVC = mainStoryboard.instantiateViewControllerWithIdentifier("LeftViewController")
+                
+                let navVC = mainStoryboard.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController
+                
+                let slideVC = SlideMenuController(mainViewController: navVC, leftMenuViewController: leftVC)
+                
+                self.window!.rootViewController = slideVC
+                self.window?.makeKeyAndVisible()
+                self.customApperance()
+                return true
+
+            }
+        }
         
-        let leftVC = mainStoryboard.instantiateViewControllerWithIdentifier("LeftViewController")
-        
-        let navVC = mainStoryboard.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController
-        
-        let slideVC = SlideMenuController(mainViewController: navVC, leftMenuViewController: leftVC, rightMenuViewController: historyVC)
-        
-        self.window!.rootViewController = slideVC
+        let loginVC = mainStoryboard.instantiateViewControllerWithIdentifier("LoginViewController")
+        self.window!.rootViewController = loginVC
         self.window?.makeKeyAndVisible()
-        
         self.customApperance()
         return true
+
     }
     
     func customApperance() {

@@ -18,8 +18,8 @@ DEPENDENCIES:
   - JASON
   - ReachabilitySwift
   - RealmSwift
-  - RxCocoa
-  - RxSwift
+  - RxCocoa (~> 2.5)
+  - RxSwift (~> 2.5)
   - SlideMenuControllerSwift
   - STZPopupView
 
@@ -34,6 +34,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
   STZPopupView: 4eb11a72c71d2942e23a4444d1bde40e563702e3
 
-PODFILE CHECKSUM: 9272e59adc947e4c24f866984c1e693e9adf8457
+PODFILE CHECKSUM: 7f64dc6cd89302276576c673279bd93de3094ca4
 
 COCOAPODS: 1.0.0
