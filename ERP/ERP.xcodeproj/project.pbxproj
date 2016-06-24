@@ -11,6 +11,9 @@
 		8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */; };
 		84162E791D15B61F00CF6319 /* InstructorDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84162E781D15B61F00CF6319 /* InstructorDetailView.xib */; };
 		84162E7B1D15B95100CF6319 /* InstructorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */; };
+		8417C4B11D1D9B6700A77D20 /* TeachingRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417C4AF1D1D9B6700A77D20 /* TeachingRecordViewController.swift */; };
+		8417C4B21D1D9B6700A77D20 /* TeachingRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8417C4B01D1D9B6700A77D20 /* TeachingRecordViewController.xib */; };
+		8417C4B51D1D9DE300A77D20 /* TeachingRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417C4B31D1D9DE300A77D20 /* TeachingRecordCell.swift */; };
 		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
 		845D77C81D103E17007064EF /* InstructorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C71D103E17007064EF /* InstructorTest.swift */; };
 		845D77D01D11121F007064EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77CF1D11121F007064EF /* Constants.swift */; };
@@ -55,6 +58,9 @@
 		8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMessage.swift; sourceTree = "<group>"; };
 		84162E781D15B61F00CF6319 /* InstructorDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructorDetailView.xib; sourceTree = "<group>"; };
 		84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorDetailView.swift; sourceTree = "<group>"; };
+		8417C4AF1D1D9B6700A77D20 /* TeachingRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordViewController.swift; sourceTree = "<group>"; };
+		8417C4B01D1D9B6700A77D20 /* TeachingRecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeachingRecordViewController.xib; sourceTree = "<group>"; };
+		8417C4B31D1D9DE300A77D20 /* TeachingRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachingRecordCell.swift; sourceTree = "<group>"; };
 		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
 		845D77C71D103E17007064EF /* InstructorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTest.swift; sourceTree = "<group>"; };
 		845D77CF1D11121F007064EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -123,6 +129,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8417C4AC1D1D995300A77D20 /* TeachingRecord Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8417C4B31D1D9DE300A77D20 /* TeachingRecordCell.swift */,
+			);
+			name = "TeachingRecord Cell";
+			sourceTree = "<group>";
+		};
 		845D77C61D103E09007064EF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +173,6 @@
 		84E33D811D13E81A00938600 /* StringFormats */ = {
 			isa = PBXGroup;
 			children = (
-				84E33D821D13E82E00938600 /* NSDateExtensions.swift */,
 			);
 			name = StringFormats;
 			sourceTree = "<group>";
@@ -250,6 +263,8 @@
 				84EB36B01D0D63E00032F0F9 /* Assets.xcassets */,
 				84EB36AD1D0D63E00032F0F9 /* Main.storyboard */,
 				84EB36B21D0D63E00032F0F9 /* LaunchScreen.storyboard */,
+				8417C4B01D1D9B6700A77D20 /* TeachingRecordViewController.xib */,
+				8417C4AC1D1D995300A77D20 /* TeachingRecord Cell */,
 				99422DE01D0F1E17006BD11E /* Instructor Cell */,
 				846FBA1D1D1BDC1D0097B6E7 /* Menu Cell */,
 				84162E781D15B61F00CF6319 /* InstructorDetailView.xib */,
@@ -268,6 +283,7 @@
 				84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */,
 				846FB4211D1ABC14007BBB34 /* HistoryViewController.swift */,
 				846FBA191D1BD0620097B6E7 /* LeftViewController.swift */,
+				8417C4AF1D1D9B6700A77D20 /* TeachingRecordViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -298,6 +314,7 @@
 		995319F91D0D692B00097E42 /* Apple */ = {
 			isa = PBXGroup;
 			children = (
+				84E33D821D13E82E00938600 /* NSDateExtensions.swift */,
 				99422DDE1D0F1665006BD11E /* UIColorExtension.swift */,
 				99C505EE1D16E234000D0EDC /* UIViewControllerExtension.swift */,
 			);
@@ -390,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8417C4B21D1D9B6700A77D20 /* TeachingRecordViewController.xib in Resources */,
 				84EB36B41D0D63E00032F0F9 /* LaunchScreen.storyboard in Resources */,
 				84EB36B11D0D63E00032F0F9 /* Assets.xcassets in Resources */,
 				84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */,
@@ -453,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847EF7EC1D17ACF9008FAEE0 /* NetworkUtil.swift in Sources */,
+				8417C4B51D1D9DE300A77D20 /* TeachingRecordCell.swift in Sources */,
 				845D77D21D11135D007064EF /* AddTeachingRecord.swift in Sources */,
 				99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */,
 				846FBA1A1D1BD0620097B6E7 /* LeftViewController.swift in Sources */,
@@ -485,6 +504,7 @@
 				99C505EF1D16E234000D0EDC /* UIViewControllerExtension.swift in Sources */,
 				845D77C81D103E17007064EF /* InstructorTest.swift in Sources */,
 				998278651D0DDD5C004F6846 /* User.swift in Sources */,
+				8417C4B11D1D9B6700A77D20 /* TeachingRecordViewController.swift in Sources */,
 				84162E7B1D15B95100CF6319 /* InstructorDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
