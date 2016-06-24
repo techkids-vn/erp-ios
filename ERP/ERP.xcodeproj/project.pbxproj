@@ -36,6 +36,7 @@
 		84EB36B11D0D63E00032F0F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EB36B01D0D63E00032F0F9 /* Assets.xcassets */; };
 		84EB36B41D0D63E00032F0F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB36B21D0D63E00032F0F9 /* LaunchScreen.storyboard */; };
 		90DE35E23F139959F9FC7890 /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB9367B2732EEC35309EB43 /* Pods_ERP.framework */; };
+		99023D4B1D1D8EFA00EEE621 /* InstructorInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99023D4A1D1D8EFA00EEE621 /* InstructorInfo.xib */; };
 		992846DB1D1055A600C7FC3F /* RequestInstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992846DA1D1055A600C7FC3F /* RequestInstructor.swift */; };
 		992846DE1D105D2600C7FC3F /* LazyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992846DD1D105D2600C7FC3F /* LazyImage.swift */; };
 		99422DDD1D0F10BD006BD11E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99422DDC1D0F10BD006BD11E /* NavigationController.swift */; };
@@ -84,6 +85,7 @@
 		84EB36B01D0D63E00032F0F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84EB36B31D0D63E00032F0F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84EB36B51D0D63E00032F0F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99023D4A1D1D8EFA00EEE621 /* InstructorInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructorInfo.xib; sourceTree = "<group>"; };
 		992846DA1D1055A600C7FC3F /* RequestInstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestInstructor.swift; sourceTree = "<group>"; };
 		992846DD1D105D2600C7FC3F /* LazyImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyImage.swift; sourceTree = "<group>"; };
 		99422DDC1D0F10BD006BD11E /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				99422DE01D0F1E17006BD11E /* Instructor Cell */,
 				846FBA1D1D1BDC1D0097B6E7 /* Menu Cell */,
 				84162E781D15B61F00CF6319 /* InstructorDetailView.xib */,
+				99023D4A1D1D8EFA00EEE621 /* InstructorInfo.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				8417C4B21D1D9B6700A77D20 /* TeachingRecordViewController.xib in Resources */,
 				84EB36B41D0D63E00032F0F9 /* LaunchScreen.storyboard in Resources */,
 				84EB36B11D0D63E00032F0F9 /* Assets.xcassets in Resources */,
+				99023D4B1D1D8EFA00EEE621 /* InstructorInfo.xib in Resources */,
 				84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */,
 				84162E791D15B61F00CF6319 /* InstructorDetailView.xib in Resources */,
 			);
