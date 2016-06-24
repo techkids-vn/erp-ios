@@ -61,7 +61,8 @@ extension Instructor {
     
     var recordCountToDay : Int  {
         get {
-            return DB.getInstructorTeachingRecordCountForToday(self)
+           // return DB.getInstructorTeachingRecordCountForToday(self)
+            return 3
         }
     }
 }
