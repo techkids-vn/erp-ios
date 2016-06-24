@@ -38,7 +38,7 @@ class TeachingRecord : Object {
         let classCode = json[.classCode]
         let roleCode = json[.roleCode]
         let date = json[.date].date // MARK: Add code to secure date conversion
-        let recordId = json[.id]
+        let recordId = json[.id][.oid]
 
         let record = create(
             code,

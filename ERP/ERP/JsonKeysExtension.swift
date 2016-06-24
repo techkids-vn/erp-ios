@@ -25,6 +25,6 @@ extension JSONKeys {
     static let classCode = JSONKey<String>("class_code")
     static let date = JSONKey<String>("date")
     static let userName = JSONKey<String>("user_name")
-    static let id = JSONKey<String>("_id")
+    static let id = JSONKey<JSON>("_id")
     static let oid = JSONKey<String>("$oid")
 }

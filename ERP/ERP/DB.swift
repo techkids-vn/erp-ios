@@ -116,8 +116,8 @@ class DB: Object {
     
     // MARK: TeachingRecord
     static func addOrUpdateTeachingRecord(record: TeachingRecord) {
-        let foundRecordOpt = realm.objects(TeachingRecord).filter("recordId == \(record.recordId)").first
-        if let foundRecord = foundRecordOpt {
+        let foundRecordOpt = realm.objects(TeachingRecord).filter("recordId = '\(record.recordId)'").first
+        if foundRecordOpt != nil {
             
         } else {
             try! realm.write {
