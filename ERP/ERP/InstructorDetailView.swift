@@ -14,8 +14,9 @@ import RxCocoa
 class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: View references
-   // @IBOutlet weak var imvAvatar: UIImageView!
-    //@IBOutlet weak var lblInstructorName: UILabel!
+    
+    @IBOutlet weak var imvAvatar: UIImageView!
+    @IBOutlet weak var lblIntructorName: UILabel!
     @IBOutlet weak var txfClass: UITextField!
     @IBOutlet weak var txfRole: UITextField!
     @IBOutlet weak var txfDate: UITextField!
@@ -51,7 +52,7 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         txfClass.layoutIfNeeded()
         txfRole.layoutIfNeeded()
         txfDate.layoutIfNeeded()
-        vDetailContainer.layoutIfNeeded()
+        //vDetailContainer.layoutIfNeeded()
 
         
     }
@@ -68,21 +69,22 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         let view = NSBundle.mainBundle().loadNibNamed("InstructorDetailView", owner: self, options: nil)[0] as! UIView
         let viewInfo = NSBundle.mainBundle().loadNibNamed("InstructorInfo", owner: self, options: nil)[0] as! UIView
         self.layoutIfNeeded()
-        view.frame = CGRectMake(0, self.frame.size.height/2, self.frame.size.width, self.frame.size.height/2)
-        viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/2)
+        view.frame = CGRectMake(0, 3*self.frame.size.height/5 + 30, self.frame.size.width, self.frame.size.height/5)
+        viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, 2*self.frame.size.height/5)
+        view.layoutIfNeeded()
         self.addSubview(view)
         self.addSubview(viewInfo)
        
         // Store original location of detail view
-        self.originalDetailFrame = self.vDetailContainer.frame
+        //self.originalDetailFrame = self.vDetailContainer.frame
         
     }
     
     // MARK: Update instructor info into view
     func viewInstructorInfo() {
         if let inst = self.instructor {
-           // LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
-           // self.lblInstructorName.text = inst.name
+            LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
+            self.lblIntructorName.text = inst.name
             if inst.classes.count > 0 {
                 self.txfClass.text = inst.classes[0]
             }
