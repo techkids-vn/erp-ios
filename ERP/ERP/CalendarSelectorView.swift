@@ -22,6 +22,7 @@ class CalendarSelectorView: UIView ,CVCalendarViewDelegate, CVCalendarMenuViewDe
         self.calendarView.calendarDelegate = self
         self.calendarMenu.menuViewDelegate = self
         self.calendarMenu.dayOfWeekTextColor = UIColor.whiteColor()
+        self.calendarMenu.tintColor = UIColor.whiteColor()
     }
     
     required init?(coder aDecoder: NSCoder) {

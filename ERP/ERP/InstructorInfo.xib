@@ -47,7 +47,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="GEP-aB-cWS" secondAttribute="height" multiplier="1:1" id="EPN-KJ-hWB"/>
                             </constraints>
-                            <state key="normal" title="Class">
+                            <state key="normal">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
@@ -57,7 +57,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ky8-H6-XXI" secondAttribute="height" multiplier="1:1" id="BsP-CT-Mww"/>
                             </constraints>
-                            <state key="normal" title="Finish">
+                            <state key="normal">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
@@ -91,7 +91,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="TxH-Fg-W4o" secondAttribute="height" multiplier="1:1" id="nne-QU-KGF"/>
                             </constraints>
-                            <state key="normal" title="Role">
+                            <state key="normal">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
@@ -101,12 +101,12 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="vD9-ly-XAX" secondAttribute="height" multiplier="1:1" id="UAR-Gh-AHt"/>
                             </constraints>
-                            <state key="normal" title="Calendar">
+                            <state key="normal">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.14509803921568626" green="0.21568627450980393" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="U18-Ab-jXh" firstAttribute="centerX" secondItem="FI0-cw-HqF" secondAttribute="centerX" id="18v-Kb-CWK"/>
                         <constraint firstItem="YA8-ww-T7a" firstAttribute="leading" secondItem="GEP-aB-cWS" secondAttribute="trailing" id="6tz-nG-00z"/>

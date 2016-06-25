@@ -44,11 +44,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
         }.addDisposableTo(self.rx_disposeBag)
         
         self.navigationItem.rightBarButtonItem = self.btiDone
-        
-        self.btiDone.rx_tap.subscribeNext {
-            self.vInstructorDetail.addOrUpdateTeachingRecord()
-            self.navigationController?.popViewControllerAnimated(true)
-        }.addDisposableTo(self.rx_disposeBag)
         self.configButtonAtFirst()
         self.loadClass()
         self.view.addGestureRecognizer(tapGesture)
