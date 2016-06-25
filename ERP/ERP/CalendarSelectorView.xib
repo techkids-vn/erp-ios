@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CalendarSelectorView" customModule="ERP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="417" height="324"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLv-nc-4bH" customClass="CVCalendarView" customModule="CVCalendar">
+                    <rect key="frame" x="21" y="77" width="375" height="210"/>
+                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdk-9q-nMw" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                    <rect key="frame" x="21" y="18" width="375" height="59"/>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Qdk-9q-nMw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="3ub-W3-0Kk"/>
+                <constraint firstItem="BLv-nc-4bH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="8h9-SR-DhC"/>
+                <constraint firstItem="BLv-nc-4bH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="QYT-CJ-44H"/>
+                <constraint firstItem="Qdk-9q-nMw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mUV-vp-duz"/>
+                <constraint firstItem="Qdk-9q-nMw" firstAttribute="width" secondItem="BLv-nc-4bH" secondAttribute="width" id="n1v-J7-tvX"/>
+                <constraint firstItem="BLv-nc-4bH" firstAttribute="top" secondItem="Qdk-9q-nMw" secondAttribute="bottom" id="nyy-WE-Mwp"/>
+                <constraint firstItem="BLv-nc-4bH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.65" id="ow9-sD-jGv"/>
+                <constraint firstItem="BLv-nc-4bH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="20" id="vxh-S7-Nbv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="calendarMenu" destination="Qdk-9q-nMw" id="tj1-aM-r4y"/>
+                <outlet property="calendarView" destination="BLv-nc-4bH" id="lsP-1U-N9e"/>
+            </connections>
+            <point key="canvasLocation" x="243.5" y="490"/>
+        </view>
+    </objects>
+</document>

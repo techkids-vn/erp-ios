@@ -20,17 +20,26 @@ class ClassSelectorView: UIView {
         }
     }
     
+    var classSelected : Variable<String> = Variable("")
+    
     func layout() {
         classData.value = self.instructor.classes
     }
     
     override func awakeFromNib() {
+        
         let cellNib =  UINib(nibName: "ClassCell", bundle: nil)
         self.tbvClass.registerNib(cellNib, forCellReuseIdentifier: "Cell")
         
         _ = classData.asObservable().bindTo(tbvClass.rx_itemsWithCellIdentifier("Cell", cellType: ClassCell.self)) {
             row, data, cell in
             cell.lblText!.text = data
+        }
+        
+        _ = self.tbvClass.rx_itemSelected.subscribeNext {
+            indexPath in
+            self.classSelected.value = self.classData.value[indexPath.row]
+            print("\(self.classSelected )")
         }
             
     }

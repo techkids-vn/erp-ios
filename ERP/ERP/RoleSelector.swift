@@ -20,6 +20,8 @@ class RoleSelector: UIView {
         }
     }
     
+    var roleSelected : Variable<String> = Variable("")
+    
     func layout() {
         roleData.value = instructor.roles
     }
@@ -31,6 +33,11 @@ class RoleSelector: UIView {
         _ = roleData.asObservable().bindTo(tbvRole.rx_itemsWithCellIdentifier("Cell", cellType: ClassCell.self)) {
             row, data, cell in
             cell.lblText!.text = data
+        }
+        
+        _ = tbvRole.rx_itemSelected.subscribeNext{
+            indexPath in
+            self.roleSelected.value = self.roleData.value[indexPath.row]
         }
         
     }

@@ -19,7 +19,7 @@ class NetworkContext {
     
     private static func addUserName(inout json : [String:String]) -> [String:String]{
         if let user = DB.getUser() {
-            json["username"] = user.userName
+            json["user_name"] = user.userName
         }
         return json
     }
