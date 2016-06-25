@@ -72,6 +72,9 @@ class SearchViewController: UIViewController {
         self.waitIndicator.activityIndicatorViewStyle = .White
         self.waitIndicator.center = self.clvInstructor.center
         self.waitIndicator.startAnimating()
+        self.searchBar.backgroundColor = UIColor(netHex: 0x27ae60)
+        self.searchBar.tintColor = UIColor.clearColor()
+        self.searchBar.backgroundImage = UIImage()
         self.configLayout()
     }
     

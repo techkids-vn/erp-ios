@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
         self.txtPassword.text = "admin"
         self.waitIndicator.hidesWhenStopped = true
         self.waitIndicator.activityIndicatorViewStyle = .Gray
+        
     }
     
     func login() {

@@ -21,6 +21,7 @@ class CalendarSelectorView: UIView ,CVCalendarViewDelegate, CVCalendarMenuViewDe
     override func awakeFromNib() {
         self.calendarView.calendarDelegate = self
         self.calendarMenu.menuViewDelegate = self
+        self.calendarMenu.dayOfWeekTextColor = UIColor.whiteColor()
     }
     
     required init?(coder aDecoder: NSCoder) {
