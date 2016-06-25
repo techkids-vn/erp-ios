@@ -346,7 +346,7 @@
         <!--Instructor Detail View Controller-->
         <scene sceneID="pYv-pv-dgb">
             <objects>
-                <viewController storyboardIdentifier="AddTeachingRecord" id="1LV-Ed-OqF" userLabel="Instructor Detail View Controller" customClass="AddTeachingRecord" customModule="ERP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddOrUpdateTeachingRecord" id="1LV-Ed-OqF" userLabel="Instructor Detail View Controller" customClass="AddOrUpdateTeachingRecordViewController" customModule="ERP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z4Q-YU-SkA"/>
                         <viewControllerLayoutGuide type="bottom" id="JQK-US-o7D"/>
@@ -356,16 +356,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-Ac-IDr" userLabel="vInstructorDetail" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-nh-JDs">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lvB-nh-JDs" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leading" id="22f-3p-yxj"/>
+                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="height" secondItem="ye2-UM-Fxt" secondAttribute="height" multiplier="0.5" id="917-sk-qrA"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="bottom" secondItem="ye2-UM-Fxt" secondAttribute="bottomMargin" id="92O-XK-V1N"/>
+                            <constraint firstItem="lvB-nh-JDs" firstAttribute="top" secondItem="yoR-Ac-IDr" secondAttribute="bottom" id="Azg-w0-X2k"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="ye2-UM-Fxt" secondAttribute="topMargin" id="f0A-dc-BZu"/>
                             <constraint firstAttribute="trailing" secondItem="yoR-Ac-IDr" secondAttribute="trailing" id="gbq-BM-4Iq"/>
+                            <constraint firstAttribute="trailing" secondItem="lvB-nh-JDs" secondAttribute="trailing" id="oK9-sr-ojX"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leading" id="oxc-xi-nZo"/>
+                            <constraint firstAttribute="bottom" secondItem="lvB-nh-JDs" secondAttribute="bottom" id="sbv-Qr-BSY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="92O-XK-V1N"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="done" id="OR0-LR-okK"/>
@@ -374,11 +388,12 @@
                     <connections>
                         <outlet property="btiDone" destination="OR0-LR-okK" id="bI1-Ly-eF6"/>
                         <outlet property="vInstructorDetail" destination="yoR-Ac-IDr" id="NWH-IJ-D4g"/>
+                        <outlet property="vMaskView" destination="lvB-nh-JDs" id="TYl-tc-0fE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbG-K4-Zxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="1797"/>
+            <point key="canvasLocation" x="210" y="1797"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="M0g-MM-9vM">

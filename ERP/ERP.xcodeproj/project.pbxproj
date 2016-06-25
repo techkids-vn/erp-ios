@@ -18,7 +18,7 @@
 		845D77C31D1032EC007064EF /* ClassRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C21D1032EC007064EF /* ClassRole.swift */; };
 		845D77C81D103E17007064EF /* InstructorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77C71D103E17007064EF /* InstructorTest.swift */; };
 		845D77D01D11121F007064EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77CF1D11121F007064EF /* Constants.swift */; };
-		845D77D21D11135D007064EF /* AddTeachingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77D11D11135D007064EF /* AddTeachingRecord.swift */; };
+		845D77D21D11135D007064EF /* AddOrUpdateTeachingRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D77D11D11135D007064EF /* AddOrUpdateTeachingRecordViewController.swift */; };
 		846FB4221D1ABC14007BBB34 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FB4211D1ABC14007BBB34 /* HistoryViewController.swift */; };
 		846FBA1A1D1BD0620097B6E7 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBA191D1BD0620097B6E7 /* LeftViewController.swift */; };
 		846FBA1C1D1BDA920097B6E7 /* LeftMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FBA1B1D1BDA920097B6E7 /* LeftMenuItem.swift */; };
@@ -51,6 +51,12 @@
 		998278691D0DE489004F6846 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278681D0DE489004F6846 /* SearchViewController.swift */; };
 		9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */; };
 		99C505EF1D16E234000D0EDC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C505EE1D16E234000D0EDC /* UIViewControllerExtension.swift */; };
+		99EE6EBB1D1DC51400594AF7 /* ClassSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EE6EBA1D1DC51400594AF7 /* ClassSelector.xib */; };
+		99EE6EC51D1DCF1100594AF7 /* ClassSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EE6EC41D1DCF1100594AF7 /* ClassSelectorView.swift */; };
+		99EE6EC91D1DE4ED00594AF7 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EE6EC71D1DE4ED00594AF7 /* ClassCell.swift */; };
+		99EE6ECA1D1DE4ED00594AF7 /* ClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EE6EC81D1DE4ED00594AF7 /* ClassCell.xib */; };
+		99EE6ECC1D1DE77900594AF7 /* RoleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EE6ECB1D1DE77900594AF7 /* RoleSelector.swift */; };
+		99EE6ECE1D1DE7A900594AF7 /* RoleSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EE6ECD1D1DE7A900594AF7 /* RoleSelector.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +73,7 @@
 		845D77C21D1032EC007064EF /* ClassRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRole.swift; sourceTree = "<group>"; };
 		845D77C71D103E17007064EF /* InstructorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorTest.swift; sourceTree = "<group>"; };
 		845D77CF1D11121F007064EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		845D77D11D11135D007064EF /* AddTeachingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeachingRecord.swift; sourceTree = "<group>"; };
+		845D77D11D11135D007064EF /* AddOrUpdateTeachingRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOrUpdateTeachingRecordViewController.swift; sourceTree = "<group>"; };
 		846FB4211D1ABC14007BBB34 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		846FBA191D1BD0620097B6E7 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		846FBA1B1D1BDA920097B6E7 /* LeftMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuItem.swift; sourceTree = "<group>"; };
@@ -101,6 +107,12 @@
 		998278681D0DE489004F6846 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JASON+Alamofire.swift"; sourceTree = "<group>"; };
 		99C505EE1D16E234000D0EDC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		99EE6EBA1D1DC51400594AF7 /* ClassSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassSelector.xib; sourceTree = "<group>"; };
+		99EE6EC41D1DCF1100594AF7 /* ClassSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassSelectorView.swift; sourceTree = "<group>"; };
+		99EE6EC71D1DE4ED00594AF7 /* ClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassCell.swift; sourceTree = "<group>"; };
+		99EE6EC81D1DE4ED00594AF7 /* ClassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCell.xib; sourceTree = "<group>"; };
+		99EE6ECB1D1DE77900594AF7 /* RoleSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleSelector.swift; sourceTree = "<group>"; };
+		99EE6ECD1D1DE7A900594AF7 /* RoleSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoleSelector.xib; sourceTree = "<group>"; };
 		DF7513E8D07B7B138EB56812 /* Pods-ERP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,8 +283,14 @@
 				8417C4AC1D1D995300A77D20 /* TeachingRecord Cell */,
 				99422DE01D0F1E17006BD11E /* Instructor Cell */,
 				846FBA1D1D1BDC1D0097B6E7 /* Menu Cell */,
-				84162E781D15B61F00CF6319 /* InstructorDetailView.xib */,
+				99EE6EC61D1DE4C200594AF7 /* Class Cell */,
 				99023D4A1D1D8EFA00EEE621 /* InstructorInfo.xib */,
+				84162E781D15B61F00CF6319 /* InstructorDetailView.xib */,
+				84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */,
+				99EE6EBA1D1DC51400594AF7 /* ClassSelector.xib */,
+				99EE6EC41D1DCF1100594AF7 /* ClassSelectorView.swift */,
+				99EE6ECD1D1DE7A900594AF7 /* RoleSelector.xib */,
+				99EE6ECB1D1DE77900594AF7 /* RoleSelector.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -284,8 +302,7 @@
 				998278621D0DDA39004F6846 /* StartViewController.swift */,
 				84EB36AB1D0D63E00032F0F9 /* LoginViewController.swift */,
 				998278681D0DE489004F6846 /* SearchViewController.swift */,
-				845D77D11D11135D007064EF /* AddTeachingRecord.swift */,
-				84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */,
+				845D77D11D11135D007064EF /* AddOrUpdateTeachingRecordViewController.swift */,
 				846FB4211D1ABC14007BBB34 /* HistoryViewController.swift */,
 				846FBA191D1BD0620097B6E7 /* LeftViewController.swift */,
 				8417C4AF1D1D9B6700A77D20 /* TeachingRecordViewController.swift */,
@@ -344,6 +361,15 @@
 				9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */,
 			);
 			name = "Alamofire Extension";
+			sourceTree = "<group>";
+		};
+		99EE6EC61D1DE4C200594AF7 /* Class Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99EE6EC71D1DE4ED00594AF7 /* ClassCell.swift */,
+				99EE6EC81D1DE4ED00594AF7 /* ClassCell.xib */,
+			);
+			name = "Class Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,10 +440,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8417C4B21D1D9B6700A77D20 /* TeachingRecordViewController.xib in Resources */,
+				99EE6EBB1D1DC51400594AF7 /* ClassSelector.xib in Resources */,
 				84EB36B41D0D63E00032F0F9 /* LaunchScreen.storyboard in Resources */,
 				84EB36B11D0D63E00032F0F9 /* Assets.xcassets in Resources */,
+				99EE6ECA1D1DE4ED00594AF7 /* ClassCell.xib in Resources */,
 				99023D4B1D1D8EFA00EEE621 /* InstructorInfo.xib in Resources */,
 				84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */,
+				99EE6ECE1D1DE7A900594AF7 /* RoleSelector.xib in Resources */,
 				84162E791D15B61F00CF6319 /* InstructorDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,9 +506,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EE6EC91D1DE4ED00594AF7 /* ClassCell.swift in Sources */,
 				847EF7EC1D17ACF9008FAEE0 /* NetworkUtil.swift in Sources */,
 				8417C4B51D1D9DE300A77D20 /* TeachingRecordCell.swift in Sources */,
-				845D77D21D11135D007064EF /* AddTeachingRecord.swift in Sources */,
+				845D77D21D11135D007064EF /* AddOrUpdateTeachingRecordViewController.swift in Sources */,
 				99422DE41D0F2BF7006BD11E /* Instructor.swift in Sources */,
 				846FBA1A1D1BD0620097B6E7 /* LeftViewController.swift in Sources */,
 				84113C341D12DF750071966E /* InstructorTeachingRecordTest.swift in Sources */,
@@ -508,11 +538,13 @@
 				9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */,
 				84A4ED9C1D1CEB8900974319 /* TeachingRecordRequestTest.swift in Sources */,
 				992846DE1D105D2600C7FC3F /* LazyImage.swift in Sources */,
+				99EE6ECC1D1DE77900594AF7 /* RoleSelector.swift in Sources */,
 				8413843B1D12BBDC00D84B17 /* ResponseMessage.swift in Sources */,
 				99C505EF1D16E234000D0EDC /* UIViewControllerExtension.swift in Sources */,
 				845D77C81D103E17007064EF /* InstructorTest.swift in Sources */,
 				998278651D0DDD5C004F6846 /* User.swift in Sources */,
 				8417C4B11D1D9B6700A77D20 /* TeachingRecordViewController.swift in Sources */,
+				99EE6EC51D1DCF1100594AF7 /* ClassSelectorView.swift in Sources */,
 				84162E7B1D15B95100CF6319 /* InstructorDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

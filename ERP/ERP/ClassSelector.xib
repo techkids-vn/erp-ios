@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ClassSelectorView" customModule="ERP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V7i-BK-OvO">
+                    <rect key="frame" x="0.0" y="10" width="600" height="590"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="V7i-BK-OvO" secondAttribute="trailing" id="R5e-W9-sEu"/>
+                <constraint firstItem="V7i-BK-OvO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cen-3X-BDz"/>
+                <constraint firstAttribute="bottom" secondItem="V7i-BK-OvO" secondAttribute="bottom" id="inm-wM-a5Y"/>
+                <constraint firstItem="V7i-BK-OvO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="k3F-4N-XP3"/>
+            </constraints>
+            <connections>
+                <outlet property="tbvClass" destination="V7i-BK-OvO" id="Y7E-xZ-ksZ"/>
+            </connections>
+        </view>
+    </objects>
+</document>

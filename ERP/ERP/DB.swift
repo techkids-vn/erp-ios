@@ -54,6 +54,10 @@ class DB: Object {
         })
     }
     
+    static func getInstructorByCode(code: String) -> Instructor? {
+        return realm.objects(Instructor).filter("code = '\(code)'").first
+    }
+    
     static func deleteAllInstructors() {
         let instructors = getAllInstructors()
         for instructor in instructors {
