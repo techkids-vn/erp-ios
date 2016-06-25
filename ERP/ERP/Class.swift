@@ -39,4 +39,13 @@ class Class: Object {
             return code
         }
     }
+    
+    static func get(code: String) -> Class? {
+        if let foundItem = all.filter ({ item in return item.code == code }).first {
+            return foundItem
+        }
+        else {
+            return nil
+        }
+    }
 }

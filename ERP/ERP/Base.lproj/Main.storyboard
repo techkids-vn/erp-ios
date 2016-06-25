@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RWq-NJ-ztJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RWq-NJ-ztJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -185,9 +185,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gJG-wm-ZaD">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                            </imageView>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="dEF-82-K93">
                                 <rect key="frame" x="0.0" y="64" width="600" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.40253547205471124" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -320,15 +317,11 @@
                         <constraints>
                             <constraint firstItem="DNd-9c-cIN" firstAttribute="centerX" secondItem="n26-aK-Z3d" secondAttribute="centerX" id="3JG-9X-4Lt"/>
                             <constraint firstAttribute="trailing" secondItem="dEF-82-K93" secondAttribute="trailing" id="9as-wq-CTk"/>
-                            <constraint firstItem="gJG-wm-ZaD" firstAttribute="leading" secondItem="1hL-Yo-Vua" secondAttribute="leading" id="A3F-71-gnr"/>
                             <constraint firstItem="XCi-AD-212" firstAttribute="top" secondItem="n26-aK-Z3d" secondAttribute="bottom" constant="10" id="BLr-Q6-TSK"/>
                             <constraint firstItem="n26-aK-Z3d" firstAttribute="leading" secondItem="1hL-Yo-Vua" secondAttribute="leading" id="BXj-bp-b4W"/>
                             <constraint firstItem="DNd-9c-cIN" firstAttribute="centerY" secondItem="n26-aK-Z3d" secondAttribute="centerY" id="ORv-OT-fVQ"/>
-                            <constraint firstAttribute="trailing" secondItem="gJG-wm-ZaD" secondAttribute="trailing" id="XGf-2X-N1g"/>
-                            <constraint firstItem="XCi-AD-212" firstAttribute="top" secondItem="gJG-wm-ZaD" secondAttribute="bottom" id="Zpb-oa-zlC"/>
                             <constraint firstAttribute="trailing" secondItem="n26-aK-Z3d" secondAttribute="trailing" id="c6P-dv-fXd"/>
                             <constraint firstItem="dEF-82-K93" firstAttribute="leading" secondItem="1hL-Yo-Vua" secondAttribute="leading" id="fcu-Zl-Cc4"/>
-                            <constraint firstItem="gJG-wm-ZaD" firstAttribute="top" secondItem="sqS-3J-ONr" secondAttribute="bottom" id="iJD-6L-PPi"/>
                             <constraint firstItem="dEF-82-K93" firstAttribute="top" secondItem="sqS-3J-ONr" secondAttribute="bottom" id="m6e-Xg-0vj"/>
                             <constraint firstItem="n26-aK-Z3d" firstAttribute="top" secondItem="dEF-82-K93" secondAttribute="bottom" constant="8" id="uor-9v-XD5"/>
                         </constraints>
@@ -616,6 +609,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lYt-fS-foO" userLabel="aivWait">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="aWz-r1-yUZ"/>
+                                    <constraint firstAttribute="height" constant="20" id="tRr-Xt-SuM"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -624,11 +625,14 @@
                             <constraint firstItem="yXT-Dw-Q1O" firstAttribute="top" secondItem="gdu-nP-4vO" secondAttribute="bottom" id="F50-lI-uCf"/>
                             <constraint firstItem="I7a-pv-20Q" firstAttribute="top" secondItem="VAI-7z-qkc" secondAttribute="bottom" id="JDX-SO-Xrd"/>
                             <constraint firstItem="gdu-nP-4vO" firstAttribute="leading" secondItem="eXd-nY-EE5" secondAttribute="leading" id="Ot9-9f-ZJl"/>
+                            <constraint firstItem="lYt-fS-foO" firstAttribute="centerY" secondItem="eXd-nY-EE5" secondAttribute="centerY" id="Q7Q-tS-i4b"/>
                             <constraint firstItem="I7a-pv-20Q" firstAttribute="leading" secondItem="eXd-nY-EE5" secondAttribute="leading" id="RNW-Ac-Y1F"/>
                             <constraint firstAttribute="trailing" secondItem="I7a-pv-20Q" secondAttribute="trailing" id="RhK-3s-z8a"/>
+                            <constraint firstItem="lYt-fS-foO" firstAttribute="centerX" secondItem="eXd-nY-EE5" secondAttribute="centerX" id="m5L-FM-7AE"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aivWait" destination="lYt-fS-foO" id="odH-Uu-yVn"/>
                         <outlet property="sbSearch" destination="MS6-y5-m7R" id="wK2-5p-F65"/>
                         <outlet property="tbvHistory" destination="gdu-nP-4vO" id="hMh-eA-xPq"/>
                         <outlet property="vSearch" destination="I7a-pv-20Q" id="xP3-a5-Ou8"/>

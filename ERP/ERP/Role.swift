@@ -37,4 +37,13 @@ class Role: Object {
             return code
         }
     }
+    
+    static func get(code: String) -> Role? {
+        if let foundItem = all.filter ({ item in return item.code == code }).first {
+            return foundItem
+        }
+        else {
+            return nil
+        }
+    }
 }
