@@ -11,12 +11,16 @@ import RealmSwift
 import RxCocoa
 import RxSwift
 
-class AddTeachingRecord: UIViewController {
+class AddOrUpdateTeachingRecordViewController: UIViewController {
 
     var instructor : Instructor?    
 
+    @IBOutlet weak var vMaskView: UIView!
+
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
     @IBOutlet weak var btnDone: UIButton!
+    
+    var currentViewInMaskView : UIView?
     
     var rx_disposeBag = DisposeBag()
     @IBOutlet weak var btiDone: UIBarButtonItem!
@@ -27,9 +31,7 @@ class AddTeachingRecord: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.vInstructorDetail.instructor = self.instructor
-       
         // Setup gestures
         let tapGesture = UITapGestureRecognizer()
         _ = tapGesture.rx_event.subscribeNext {
@@ -45,6 +47,31 @@ class AddTeachingRecord: UIViewController {
         }.addDisposableTo(self.rx_disposeBag)
         
         self.view.addGestureRecognizer(tapGesture)
+        self.choseStep()
+    }
+    
+    func choseStep() {
+        _ = vInstructorDetail.btnClass.rx_tap.subscribeNext {
+            let view = NSBundle.mainBundle().loadNibNamed("ClassSelector", owner: self, options: nil)[0] as! ClassSelectorView
+            view.instructor = self.instructor
+            view.frame = self.vMaskView.bounds
+            for v in self.vMaskView.subviews {
+                v.removeFromSuperview()
+            }
+            self.vMaskView.addSubview(view)
+            self.currentViewInMaskView = view
+        }
+        
+        _ = vInstructorDetail.btnRole.rx_tap.subscribeNext {
+            let view = NSBundle.mainBundle().loadNibNamed("RoleSelector", owner: self, options: nil)[0] as! RoleSelector
+            view.instructor = self.instructor
+            view.frame = self.vMaskView.bounds
+            for v in self.vMaskView.subviews {
+                v.removeFromSuperview()
+            }
+            self.vMaskView.addSubview(view)
+            self.currentViewInMaskView = view
+        }
     }
     
     override func didReceiveMemoryWarning() {

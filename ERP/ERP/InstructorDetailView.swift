@@ -15,6 +15,10 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     
     // MARK: View references
     
+    @IBOutlet weak var btnFinish: UIButton!
+    @IBOutlet weak var btnCalendar: UIButton!
+    @IBOutlet weak var btnRole: UIButton!
+    @IBOutlet weak var btnClass: UIButton!
     @IBOutlet weak var imvAvatar: UIImageView!
     @IBOutlet weak var lblIntructorName: UILabel!
     @IBOutlet weak var txfClass: UITextField!
@@ -22,6 +26,7 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     @IBOutlet weak var txfDate: UITextField!
     @IBOutlet weak var vDetailContainer: UIView!
     
+    var classData : Variable<[String]> = Variable([])
     // MARK: Pickers
     var pcvClass : UIPickerView!
     var pcvRole : UIPickerView!
@@ -34,62 +39,39 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
     
     // Used to save the original frame of the detail view
     var originalDetailFrame : CGRect!
-    var originalInforFrame : CGRect!
-    
     var rx_disposeBag = DisposeBag()
-    
     var instructor : Instructor? {
         didSet {
             self.viewInstructorInfo()
         }
     }
     
+    
     override func awakeFromNib() {
         self.setupAvatar()
         self.setUpPickerViewForTextFields()
-       // imvAvatar.layoutIfNeeded()
-        //lblInstructorName.layoutIfNeeded()
-        txfClass.layoutIfNeeded()
-        txfRole.layoutIfNeeded()
-        txfDate.layoutIfNeeded()
-        //vDetailContainer.layoutIfNeeded()
-
-        
     }
-    /*@IBOutlet weak var imvAvatar: UIImageView!
-     @IBOutlet weak var lblInstructorName: UILabel!
-     @IBOutlet weak var lblTeam: UILabel!
-     @IBOutlet weak var txfClass: UITextField!
-     @IBOutlet weak var txfRole: UITextField!
-     @IBOutlet weak var txfDate: UITextField!
-     @IBOutlet weak var vDetailContainer: UIView!
-*/
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let view = NSBundle.mainBundle().loadNibNamed("InstructorDetailView", owner: self, options: nil)[0] as! UIView
         let viewInfo = NSBundle.mainBundle().loadNibNamed("InstructorInfo", owner: self, options: nil)[0] as! UIView
         self.layoutIfNeeded()
-        view.frame = CGRectMake(0, 3*self.frame.size.height/5 + 30, self.frame.size.width, self.frame.size.height/5)
-        viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, 2*self.frame.size.height/5)
-        view.layoutIfNeeded()
-        self.addSubview(view)
+        viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
+
         self.addSubview(viewInfo)
-       
-        // Store original location of detail view
-        //self.originalDetailFrame = self.vDetailContainer.frame
-        
     }
     
+        
     // MARK: Update instructor info into view
     func viewInstructorInfo() {
         if let inst = self.instructor {
             LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
             self.lblIntructorName.text = inst.name
             if inst.classes.count > 0 {
-                self.txfClass.text = inst.classes[0]
+                //self.txfClass.text = inst.classes[0]
             }
             if inst.roles.count > 0 {
-                self.txfRole.text = inst.roles[0]
+                //self.txfRole.text = inst.roles[0]
             }
         }
     }
@@ -107,24 +89,24 @@ class InstructorDetailView: UIView, UIPickerViewDelegate, UIPickerViewDataSource
         self.pcvRole = UIPickerView()
         self.dpvDate = UIDatePicker()
         
-        self.pcvClass.delegate = self
-        self.pcvRole.delegate = self
-        self.pcvClass.dataSource = self
-        self.pcvRole.dataSource = self
+//        self.pcvClass.delegate = self
+//        self.pcvRole.delegate = self
+//        self.pcvClass.dataSource = self
+//        self.pcvRole.dataSource = self
         
         _ = self.dpvDate.rx_date.subscribeNext {
             date in
             self.selectedDate  = date
-            self.txfDate.text = date.string
+            //self.txfDate.text = date.string
         }.addDisposableTo(self.rx_disposeBag)
-        
-        self.txfClass.inputView = self.pcvClass
-        self.txfRole.inputView = self.pcvRole
-        self.txfDate.inputView = self.dpvDate
-        
-        self.txfRole.delegate = self;
-        self.txfClass.delegate = self;
-        self.txfDate.delegate = self;
+//        
+//        self.txfClass.inputView = self.pcvClass
+//        self.txfRole.inputView = self.pcvRole
+//        self.txfDate.inputView = self.dpvDate
+//        
+//        self.txfRole.delegate = self;
+//        self.txfClass.delegate = self;
+//        self.txfDate.delegate = self;
     }
 
     func donePicker(pickerView : UIBarButtonItem) {
