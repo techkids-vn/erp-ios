@@ -16,7 +16,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
     var instructor : Instructor?    
 
     @IBOutlet weak var vMaskView: UIView!
-
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
     @IBOutlet weak var btnDone: UIButton!
     
@@ -28,6 +27,11 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
     var pcvClass : UIPickerView!
     var pcvRole : UIPickerView!
     var dpvDate : UIDatePicker!
+    
+    var classSelected : Variable<String> = Variable("")
+    var roleSelected : Variable<String> = Variable("")
+    var timeSelector : Variable<String> = Variable("")
+    var submitSelector : Variable<String> = Variable("")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,34 +49,162 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
             self.vInstructorDetail.addOrUpdateTeachingRecord()
             self.navigationController?.popViewControllerAnimated(true)
         }.addDisposableTo(self.rx_disposeBag)
-        
+        self.configButtonAtFirst()
+        self.loadClass()
         self.view.addGestureRecognizer(tapGesture)
         self.choseStep()
+        self.nextStep()
+        for recognizer in self.view.gestureRecognizers ?? [] {
+            self.view.removeGestureRecognizer(recognizer)
+        }
+    }
+    
+    func nextStep() {
+        _ = self.classSelected.asObservable().subscribeNext {
+            classSelect in
+            if classSelect != "" {
+                self.loadRole()
+                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnRole.userInteractionEnabled = true
+                
+                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
+                self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
+                
+                self.vInstructorDetail.btnFinish.backgroundColor = UIColor.grayColor()
+                self.vInstructorDetail.btnFinish.userInteractionEnabled = false
+            }
+        }
+        
+        _ = self.roleSelected.asObservable().subscribeNext {
+            role in
+            if role != "" {
+                self.loadCalendar()
+                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnRole.userInteractionEnabled = true
+                
+                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
+                
+                self.vInstructorDetail.btnFinish.backgroundColor = UIColor.grayColor()
+                self.vInstructorDetail.btnFinish.userInteractionEnabled = false
+            }
+        }
+        
+        _ = self.timeSelector.asObservable().subscribeNext {
+            time in
+            if time != "" {
+                self.loadFinish()
+                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnRole.userInteractionEnabled = true
+                
+                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
+                
+                self.vInstructorDetail.btnFinish.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnFinish.userInteractionEnabled = true
+            }
+        }
+        
+        _ = self.submitSelector.asObservable().subscribeNext {
+            submit in
+            if submit != "" {
+                self.requestDataToServer(self.classSelected.value, roleCode: self.roleSelected.value, time: self.timeSelector.value)
+            }
+        }
+    }
+    
+    func requestDataToServer(classCode: String, roleCode : String, time : String) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.dateFromString(time)!
+        let record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+        let request = TeachingRecordRequest.create(record, requestType: RequestType.CREATE)
+        NetworkContext.sendTeachingRecordRequest(request, requestDone: {
+            code, message in
+            print(message)
+        })
+    }
+    
+    func configButtonAtFirst() {
+        self.vInstructorDetail.btnRole.backgroundColor = UIColor.grayColor()
+        self.vInstructorDetail.btnRole.userInteractionEnabled = false
+        
+        self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
+        self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
+        
+        self.vInstructorDetail.btnFinish.backgroundColor = UIColor.grayColor()
+        self.vInstructorDetail.btnFinish.userInteractionEnabled = false
+    }
+ 
+    func loadClass() {
+        let view = NSBundle.mainBundle().loadNibNamed("ClassSelector", owner: self, options: nil)[0] as! ClassSelectorView
+        view.instructor = self.instructor
+        view.frame = self.vMaskView.bounds
+        for v in self.vMaskView.subviews {
+            v.removeFromSuperview()
+        }
+        view.classSelected = self.classSelected
+        self.vMaskView.addSubview(view)
+        self.currentViewInMaskView = view
+    }
+    
+    func loadRole() {
+        let view = NSBundle.mainBundle().loadNibNamed("RoleSelector", owner: self, options: nil)[0] as! RoleSelector
+        view.instructor = self.instructor
+        view.frame = self.vMaskView.bounds
+        for v in self.vMaskView.subviews {
+            v.removeFromSuperview()
+        }
+        view.roleSelected = self.roleSelected
+        self.vMaskView.addSubview(view)
+        self.currentViewInMaskView = view
+    }
+    
+    func loadCalendar() {
+        let view = NSBundle.mainBundle().loadNibNamed("CalendarSelectorView", owner: self, options: nil)[0] as! CalendarSelectorView
+
+        view.frame = self.vMaskView.bounds
+        for v in self.vMaskView.subviews {
+            v.removeFromSuperview()
+        }
+        view.time = self.timeSelector
+        self.vMaskView.addSubview(view)
+        self.currentViewInMaskView = view
+    }
+    
+    func loadFinish() {
+        let view = NSBundle.mainBundle().loadNibNamed("FinishSelectorView", owner: self, options: nil)[0] as! FinishSelectorView
+        
+        view.frame = self.vMaskView.bounds
+        for v in self.vMaskView.subviews {
+            v.removeFromSuperview()
+        }
+        view.submitFlag = self.submitSelector
+        self.vMaskView.addSubview(view)
+        self.currentViewInMaskView = view
+
     }
     
     func choseStep() {
         _ = vInstructorDetail.btnClass.rx_tap.subscribeNext {
-            let view = NSBundle.mainBundle().loadNibNamed("ClassSelector", owner: self, options: nil)[0] as! ClassSelectorView
-            view.instructor = self.instructor
-            view.frame = self.vMaskView.bounds
-            for v in self.vMaskView.subviews {
-                v.removeFromSuperview()
-            }
-            self.vMaskView.addSubview(view)
-            self.currentViewInMaskView = view
+            self.loadClass()
         }
         
         _ = vInstructorDetail.btnRole.rx_tap.subscribeNext {
-            let view = NSBundle.mainBundle().loadNibNamed("RoleSelector", owner: self, options: nil)[0] as! RoleSelector
-            view.instructor = self.instructor
-            view.frame = self.vMaskView.bounds
-            for v in self.vMaskView.subviews {
-                v.removeFromSuperview()
-            }
-            self.vMaskView.addSubview(view)
-            self.currentViewInMaskView = view
+            self.loadRole()
         }
+        
+        _ = vInstructorDetail.btnCalendar.rx_tap.subscribeNext {
+            self.loadCalendar()
+        }
+        
+        _ = vInstructorDetail.btnFinish.rx_tap.subscribeNext {
+            self.loadFinish()
+        }
+
+        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
