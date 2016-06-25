@@ -20,7 +20,9 @@ class TeachingRecordCell: UITableViewCell {
     
     func layout() {
         if let teachingRecord = self.teachingRecord {
-            self.lblInstructorName.text = teachingRecord.code
+            if let instructor = teachingRecord.instructor {
+                self.lblInstructorName.text = instructor.name
+            }
         }
     }
 

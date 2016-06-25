@@ -16,20 +16,23 @@ class TeachingRecord : Object {
     dynamic var roleCode = ""
     dynamic var date = NSDate()
     dynamic var recordId = ""
+    dynamic var userName = ""
     
-    static func create(code: String, classCode: String, roleCode: String, date: NSDate, recordId : String) -> TeachingRecord {
+    static func create(code: String, classCode: String, roleCode: String, date: NSDate, recordId : String, userName : String) -> TeachingRecord {
         let teachingRecord = TeachingRecord()
         teachingRecord.code = code
         teachingRecord.classCode = classCode
         teachingRecord.roleCode = roleCode
         teachingRecord.date = date
         teachingRecord.recordId = recordId
+        teachingRecord.userName = userName
         DB.addOrUpdateTeachingRecord(teachingRecord)
         return teachingRecord
     }
     
     static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> TeachingRecord {
-        return create(code, classCode: classCode, roleCode: roleCode, date: date, recordId: "")
+        
+        return create(code, classCode: classCode, roleCode: roleCode, date: date, recordId: "", userName: "")
     }
     
     static func create(json : JSON) -> TeachingRecord {
@@ -39,13 +42,15 @@ class TeachingRecord : Object {
         let roleCode = json[.roleCode]
         let date = json[.date].date // MARK: Add code to secure date conversion
         let recordId = json[.id][.oid]
+        let userName = json[.userName]
 
         let record = create(
             code,
             classCode: classCode,
             roleCode: roleCode,
             date: date,
-            recordId: recordId)
+            recordId: recordId,
+            userName: userName)
         return record
     }
   
@@ -79,6 +84,18 @@ extension TeachingRecord {
             ]
         }
     }
+    
+    var instructor : Instructor? {
+        get {
+            return DB.getInstructorByCode(self.code)
+        }
+    }
+    
+//    var deletable : Bool {
+//        get {
+//            
+//        }
+//    }
 }
 
 

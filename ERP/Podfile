@@ -6,8 +6,8 @@ target 'ERP' do
 use_frameworks!
 
   # Pods for ERP
-pod 'RxSwift'
-pod 'RxCocoa'
+pod 'RxSwift', '~> 2.5'
+pod 'RxCocoa', '~> 2.5'
 pod 'Alamofire'
 pod 'RealmSwift'
 pod 'JASON'

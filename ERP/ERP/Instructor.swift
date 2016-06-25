@@ -26,7 +26,7 @@ class Instructor: Object {
         instructor.team = team
         instructor.code = code
         instructor.classRoles = classRoles;
-        
+        DB.addOrUpdateInstructor(instructor)
         return instructor
     }
     

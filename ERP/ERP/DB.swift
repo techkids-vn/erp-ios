@@ -35,6 +35,20 @@ class DB: Object {
         }
     }
     
+    static func addOrUpdateInstructor(instructor: Instructor) {
+        let foundInstructorOpt = realm.objects(Instructor).filter("code == '\(instructor.code)'").first
+        if let foundInstructor = foundInstructorOpt {
+            try! realm.write {
+                // MARK: Test update classroles for instructor
+                foundInstructor.classRoles = instructor.classRoles
+            }
+        } else {
+            try! realm.write {
+                realm.add(instructor)
+            }
+        }
+    }
+    
     static func findInstructorByCode(code: String) -> Instructor? {
         let foundInstructors = realm.objects(Instructor).filter("code == \(code)")
         if foundInstructors.count == 0 {
@@ -54,8 +68,11 @@ class DB: Object {
         })
     }
     
-    static func getInstructorByCode(code: String) -> Instructor? {
-        return realm.objects(Instructor).filter("code = '\(code)'").first
+    static func getInstructorByCode(code : String) -> Instructor? {
+        for instructor in DB.getAllInstructors() {
+            print("\(instructor.code) == \(code)")
+        }
+        return realm.objects(Instructor).filter("code == '\(code)'").first
     }
     
     static func deleteAllInstructors() {
