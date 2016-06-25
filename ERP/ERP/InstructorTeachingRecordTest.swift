@@ -48,7 +48,7 @@ class InstructorTeachingRecordTest : NSObject {
         
         assert(oneRecord.recordId == "")
         
-        DB.updateInstructorTeachingRecord(oneRecord, recordId: "123456")
+        DB.updateTeachingRecord(oneRecord, recordId: "123456")
         
         let allRecords2 = DB.getAllInstructorTeachingRecords()
         assert(allRecords.count == 1)

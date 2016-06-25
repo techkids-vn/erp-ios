@@ -98,7 +98,7 @@ class DB: Object {
         }
     }
     
-    static func updateInstructorTeachingRecord(instTeachingRecord : TeachingRecord, recordId :
+    static func updateTeachingRecord(instTeachingRecord : TeachingRecord, recordId :
         String) {
         try! realm.write {
             instTeachingRecord.recordId = recordId
@@ -110,6 +110,12 @@ class DB: Object {
             try! realm.write {
                 realm.delete(instRecord)
             }
+        }
+    }
+    
+    static func deleteTeachingRecord(record: TeachingRecord) {
+        try! realm.write {
+            realm.delete(record)
         }
     }
     

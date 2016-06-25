@@ -38,3 +38,22 @@ class TeachingRecordRequest : Object {
     }
 }
 
+extension TeachingRecordRequest {
+    func handleResponse(response : ResponseMessageWithRecordId) {
+        if (response.isSuccess) {
+            switch self.requestType {
+            case .CREATE:
+                DB.updateTeachingRecord(self.record!, recordId: response.recordId!)
+                break
+            case .UPDATE:
+                break;
+            case .DELETE:
+                DB.deleteTeachingRecord(self.record!)
+                break;
+            }
+            DB.updateTeachingRecordRequest(self, status: .SENT_AND_SUCCEDED)
+        } else {
+            DB.updateTeachingRecordRequest(self, status: .SENT_AND_FAILED)
+        }
+    }
+}

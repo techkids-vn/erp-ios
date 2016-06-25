@@ -15,3 +15,6 @@ let GET_RECORD_INSTRUCTOR_API = "\(ROOT_API)/instructor/get-teaching-record"
 let ADD_RECORD_INSTRUCTOR_API = "\(ROOT_API)/instructor/add-teaching-record"
 let UPDATE_RECORD_INSTRUCTOR_API = "\(ROOT_API)/instructor/update-teaching-record"
 let DELETE_RECORD_INSTRUCTOR_API = "\(ROOT_API)/instructor/delete-teaching-record"
+
+let GET_CLASS_API = "\(ROOT_API)/classes"
+let GET_ROLE_API = "\(ROOT_API)/roles"

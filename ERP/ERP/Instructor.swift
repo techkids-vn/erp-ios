@@ -39,7 +39,7 @@ extension Instructor {
             for classRole in self.classRoles {
                 let classCode = classRole.classCode
                 if !classCodes.contains(classCode) {
-                    classCodes.append(classRole.classCode)
+                    classCodes.append(Class.getTitle(classRole.classCode))
                 }
             }
             return classCodes
@@ -52,7 +52,7 @@ extension Instructor {
             for classRole in self.classRoles {
                 let roleCode = classRole.roleCode
                 if !roleCodes.contains(roleCode) {
-                    roleCodes.append(roleCode)
+                    roleCodes.append(Role.getTitle(roleCode))
                 }
             }
             return roleCodes

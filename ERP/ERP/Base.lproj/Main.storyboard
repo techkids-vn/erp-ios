@@ -539,14 +539,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oTK-f3-Ym2" userLabel="imvAvatar">
-                                                    <rect key="frame" x="2" y="9" width="68" height="68"/>
+                                                    <rect key="frame" x="2" y="13" width="60" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="68" id="SMK-ig-jOT"/>
-                                                        <constraint firstAttribute="width" constant="68" id="W4t-C3-PUT"/>
+                                                        <constraint firstAttribute="height" constant="60" id="SMK-ig-jOT"/>
+                                                        <constraint firstAttribute="width" constant="60" id="W4t-C3-PUT"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62q-qC-1ae" userLabel="lblInstructorName">
-                                                    <rect key="frame" x="78" y="34" width="180" height="17"/>
+                                                    <rect key="frame" x="64" y="34" width="180" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="8F9-it-jjT"/>
                                                         <constraint firstAttribute="width" constant="180" id="ClH-mD-7ge"/>
@@ -588,7 +588,7 @@
                                                 <constraint firstItem="oTK-f3-Ym2" firstAttribute="leading" secondItem="zuu-ro-M86" secondAttribute="leading" constant="2" id="1Lj-tG-QjJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Qei-a6-gtk" secondAttribute="trailing" id="1xw-jp-75I"/>
                                                 <constraint firstAttribute="top" secondItem="62q-qC-1ae" secondAttribute="top" id="3aH-de-r8R"/>
-                                                <constraint firstItem="62q-qC-1ae" firstAttribute="leading" secondItem="oTK-f3-Ym2" secondAttribute="trailing" constant="8" id="EJR-on-eMu"/>
+                                                <constraint firstItem="62q-qC-1ae" firstAttribute="leading" secondItem="oTK-f3-Ym2" secondAttribute="trailing" constant="2" id="EJR-on-eMu"/>
                                                 <constraint firstItem="Qei-a6-gtk" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" constant="8" id="EZQ-s4-u14"/>
                                                 <constraint firstItem="jfP-lT-2oz" firstAttribute="leading" secondItem="zuu-ro-M86" secondAttribute="leading" id="NfA-O5-hbF"/>
                                                 <constraint firstItem="62q-qC-1ae" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" id="WOO-yk-pZE"/>

@@ -26,8 +26,8 @@ class TeachingRecordCell: UITableViewCell {
         if let teachingRecord = self.teachingRecord {
             if let instructor = teachingRecord.instructor {
                 self.lblInstructorName.text = instructor.name
-                self.lblClassName.text = teachingRecord.classCode
-                self.lblRoleName.text = teachingRecord.roleCode
+                self.lblClassName.text = teachingRecord.classTitle
+                self.lblRoleName.text = teachingRecord.roleTitle
                 LazyImage.showForImageView(self.imvAvatar, url: instructor.imgUrl)
             }
             if teachingRecord.editable {

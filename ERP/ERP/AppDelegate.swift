@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //InstructorTeachingRecordTest.testPostRecord()
         
         // Override point for customization after application launch.
+        
+        fetchClasses()
+        fetchRoles()
 
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -55,6 +58,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.customApperance()
         return true
 
+    }
+    
+    func fetchClasses() {
+        NetworkContext.fetchAllClasses( {
+            objs in
+            Class.all = objs.map { obj in return obj as! Class }
+        })
+    }
+    
+    func fetchRoles() {
+        NetworkContext.fetchAllRoles ( {
+            objs in
+            Role.all = objs.map { obj in return obj as! Role }
+        })
     }
     
     func customApperance() {

@@ -91,6 +91,18 @@ extension TeachingRecord {
         }
     }
     
+    var classTitle : String {
+        get {
+            return Class.getTitle(self.classCode)
+        }
+    }
+    
+    var roleTitle : String {
+        get {
+            return Role.getTitle(self.roleCode)
+        }
+    }
+    
     var editable : Bool {
         get {
             if let user = DB.getUser() {

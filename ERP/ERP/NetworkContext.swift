@@ -11,6 +11,7 @@ import JASON
 
 typealias RequestDone = (Int, String) -> Void
 typealias TeachingRecordFecthDone = ([TeachingRecord]) -> Void
+typealias FetchDone = ([AnyObject]) -> Void
 
 class NetworkContext {
     
@@ -51,21 +52,18 @@ class NetworkContext {
                 if let json = response.result.value {
                     print(json)
                     let responseMessage = ResponseMessageWithRecordId.init(json: json)
+                    request.handleResponse(responseMessage)
                     if responseMessage.isSuccess {
-                        DB.updateInstructorTeachingRecord(request.record!, recordId: responseMessage.recordId!)
-                        DB.updateTeachingRecordRequest(request, status: RequestStatus.SENT_AND_SUCCEDED)
                         if let done = requestDone {
                             done(RESULT_CODE_SUCCESS, "Requested sucessfully")
                         }
                     } else {
                         if let done = requestDone {
-                            DB.updateTeachingRecordRequest(request, status: RequestStatus.SENT_AND_FAILED)
                             done(RESULT_CODE_FAILURE, "Server responded but request failed")
                         }
                     }
                 } else {
                     if let done = requestDone {
-                        DB.updateTeachingRecordRequest(request, status: RequestStatus.NOT_SENT)
                         done(RESULT_CODE_FAILURE, "Server did not respond or did not understand the paramters")
                     }
                 }
@@ -81,6 +79,37 @@ class NetworkContext {
                 let teachingRecords = json[.items].map(TeachingRecord.create)
                 requestDone(teachingRecords)
             }
+        }
+    }
+    
+    // MARK: Class
+    static func fetchAllClasses(fetchDone : FetchDone) {
+        Alamofire.request(.GET, GET_CLASS_API)
+            .validate()
+            .responseJASON {
+                response in
+                if let json = response.result.value {
+                    let classes = json[.items].map {
+                        classJSON in
+                        return Class.create(classJSON) as AnyObject
+                    }
+                    fetchDone(classes)
+                }
+        }
+    }
+    
+    static func fetchAllRoles(fetchDone: FetchDone) {
+        Alamofire.request(.GET, GET_ROLE_API)
+            .validate()
+            .responseJASON {
+                response in
+                if let json = response.result.value {
+                    let roles = json[.items].map {
+                        roleJSON in
+                        return Role.create(roleJSON) as AnyObject
+                    }
+                    fetchDone(roles)
+                }
         }
     }
 }

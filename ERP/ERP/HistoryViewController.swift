@@ -15,9 +15,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tbvHistory: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar!
     @IBOutlet weak var vSearch: UIView!
-    
-    
-    
+
     var teachingRecordGroupsVar : Variable<[TeachingRecordGroup]> = Variable([])
     
     override func viewDidLoad() {
@@ -81,7 +79,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let alert = UIAlertController.init(title: "Delete teaching record", message: "Do you want to delete this record?", preferredStyle: UIAlertControllerStyle.Alert)
-            let yesAction = UIAlertAction.init(title: "Yes", style: UIAlertActionStyle.Default, handler: {action in })
+            let teachingRecord = self.self.teachingRecordGroupsVar.value[indexPath.section].teachingRecords![indexPath.row]
+            let yesAction = UIAlertAction.init(title: "Yes", style: UIAlertActionStyle.Default, handler: {action in
+                let request = TeachingRecordRequest.create(teachingRecord, requestType: RequestType.DELETE)
+                NetworkContext.sendTeachingRecordRequest(request, requestDone: {
+                    code, message in
+                    
+                })
+            })
             let noAction = UIAlertAction.init(title: "No", style: UIAlertActionStyle.Cancel, handler: {action in })
             alert.addAction(noAction)
             alert.addAction(yesAction)

@@ -14,6 +14,7 @@ extension JSONKeys {
     static let classes = JSONKey<JSON>("classes")
     static let role    = JSONKey<[NSArray]>("role")
     static let code    = JSONKey<String>("code")
+    static let title    = JSONKey<String>("title")
     static let image   = JSONKey<String>("image")
     static let name    = JSONKey<String>("name")
     static let items    = JSONKey<JSON>("items")
