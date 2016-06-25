@@ -76,6 +76,7 @@ class NetworkContext {
         .responseJASON {
             response in
             if let json = response.result.value {
+                print(json)
                 let teachingRecords = json[.items].map(TeachingRecord.create)
                 requestDone(teachingRecords)
             }

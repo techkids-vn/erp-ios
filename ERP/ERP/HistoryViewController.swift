@@ -15,16 +15,22 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tbvHistory: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar!
     @IBOutlet weak var vSearch: UIView!
+    @IBOutlet weak var aivWait: UIActivityIndicatorView!
 
     var teachingRecordGroups : [TeachingRecordGroup] = []
     var teachingRecordsVar : Variable<[TeachingRecord]> = Variable([])
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.fetchTeachingRecords()
+        
         self.initLayout()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.fetchTeachingRecords()
     }
     
     func initLayout() {
@@ -40,7 +46,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.sbSearch.tintColor = UIColor.clearColor()
         self.sbSearch.backgroundImage = UIImage()
         
-        teachingRecordsVar.asObservable().subscribeNext {
+        _ = teachingRecordsVar.asObservable().subscribeNext {
             records in
             self.teachingRecordGroups = TeachingRecord.groupByDate(records)
             self.tbvHistory.reloadData()
@@ -88,11 +94,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             let teachingRecord = self.self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row]
             let yesAction = UIAlertAction.init(title: "Yes", style: UIAlertActionStyle.Default, handler: {action in
                 let request = TeachingRecordRequest.create(teachingRecord, requestType: RequestType.DELETE)
+                self.aivWait.startAnimating()
                 NetworkContext.sendTeachingRecordRequest( request, requestDone: {
                     [weak self] code, message in
                     if code == NetworkContext.RESULT_CODE_SUCCESS {
                         self!.teachingRecordsVar.value.removeAtIndex(self!.teachingRecordsVar.value.indexOf(teachingRecord)!)
                     }
+                    self!.aivWait.stopAnimating()
                 })
             })
             let noAction = UIAlertAction.init(title: "No", style: UIAlertActionStyle.Cancel, handler: {action in })
