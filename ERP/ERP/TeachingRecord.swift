@@ -91,11 +91,16 @@ extension TeachingRecord {
         }
     }
     
-//    var deletable : Bool {
-//        get {
-//            
-//        }
-//    }
+    var editable : Bool {
+        get {
+            if let user = DB.getUser() {
+                if user.userName == self.userName {
+                    return true
+                }
+            }
+            return false
+        }
+    }
 }
 
 

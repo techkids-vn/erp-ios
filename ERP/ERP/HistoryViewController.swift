@@ -14,6 +14,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var tbvHistory: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar!
+    @IBOutlet weak var vSearch: UIView!
     
     
     
@@ -33,8 +34,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tbvHistory.dataSource = self
         self.tbvHistory.delegate = self
         self.tbvHistory.allowsMultipleSelectionDuringEditing = false
+        self.tbvHistory.separatorColor = UIColor.grayColor()
         
         // Search bar
+        self.vSearch.backgroundColor = UIColor(netHex: 0x27ae60)
         self.sbSearch.tintColor = UIColor.clearColor()
         self.sbSearch.backgroundImage = UIImage()
     }
@@ -68,11 +71,22 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        return self.teachingRecordGroupsVar.value[indexPath.section].teachingRecords![indexPath.row].editable
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let alert = UIAlertController.init(title: "Delete teaching record", message: "Do you want to delete this record?", preferredStyle: UIAlertControllerStyle.Alert)
+            let yesAction = UIAlertAction.init(title: "Yes", style: UIAlertActionStyle.Default, handler: {action in })
+            let noAction = UIAlertAction.init(title: "No", style: UIAlertActionStyle.Cancel, handler: {action in })
+            alert.addAction(noAction)
+            alert.addAction(yesAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

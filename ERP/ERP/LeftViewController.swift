@@ -48,16 +48,15 @@ class LeftViewController: UIViewController {
         _ = self.tbvMenu.rx_itemSelected.subscribeNext {
             indexPath in
             let menuItem = self.menuItemsVar.value[indexPath.row]
-            
-
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier(menuItem.vcStoryBoardId!)
             
             self.slideMenuController()?.changeMainViewController(vc!, close: true)
         }.addDisposableTo(self.rx_disosebag)
     }
     
+    
     override func viewDidAppear(animated: Bool) {
-
+        
     }
 
     override func didReceiveMemoryWarning() {
