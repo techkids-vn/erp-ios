@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RWq-NJ-ztJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RWq-NJ-ztJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -190,15 +190,16 @@
                             </imageView>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="dEF-82-K93">
                                 <rect key="frame" x="0.0" y="64" width="600" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.40253547205471124" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GCV-45-fNR"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="DNd-9c-cIN">
-                                <rect key="frame" x="285" y="341" width="30" height="30"/>
+                                <rect key="frame" x="285" y="336" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DNd-9c-cIN" secondAttribute="height" multiplier="1:1" id="Vue-GB-KVM"/>
@@ -206,7 +207,7 @@
                                 </constraints>
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n26-aK-Z3d">
-                                <rect key="frame" x="0.0" y="112" width="600" height="488"/>
+                                <rect key="frame" x="0.0" y="112" width="600" height="478"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="toZ-dV-sWg">
                                     <size key="itemSize" width="216" height="256"/>
@@ -320,7 +321,7 @@
                             <constraint firstItem="DNd-9c-cIN" firstAttribute="centerX" secondItem="n26-aK-Z3d" secondAttribute="centerX" id="3JG-9X-4Lt"/>
                             <constraint firstAttribute="trailing" secondItem="dEF-82-K93" secondAttribute="trailing" id="9as-wq-CTk"/>
                             <constraint firstItem="gJG-wm-ZaD" firstAttribute="leading" secondItem="1hL-Yo-Vua" secondAttribute="leading" id="A3F-71-gnr"/>
-                            <constraint firstItem="XCi-AD-212" firstAttribute="top" secondItem="n26-aK-Z3d" secondAttribute="bottom" id="BLr-Q6-TSK"/>
+                            <constraint firstItem="XCi-AD-212" firstAttribute="top" secondItem="n26-aK-Z3d" secondAttribute="bottom" constant="10" id="BLr-Q6-TSK"/>
                             <constraint firstItem="n26-aK-Z3d" firstAttribute="leading" secondItem="1hL-Yo-Vua" secondAttribute="leading" id="BXj-bp-b4W"/>
                             <constraint firstItem="DNd-9c-cIN" firstAttribute="centerY" secondItem="n26-aK-Z3d" secondAttribute="centerY" id="ORv-OT-fVQ"/>
                             <constraint firstAttribute="trailing" secondItem="gJG-wm-ZaD" secondAttribute="trailing" id="XGf-2X-N1g"/>
