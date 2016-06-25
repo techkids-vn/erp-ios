@@ -68,7 +68,7 @@ class TeachingRecord : Object {
                 retValue.append(TeachingRecordGroup(dateString: date, teachingRecords: [teachingRecord]))
             }
         }
-        return retValue
+        return retValue.sort{ x, y in return x.dateString! > y.dateString! }
     }
 }
 

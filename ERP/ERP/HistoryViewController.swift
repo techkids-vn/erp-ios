@@ -16,7 +16,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var sbSearch: UISearchBar!
     @IBOutlet weak var vSearch: UIView!
 
-    var teachingRecordGroupsVar : Variable<[TeachingRecordGroup]> = Variable([])
+    var teachingRecordGroups : [TeachingRecordGroup] = []
+    var teachingRecordsVar : Variable<[TeachingRecord]> = Variable([])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,38 +39,43 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.vSearch.backgroundColor = UIColor(netHex: 0x27ae60)
         self.sbSearch.tintColor = UIColor.clearColor()
         self.sbSearch.backgroundImage = UIImage()
+        
+        teachingRecordsVar.asObservable().subscribeNext {
+            records in
+            self.teachingRecordGroups = TeachingRecord.groupByDate(records)
+            self.tbvHistory.reloadData()
+        }
     }
     
     func fetchTeachingRecords() {
         NetworkContext.fetchAllTeachingRecords( {
             teachingRecords in
-            self.teachingRecordGroupsVar.value = TeachingRecord.groupByDate(teachingRecords)
-            self.tbvHistory.reloadData()
+            self.teachingRecordsVar.value = teachingRecords
         })
     }
     
     // MARK: TableView
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.teachingRecordGroupsVar.value.count
+        return self.teachingRecordGroups.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.teachingRecordGroupsVar.value[section].teachingRecords!.count
+        return self.teachingRecordGroups[section].teachingRecords!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TeachingRecordCell
-        cell.teachingRecord = self.teachingRecordGroupsVar.value[indexPath.section].teachingRecords![indexPath.row]
+        cell.teachingRecord = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.teachingRecordGroupsVar.value[section].dateString
+        return self.teachingRecordGroups[section].dateString
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return self.teachingRecordGroupsVar.value[indexPath.section].teachingRecords![indexPath.row].editable
+        return self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].editable
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -79,12 +85,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let alert = UIAlertController.init(title: "Delete teaching record", message: "Do you want to delete this record?", preferredStyle: UIAlertControllerStyle.Alert)
-            let teachingRecord = self.self.teachingRecordGroupsVar.value[indexPath.section].teachingRecords![indexPath.row]
+            let teachingRecord = self.self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row]
             let yesAction = UIAlertAction.init(title: "Yes", style: UIAlertActionStyle.Default, handler: {action in
                 let request = TeachingRecordRequest.create(teachingRecord, requestType: RequestType.DELETE)
-                NetworkContext.sendTeachingRecordRequest(request, requestDone: {
-                    code, message in
-                    
+                NetworkContext.sendTeachingRecordRequest( request, requestDone: {
+                    [weak self] code, message in
+                    if code == NetworkContext.RESULT_CODE_SUCCESS {
+                        self!.teachingRecordsVar.value.removeAtIndex(self!.teachingRecordsVar.value.indexOf(teachingRecord)!)
+                    }
                 })
             })
             let noAction = UIAlertAction.init(title: "No", style: UIAlertActionStyle.Cancel, handler: {action in })

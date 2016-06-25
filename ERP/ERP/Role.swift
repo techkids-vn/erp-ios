@@ -30,6 +30,11 @@ class Role: Object {
     }
     
     static func getTitle(code: String) -> String {
-        return (all.filter { item in return item.code == code }.first?.title)!
+        if let foundItem = all.filter ({ item in return item.code == code }).first {
+            return foundItem.title
+        }
+        else {
+            return code
+        }
     }
 }
