@@ -11,22 +11,17 @@ import RealmSwift
 import RxCocoa
 import RxSwift
 
-class AddOrUpdateTeachingRecordViewController: UIViewController {
+class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDelegate {
 
     var instructor : Instructor?    
 
+    @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var vMaskView: UIView!
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
-    @IBOutlet weak var btnDone: UIButton!
     
     var currentViewInMaskView : UIView?
     
-    var rx_disposeBag = DisposeBag()
-    @IBOutlet weak var btiDone: UIBarButtonItem!
-    
-    var pcvClass : UIPickerView!
-    var pcvRole : UIPickerView!
-    var dpvDate : UIDatePicker!
+    var rx_disposeBag = DisposeBag()    
     
     var classSelected : Variable<String> = Variable("")
     var roleSelected : Variable<String> = Variable("")
@@ -35,6 +30,8 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.waitIndicator.hidesWhenStopped = true
         self.vInstructorDetail.instructor = self.instructor
         // Setup gestures
         let tapGesture = UITapGestureRecognizer()
@@ -43,7 +40,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
             self.hideKeyboardWhenTappedAround()
         }.addDisposableTo(self.rx_disposeBag)
         
-        self.navigationItem.rightBarButtonItem = self.btiDone
         self.configButtonAtFirst()
         self.loadClass()
         self.view.addGestureRecognizer(tapGesture)
@@ -64,9 +60,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
                 
                 self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
                 self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
-                
-                self.vInstructorDetail.btnFinish.backgroundColor = UIColor.grayColor()
-                self.vInstructorDetail.btnFinish.userInteractionEnabled = false
+
             }
         }
         
@@ -80,23 +74,18 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
                 self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x008040)
                 self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
                 
-                self.vInstructorDetail.btnFinish.backgroundColor = UIColor.grayColor()
-                self.vInstructorDetail.btnFinish.userInteractionEnabled = false
             }
         }
         
         _ = self.timeSelector.asObservable().subscribeNext {
             time in
             if time != "" {
-                self.loadFinish()
                 self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
                 self.vInstructorDetail.btnRole.userInteractionEnabled = true
                 
                 self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x008040)
                 self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
-                
-                self.vInstructorDetail.btnFinish.backgroundColor = UIColor(netHex: 0x008040)
-                self.vInstructorDetail.btnFinish.userInteractionEnabled = true
+
             }
         }
         
@@ -110,13 +99,28 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
     
     func requestDataToServer(classCode: String, roleCode : String, time : String) {
         let dateFormatter = NSDateFormatter()
+        
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.dateFromString(time)!
+        var date : NSDate!
+        if time == "" {
+            date = NSDate.init(timeIntervalSince1970: 0)
+        }
+        else {
+             date = dateFormatter.dateFromString(time)!
+        }
         let record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
         let request = TeachingRecordRequest.create(record, requestType: RequestType.CREATE)
         NetworkContext.sendTeachingRecordRequest(request, requestDone: {
             code, message in
-            print(message)
+            
+            if message.containsString("Requested sucessfully") {
+                let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
+                alert.show()
+            }
+            else {
+                let alert = UIAlertView(title: "", message: "Record Successfully", delegate: nil, cancelButtonTitle: "Ok")
+                alert.show()
+            }
         })
     }
     
@@ -127,8 +131,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
         self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
         self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
         
-        self.vInstructorDetail.btnFinish.backgroundColor = UIColor.grayColor()
-        self.vInstructorDetail.btnFinish.userInteractionEnabled = false
     }
  
     func loadClass() {
@@ -163,21 +165,9 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
             v.removeFromSuperview()
         }
         view.time = self.timeSelector
-        self.vMaskView.addSubview(view)
-        self.currentViewInMaskView = view
-    }
-    
-    func loadFinish() {
-        let view = NSBundle.mainBundle().loadNibNamed("FinishSelectorView", owner: self, options: nil)[0] as! FinishSelectorView
-        
-        view.frame = self.vMaskView.bounds
-        for v in self.vMaskView.subviews {
-            v.removeFromSuperview()
-        }
         view.submitFlag = self.submitSelector
         self.vMaskView.addSubview(view)
         self.currentViewInMaskView = view
-
     }
     
     func choseStep() {
@@ -192,10 +182,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
         _ = vInstructorDetail.btnCalendar.rx_tap.subscribeNext {
             self.loadCalendar()
         }
-        
-        _ = vInstructorDetail.btnFinish.rx_tap.subscribeNext {
-            self.loadFinish()
-        }
 
         
     }
@@ -204,6 +190,13 @@ class AddOrUpdateTeachingRecordViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - UIAlertView Delegate
+    internal func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 0 {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     func dumpData() {

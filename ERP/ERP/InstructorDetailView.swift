@@ -15,7 +15,7 @@ class InstructorDetailView: UIView{
     
     // MARK: View references
     
-    @IBOutlet weak var btnFinish: UIButton!
+    
     @IBOutlet weak var btnCalendar: UIButton!
     @IBOutlet weak var btnRole: UIButton!
     @IBOutlet weak var btnClass: UIButton!
@@ -57,15 +57,22 @@ class InstructorDetailView: UIView{
         self.layoutIfNeeded()
         viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(viewInfo)
-        
+    }
+    
+    override func layoutSubviews() {
         self.configUI()
     }
     
     func configUI() {
-        self.btnFinish.layer.cornerRadius = self.btnFinish.frame.size.width/2
-        self.btnClass.layer.cornerRadius = self.btnClass.frame.size.width/2
-        self.btnRole.layer.cornerRadius = self.btnRole.frame.size.width/2
-        self.btnCalendar.layer.cornerRadius = self.btnCalendar.frame.size.width/2
+        self.btnClass.becomeRound()
+        self.btnClass.layer.borderWidth = 2.0
+        self.btnClass.layer.borderColor = UIColor.whiteColor().CGColor
+        self.btnRole.becomeRound()
+        self.btnRole.layer.borderWidth = 2.0
+        self.btnRole.layer.borderColor = UIColor.whiteColor().CGColor
+        self.btnCalendar.becomeRound()
+        self.btnCalendar.layer.borderWidth = 2.0
+        self.btnCalendar.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
         

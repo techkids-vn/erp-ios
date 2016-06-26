@@ -21,7 +21,7 @@ class LeftMenuItem: NSObject {
         get {
             return [
                 LeftMenuItem(title: "Search", vcStoryBoardId: "NavigationController"),
-                LeftMenuItem(title: "History", vcStoryBoardId: "HistoryViewController")
+                LeftMenuItem(title: "History", vcStoryBoardId: "NavigationControllerForHistory")
             ]
         }
     }

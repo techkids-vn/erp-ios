@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -14,14 +14,32 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLv-nc-4bH" customClass="CVCalendarView" customModule="CVCalendar">
                     <rect key="frame" x="21" y="77" width="375" height="210"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SP-6b-CT0">
+                            <rect key="frame" x="311" y="172" width="64" height="38"/>
+                            <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="0.7044831730769231" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="iAP-Dk-zZw"/>
+                                <constraint firstAttribute="height" constant="38" id="kZP-jM-Wlc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.7717067307692308" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="4SP-6b-CT0" secondAttribute="bottom" id="9ZQ-5L-Ztm"/>
+                        <constraint firstAttribute="trailing" secondItem="4SP-6b-CT0" secondAttribute="trailing" id="vAy-6c-Xeb"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdk-9q-nMw" customClass="CVCalendarMenuView" customModule="CVCalendar">
                     <rect key="frame" x="21" y="18" width="375" height="59"/>
-                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Qdk-9q-nMw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="3ub-W3-0Kk"/>
                 <constraint firstItem="BLv-nc-4bH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="8h9-SR-DhC"/>
@@ -34,6 +52,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="btnSubmit" destination="4SP-6b-CT0" id="9yj-UK-FiV"/>
                 <outlet property="calendarMenu" destination="Qdk-9q-nMw" id="tj1-aM-r4y"/>
                 <outlet property="calendarView" destination="BLv-nc-4bH" id="lsP-1U-N9e"/>
             </connections>

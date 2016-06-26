@@ -15,14 +15,20 @@ class CalendarSelectorView: UIView ,CVCalendarViewDelegate, CVCalendarMenuViewDe
     
     @IBOutlet weak var calendarMenu: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
+    @IBOutlet weak var btnSubmit: UIButton!
     
     var time : Variable<String> = Variable("")
+    var submitFlag : Variable<String> = Variable("")
     
     override func awakeFromNib() {
         self.calendarView.calendarDelegate = self
         self.calendarMenu.menuViewDelegate = self
         self.calendarMenu.dayOfWeekTextColor = UIColor.whiteColor()
         self.calendarMenu.tintColor = UIColor.whiteColor()
+        _ = self.btnSubmit.rx_tap.subscribeNext {
+            self.submitFlag.value = "submmit"
+        }
+
     }
     
     required init?(coder aDecoder: NSCoder) {

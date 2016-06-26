@@ -31,7 +31,7 @@ class TeachingRecordCell: UITableViewCell {
                 LazyImage.showForImageView(self.imvAvatar, url: instructor.imgUrl)
             }
             if teachingRecord.editable {
-                vRoot.backgroundColor = UIColor.init(netHex: 0x2ecc71)
+                vRoot.backgroundColor = CONTENT_BACKGROUND_COLOR
             } else {
                 vRoot.backgroundColor = UIColor.init(netHex: 0x7f8c8d)
             }

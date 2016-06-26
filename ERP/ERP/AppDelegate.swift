@@ -17,20 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        if TEST {
-//            TeachingRecordRequestTest.TestDB()
-//            TeachingRecordRequestTest.testSendCreateRecord()
-            InstructorTeachingRecordTest.testFetchAllTeachingRecords()
-        }
-        
-        //InstructorTeachingRecordTest.testUpdateInstructorTeachingRecordSent()
-        //InstructorTeachingRecordTest.testPostRecord()
-        
-        // Override point for customization after application launch.
-        
-        fetchClasses()
-        fetchRoles()
 
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -75,15 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func customApperance() {
-        UINavigationBar.appearance().tintColor = UIColor.init(red: 22, green: 160, blue: 134)
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.init(red: 22, green: 160, blue: 134)]
-        UINavigationBar.appearance().barTintColor = UIColor(netHex: 0xD6D6D6)
-    }
-
-    func applicationWillResignActive(application: UIApplication) {
+        
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        UINavigationBar.appearance().barTintColor = TOP_BACKGROUND_COLOR
+        if #available(iOS 9.0, *) {
+            UILabel.appearanceWhenContainedInInstancesOfClasses([UITextField.self]).textColor = UIColor.whiteColor()
+        } else {
+            // Fallback on earlier versions
+        }
+       
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
+    
+    func addTapped() {}
 
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.

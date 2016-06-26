@@ -6,6 +6,8 @@
 //  Copyright © 2016 Techkids. All rights reserved.
 //
 
+import UIKit
+
 let ROOT_API = "https://erp-dump.herokuapp.com/api"
 let LOGIN_API = "\(ROOT_API)/login"
 let CLASS_API = "\(ROOT_API)/classes"
@@ -18,3 +20,7 @@ let DELETE_RECORD_INSTRUCTOR_API = "\(ROOT_API)/instructor/delete-teaching-recor
 
 let GET_CLASS_API = "\(ROOT_API)/classes"
 let GET_ROLE_API = "\(ROOT_API)/roles"
+
+let TOP_BACKGROUND_COLOR       =  UIColor(netHex: 0x1b5e20)
+let MIDDLE_BACKGROUND_COLOR    = UIColor(netHex: 0x388e3c)
+let CONTENT_BACKGROUND_COLOR   =  UIColor(netHex: 0x4caf50)

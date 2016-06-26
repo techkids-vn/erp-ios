@@ -14,11 +14,12 @@ import JASON
 import RealmSwift
 import Foundation
 
-
 class SearchViewController: UIViewController {
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var clvInstructor: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var vSearch: UIView!
+
     
     var vInstructors : Variable<[Instructor]> = Variable([])
     var instructorBackup = [Instructor]()
@@ -72,10 +73,16 @@ class SearchViewController: UIViewController {
         self.waitIndicator.activityIndicatorViewStyle = .White
         self.waitIndicator.center = self.clvInstructor.center
         self.waitIndicator.startAnimating()
-        self.searchBar.backgroundColor = UIColor(netHex: 0x27ae60)
+        
+        self.vSearch.backgroundColor = CONTENT_BACKGROUND_COLOR
+        self.searchBar.backgroundColor = UIColor.clearColor()
         self.searchBar.tintColor = UIColor.clearColor()
         self.searchBar.backgroundImage = UIImage()
+            
+        self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.configLayout()
+        self.view.layoutSubviews()
+        self.view.layoutIfNeeded()
     }
     
     func configLayout() {

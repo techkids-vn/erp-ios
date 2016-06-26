@@ -34,6 +34,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func initLayout() {
+        self.navigationItem.title = "RECORD HISTORY"
+        
         // TableView
         self.tbvHistory.backgroundView = nil
         self.tbvHistory.dataSource = self
@@ -42,7 +44,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tbvHistory.separatorColor = UIColor.grayColor()
         
         // Search bar
-        self.vSearch.backgroundColor = UIColor(netHex: 0x27ae60)
+        self.vSearch.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.sbSearch.tintColor = UIColor.clearColor()
         self.sbSearch.backgroundImage = UIImage()
         
@@ -51,6 +53,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             self.teachingRecordGroups = TeachingRecord.groupByDate(records)
             self.tbvHistory.reloadData()
         }
+        
+        // Background
+        self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
     }
     
     func fetchTeachingRecords() {
