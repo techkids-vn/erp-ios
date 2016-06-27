@@ -16,6 +16,9 @@ class InstructorDetailView: UIView{
     // MARK: View references
     
     
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblRole: UILabel!
+    @IBOutlet weak var lblClass: UILabel!
     @IBOutlet weak var btnCalendar: UIButton!
     @IBOutlet weak var btnRole: UIButton!
     @IBOutlet weak var btnClass: UIButton!

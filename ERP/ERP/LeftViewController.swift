@@ -20,7 +20,6 @@ class LeftViewController: UIViewController {
     var menuItemsVar : Variable<[LeftMenuItem]> = Variable([])
     var rx_disosebag = DisposeBag()
     
-        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,7 +38,8 @@ class LeftViewController: UIViewController {
         self.imvLogo.layoutIfNeeded()
         self.imvLogo.layer.cornerRadius = self.imvLogo.frame.size.width / 2;
         self.imvLogo.clipsToBounds = true
-        
+        self.tbvMenu.separatorStyle = .None
+        self.view.backgroundColor = UIColor(netHex: 0xE0E4CC)
          _ = self.menuItemsVar.asObservable().bindTo(self.tbvMenu.rx_itemsWithCellIdentifier("Cell", cellType: LeftMenuCell.self)) {
             row, data, cell in
             cell.menuItem = data

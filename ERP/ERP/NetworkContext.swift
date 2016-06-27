@@ -25,6 +25,7 @@ class NetworkContext {
         return json
     }
     
+    // MARK: TeachingRecord Request
     static func sendTeachingRecordRequest(request : TeachingRecordRequest, requestDone : RequestDone?) {
         var parameters = request.record?.Dict
         _ = addUserName(&parameters!)
@@ -99,6 +100,8 @@ class NetworkContext {
         }
     }
     
+    
+    // MARK: Role
     static func fetchAllRoles(fetchDone: FetchDone) {
         Alamofire.request(.GET, GET_ROLE_API)
             .validate()

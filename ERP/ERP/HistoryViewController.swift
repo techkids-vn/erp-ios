@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Foundation
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -23,10 +24,25 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        //self.selectInstructorToUpdate()
         // Do any additional setup after loading the view.
-        
         self.initLayout()
+        _ = self.tbvHistory.rx_itemSelected.subscribeNext {
+            indexPath in
+            let instructorClass = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].classCode
+            let instructorCode = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].code
+            let instructorRole = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].roleCode
+            let date = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].date
+                    
+            let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddOrUpdateTeachingRecord") as! AddOrUpdateTeachingRecordViewController
+            instructorDetailVC.instructor = DB.getInstructorByCode(instructorCode)
+            instructorDetailVC.instructorRole = instructorRole
+            instructorDetailVC.instructrClass = instructorClass
+            instructorDetailVC.dateUpdate = String(date)
+            instructorDetailVC.isUpdate = true
+            self.navigationController?.pushViewController(instructorDetailVC, animated: true)
+        }
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -114,6 +130,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
+    
+//    func selectInstructorToUpdate() {
+//        _ = self.tbvHistory.rx_itemSelected.subscribeNext {
+//            indexPath in
+//            print(indexPath.row)
+//        }
+//    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

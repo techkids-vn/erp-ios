@@ -13,25 +13,31 @@ import RxSwift
 
 class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDelegate {
 
-    var instructor : Instructor?    
+    var instructor : Instructor?
+    var instructrClass = ""
+    var instructorRole = ""
+    var dateUpdate = ""
+    var isUpdate = false
 
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var vMaskView: UIView!
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
     
     var currentViewInMaskView : UIView?
-    
     var rx_disposeBag = DisposeBag()    
     
-    var classSelected : Variable<String> = Variable("")
-    var roleSelected : Variable<String> = Variable("")
-    var timeSelector : Variable<String> = Variable("")
-    var submitSelector : Variable<String> = Variable("")
+    var classSelected   : Variable<String> = Variable("")
+    var roleSelected    : Variable<String> = Variable("")
+    var timeSelector    : Variable<String> = Variable("")
+    var submitSelector  : Variable<String> = Variable("")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.loadInfoFromHistory()
+        
         self.waitIndicator.hidesWhenStopped = true
+        self.waitIndicator.activityIndicatorViewStyle = .White
+        
         self.vInstructorDetail.instructor = self.instructor
         // Setup gestures
         let tapGesture = UITapGestureRecognizer()
@@ -48,6 +54,15 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         for recognizer in self.view.gestureRecognizers ?? [] {
             self.view.removeGestureRecognizer(recognizer)
         }
+
+    }
+    
+    func loadInfoFromHistory() {
+        if self.isUpdate {
+            self.vInstructorDetail.lblClass.text = self.instructrClass
+            self.vInstructorDetail.lblRole.text = self.instructorRole
+            self.vInstructorDetail.lblDate.text = self.dateUpdate
+        }
     }
     
     func nextStep() {
@@ -55,12 +70,12 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             classSelect in
             if classSelect != "" {
                 self.loadRole()
+                self.vInstructorDetail.lblClass.text = classSelect
                 self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
                 self.vInstructorDetail.btnRole.userInteractionEnabled = true
-                
-                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
-                self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
-
+            }
+            else {
+            
             }
         }
         
@@ -68,9 +83,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             role in
             if role != "" {
                 self.loadCalendar()
-                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
-                self.vInstructorDetail.btnRole.userInteractionEnabled = true
-                
+                self.vInstructorDetail.lblRole.text = role
                 self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x008040)
                 self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
                 
@@ -78,47 +91,55 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         }
         
         _ = self.timeSelector.asObservable().subscribeNext {
-            time in
-            if time != "" {
-                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
-                self.vInstructorDetail.btnRole.userInteractionEnabled = true
-                
-                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x008040)
-                self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
-
+            date in
+            if date != "" {
+                self.vInstructorDetail.lblDate.text = date
+            }
+            else {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                self.vInstructorDetail.lblDate.text = String(NSDate.init(timeIntervalSinceNow: 0))
             }
         }
         
         _ = self.submitSelector.asObservable().subscribeNext {
             submit in
+            //self.waitIndicator.startAnimating()
             if submit != "" {
-                self.requestDataToServer(self.classSelected.value, roleCode: self.roleSelected.value, time: self.timeSelector.value)
+                if !self.isUpdate {
+                    self.requestDataToServer(self.classSelected.value, roleCode: self.roleSelected.value, time: self.timeSelector.value, requestType: RequestType.CREATE)
+                }
+                else {
+                    self.requestDataToServer(self.classSelected.value, roleCode: self.roleSelected.value, time: self.timeSelector.value, requestType: RequestType.UPDATE)
+                }
             }
         }
     }
     
-    func requestDataToServer(classCode: String, roleCode : String, time : String) {
+    func requestDataToServer(classCode: String, roleCode : String, time : String, requestType : RequestType) {
         let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var date : NSDate!
         if time == "" {
-            date = NSDate.init(timeIntervalSince1970: 0)
+            date = NSDate.init(timeIntervalSinceNow: 0)
         }
         else {
              date = dateFormatter.dateFromString(time)!
         }
         let record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
-        let request = TeachingRecordRequest.create(record, requestType: RequestType.CREATE)
+        let request = TeachingRecordRequest.create(record, requestType: requestType)
         NetworkContext.sendTeachingRecordRequest(request, requestDone: {
             code, message in
             
             if message.containsString("Requested sucessfully") {
+               // self.waitIndicator.stopAnimating()
                 let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
                 alert.show()
             }
             else {
-                let alert = UIAlertView(title: "", message: "Record Successfully", delegate: nil, cancelButtonTitle: "Ok")
+            //    self.waitIndicator.stopAnimating()
+                let alert = UIAlertView(title: "", message: "Record Fail", delegate: nil, cancelButtonTitle: "Ok")
                 alert.show()
             }
         })
@@ -127,7 +148,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     func configButtonAtFirst() {
         self.vInstructorDetail.btnRole.backgroundColor = UIColor.grayColor()
         self.vInstructorDetail.btnRole.userInteractionEnabled = false
-        
         self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
         self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
         

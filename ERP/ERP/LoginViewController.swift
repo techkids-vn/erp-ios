@@ -61,8 +61,8 @@ class LoginViewController: UIViewController {
             
             let slideVC = SlideMenuController(mainViewController: navVC, leftMenuViewController: leftVC)
             
-            self.presentViewController(slideVC, animated: true, completion: nil)
-            
+            self.view.window!.rootViewController = slideVC
+            self.view.window!.makeKeyAndVisible()
         }
         else {
             let alert = UIAlertController(title: "", message: "Login Failed", preferredStyle: .Alert)

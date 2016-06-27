@@ -46,6 +46,7 @@ extension TeachingRecordRequest {
                 DB.updateTeachingRecord(self.record!, recordId: response.recordId!)
                 break
             case .UPDATE:
+                DB.updateTeachingRecord(self.record!, recordId: response.recordId!)
                 break;
             case .DELETE:
                 DB.deleteTeachingRecord(self.record!)

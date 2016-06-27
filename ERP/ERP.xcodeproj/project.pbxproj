@@ -62,8 +62,6 @@
 		99EE6ECE1D1DE7A900594AF7 /* RoleSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EE6ECD1D1DE7A900594AF7 /* RoleSelector.xib */; };
 		99EE6EEE1D1E52BF00594AF7 /* CalendarSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EE6EED1D1E52BF00594AF7 /* CalendarSelectorView.xib */; };
 		99EE6EF01D1E549000594AF7 /* CalendarSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EE6EEF1D1E549000594AF7 /* CalendarSelectorView.swift */; };
-		99EE6EF21D1E5DC400594AF7 /* FinishSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EE6EF11D1E5DC400594AF7 /* FinishSelectorView.xib */; };
-		99EE6EF41D1E5DDB00594AF7 /* FinishSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EE6EF31D1E5DDB00594AF7 /* FinishSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,8 +123,6 @@
 		99EE6ECD1D1DE7A900594AF7 /* RoleSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoleSelector.xib; sourceTree = "<group>"; };
 		99EE6EED1D1E52BF00594AF7 /* CalendarSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarSelectorView.xib; sourceTree = "<group>"; };
 		99EE6EEF1D1E549000594AF7 /* CalendarSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSelectorView.swift; sourceTree = "<group>"; };
-		99EE6EF11D1E5DC400594AF7 /* FinishSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishSelectorView.xib; sourceTree = "<group>"; };
-		99EE6EF31D1E5DDB00594AF7 /* FinishSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishSelectorView.swift; sourceTree = "<group>"; };
 		DF7513E8D07B7B138EB56812 /* Pods-ERP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERP/Pods-ERP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,8 +303,6 @@
 				99EE6ECB1D1DE77900594AF7 /* RoleSelector.swift */,
 				99EE6EED1D1E52BF00594AF7 /* CalendarSelectorView.xib */,
 				99EE6EEF1D1E549000594AF7 /* CalendarSelectorView.swift */,
-				99EE6EF11D1E5DC400594AF7 /* FinishSelectorView.xib */,
-				99EE6EF31D1E5DDB00594AF7 /* FinishSelectorView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -466,7 +460,6 @@
 				84EB36B41D0D63E00032F0F9 /* LaunchScreen.storyboard in Resources */,
 				84EB36B11D0D63E00032F0F9 /* Assets.xcassets in Resources */,
 				99EE6ECA1D1DE4ED00594AF7 /* ClassCell.xib in Resources */,
-				99EE6EF21D1E5DC400594AF7 /* FinishSelectorView.xib in Resources */,
 				99EE6EEE1D1E52BF00594AF7 /* CalendarSelectorView.xib in Resources */,
 				99023D4B1D1D8EFA00EEE621 /* InstructorInfo.xib in Resources */,
 				84EB36AF1D0D63E00032F0F9 /* Main.storyboard in Resources */,
@@ -572,7 +565,6 @@
 				84E33D831D13E82E00938600 /* NSDateExtensions.swift in Sources */,
 				84EB36AA1D0D63E00032F0F9 /* AppDelegate.swift in Sources */,
 				998278631D0DDA39004F6846 /* StartViewController.swift in Sources */,
-				99EE6EF41D1E5DDB00594AF7 /* FinishSelectorView.swift in Sources */,
 				99422DDF1D0F1665006BD11E /* UIColorExtension.swift in Sources */,
 				84E33D851D13F68800938600 /* ResponseMessageWithRecordId.swift in Sources */,
 				99422DE21D0F2A6E006BD11E /* InstructorCell.swift in Sources */,
@@ -709,7 +701,7 @@
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.edu.techkids.ac;
+				PRODUCT_BUNDLE_IDENTIFIER = vu.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -727,7 +719,7 @@
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.edu.techkids.ac;
+				PRODUCT_BUNDLE_IDENTIFIER = vu.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
