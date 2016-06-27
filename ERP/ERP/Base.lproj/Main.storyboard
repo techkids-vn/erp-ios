@@ -464,8 +464,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PQC-ej-JR3">
+                                                    <rect key="frame" x="18" y="9" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="PQC-ej-JR3" secondAttribute="height" multiplier="1:1" id="2iQ-m7-N89"/>
+                                                        <constraint firstAttribute="width" constant="25" id="Ihv-Ze-Kgt"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKN-QL-HWY" userLabel="lblTitle">
-                                                    <rect key="frame" x="8" y="8" width="544" height="27"/>
+                                                    <rect key="frame" x="57" y="8" width="480" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="8Ur-6j-g4L"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -473,14 +483,16 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="hKN-QL-HWY" firstAttribute="top" secondItem="3aZ-M6-Mvm" secondAttribute="topMargin" id="UEJ-kR-Yrl"/>
-                                                <constraint firstItem="hKN-QL-HWY" firstAttribute="trailing" secondItem="3aZ-M6-Mvm" secondAttribute="trailingMargin" id="ZrZ-dC-64l"/>
-                                                <constraint firstItem="hKN-QL-HWY" firstAttribute="leading" secondItem="3aZ-M6-Mvm" secondAttribute="leadingMargin" id="bux-r9-Stw"/>
-                                                <constraint firstItem="hKN-QL-HWY" firstAttribute="bottom" secondItem="3aZ-M6-Mvm" secondAttribute="bottomMargin" id="yPX-N7-0Ly"/>
+                                                <constraint firstItem="hKN-QL-HWY" firstAttribute="centerY" secondItem="3aZ-M6-Mvm" secondAttribute="centerY" id="0LL-9v-JSJ"/>
+                                                <constraint firstItem="PQC-ej-JR3" firstAttribute="centerY" secondItem="3aZ-M6-Mvm" secondAttribute="centerY" id="81x-KO-jGS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hKN-QL-HWY" secondAttribute="trailing" constant="15" id="Xxy-ns-waB"/>
+                                                <constraint firstItem="hKN-QL-HWY" firstAttribute="leading" secondItem="PQC-ej-JR3" secondAttribute="trailing" constant="14" id="cx8-EI-Lec"/>
+                                                <constraint firstItem="PQC-ej-JR3" firstAttribute="leading" secondItem="3aZ-M6-Mvm" secondAttribute="leadingMargin" constant="10" id="s46-5X-QMV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="imvIcon" destination="PQC-ej-JR3" id="jeU-o9-03M"/>
                                             <outlet property="lblTitle" destination="hKN-QL-HWY" id="IMF-xC-AUL"/>
                                         </connections>
                                     </tableViewCell>

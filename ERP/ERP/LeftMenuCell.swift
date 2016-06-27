@@ -13,6 +13,7 @@ import RxSwift
 class LeftMenuCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var imvIcon: UIImageView!
     
     var menuItem : LeftMenuItem? {
         didSet  {
@@ -28,6 +29,7 @@ class LeftMenuCell: UITableViewCell {
     func layout() {
         if let menuItem = self.menuItem {
             self.lblTitle.text = menuItem.title
+            self.imvIcon.image = UIImage(named: menuItem.imvIcon!)
         }
     }
     

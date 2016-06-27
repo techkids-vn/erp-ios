@@ -24,8 +24,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //self.selectInstructorToUpdate()
         // Do any additional setup after loading the view.
+        self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
         self.initLayout()
         _ = self.tbvHistory.rx_itemSelected.subscribeNext {
             indexPath in
@@ -131,16 +131,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
-    
-//    func selectInstructorToUpdate() {
-//        _ = self.tbvHistory.rx_itemSelected.subscribeNext {
-//            indexPath in
-//            print(indexPath.row)
-//        }
-//    }
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

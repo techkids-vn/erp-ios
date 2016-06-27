@@ -94,6 +94,7 @@ class SearchViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 8
         self.clvInstructor.setCollectionViewLayout(layout, animated: true)
+        self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
     }
     
     func getInstructor() {
