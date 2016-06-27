@@ -37,7 +37,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         
         self.waitIndicator.hidesWhenStopped = true
         self.waitIndicator.activityIndicatorViewStyle = .White
-        
+    
         self.vInstructorDetail.instructor = self.instructor
         // Setup gestures
         let tapGesture = UITapGestureRecognizer()
@@ -46,7 +46,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.hideKeyboardWhenTappedAround()
         }.addDisposableTo(self.rx_disposeBag)
         
-        self.configButtonAtFirst()
         self.loadClass()
         self.view.addGestureRecognizer(tapGesture)
         self.choseStep()
@@ -62,6 +61,21 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.vInstructorDetail.lblClass.text = self.instructrClass
             self.vInstructorDetail.lblRole.text = self.instructorRole
             self.vInstructorDetail.lblDate.text = self.dateUpdate
+            
+            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnRole.userInteractionEnabled = true
+            
+            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x71BA51)
+            self.vInstructorDetail.btnClass.userInteractionEnabled = true
+            
+            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
+        }
+        else{
+            self.vInstructorDetail.btnRole.backgroundColor = UIColor.grayColor()
+            self.vInstructorDetail.btnRole.userInteractionEnabled = false
+            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
+            self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
         }
     }
     
@@ -71,11 +85,9 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             if classSelect != "" {
                 self.loadRole()
                 self.vInstructorDetail.lblClass.text = classSelect
-                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x71BA51)
                 self.vInstructorDetail.btnRole.userInteractionEnabled = true
-            }
-            else {
-            
+                self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0xF29B34)
             }
         }
         
@@ -84,8 +96,9 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             if role != "" {
                 self.loadCalendar()
                 self.vInstructorDetail.lblRole.text = role
-                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x008040)
+                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
                 self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
+                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
                 
             }
         }
@@ -145,14 +158,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         })
     }
     
-    func configButtonAtFirst() {
-        self.vInstructorDetail.btnRole.backgroundColor = UIColor.grayColor()
-        self.vInstructorDetail.btnRole.userInteractionEnabled = false
-        self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
-        self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
-        
-    }
- 
     func loadClass() {
         let view = NSBundle.mainBundle().loadNibNamed("ClassSelector", owner: self, options: nil)[0] as! ClassSelectorView
         view.instructor = self.instructor
@@ -191,16 +196,31 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     }
     
     func choseStep() {
+        /*
+         self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
+         self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
+         self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
+
+         */
         _ = vInstructorDetail.btnClass.rx_tap.subscribeNext {
             self.loadClass()
+            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x71BA51)
+            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
         }
         
         _ = vInstructorDetail.btnRole.rx_tap.subscribeNext {
             self.loadRole()
+            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x71BA51)
         }
         
         _ = vInstructorDetail.btnCalendar.rx_tap.subscribeNext {
             self.loadCalendar()
+            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
+            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
         }
 
         
