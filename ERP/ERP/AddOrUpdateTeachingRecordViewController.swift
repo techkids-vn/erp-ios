@@ -12,19 +12,19 @@ import RxCocoa
 import RxSwift
 
 class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDelegate {
-
+    
     var instructor : Instructor?
     var instructrClass = ""
     var instructorRole = ""
     var dateUpdate = ""
     var isUpdate = false
-
+    
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var vMaskView: UIView!
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
     
     var currentViewInMaskView : UIView?
-    var rx_disposeBag = DisposeBag()    
+    var rx_disposeBag = DisposeBag()
     
     var classSelected   : Variable<String> = Variable("")
     var roleSelected    : Variable<String> = Variable("")
@@ -35,16 +35,16 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         super.viewDidLoad()
         self.loadInfoFromHistory()
         
-        self.waitIndicator.hidesWhenStopped = true
-        self.waitIndicator.activityIndicatorViewStyle = .White
-    
+        //        self.waitIndicator.hidesWhenStopped = true
+        //        self.waitIndicator.activityIndicatorViewStyle = .White
+        
         self.vInstructorDetail.instructor = self.instructor
         // Setup gestures
         let tapGesture = UITapGestureRecognizer()
         _ = tapGesture.rx_event.subscribeNext {
             tapGestureRecognizer in
             self.hideKeyboardWhenTappedAround()
-        }.addDisposableTo(self.rx_disposeBag)
+            }.addDisposableTo(self.rx_disposeBag)
         
         self.loadClass()
         self.view.addGestureRecognizer(tapGesture)
@@ -53,7 +53,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         for recognizer in self.view.gestureRecognizers ?? [] {
             self.view.removeGestureRecognizer(recognizer)
         }
-
+        
     }
     
     func loadInfoFromHistory() {
@@ -131,14 +131,13 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     
     func requestDataToServer(classCode: String, roleCode : String, time : String, requestType : RequestType) {
         let dateFormatter = NSDateFormatter()
-        
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var date : NSDate!
         if time == "" {
             date = NSDate.init(timeIntervalSinceNow: 0)
         }
         else {
-             date = dateFormatter.dateFromString(time)!
+            date = dateFormatter.dateFromString(time)!
         }
         let record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
         let request = TeachingRecordRequest.create(record, requestType: requestType)
@@ -146,12 +145,12 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             code, message in
             
             if message.containsString("Requested sucessfully") {
-               // self.waitIndicator.stopAnimating()
+                //                self.waitIndicator.stopAnimating()
                 let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
                 alert.show()
             }
             else {
-            //    self.waitIndicator.stopAnimating()
+                //    self.waitIndicator.stopAnimating()
                 let alert = UIAlertView(title: "", message: "Record Fail", delegate: nil, cancelButtonTitle: "Ok")
                 alert.show()
             }
@@ -184,7 +183,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     
     func loadCalendar() {
         let view = NSBundle.mainBundle().loadNibNamed("CalendarSelectorView", owner: self, options: nil)[0] as! CalendarSelectorView
-
+        
         view.frame = self.vMaskView.bounds
         for v in self.vMaskView.subviews {
             v.removeFromSuperview()
@@ -200,7 +199,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
          self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
          self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
          self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
-
+         
          */
         _ = vInstructorDetail.btnClass.rx_tap.subscribeNext {
             self.loadClass()
@@ -222,7 +221,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
             self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
         }
-
+        
         
     }
     

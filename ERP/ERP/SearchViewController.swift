@@ -19,12 +19,12 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var clvInstructor: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var vSearch: UIView!
-
+    
     
     var vInstructors : Variable<[Instructor]> = Variable([])
     var instructorBackup = [Instructor]()
     var rx_disposeBag = DisposeBag()
-
+    
     override func viewDidLoad() {
         self.configUI()
         self.getInstructor()
@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
             .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
             .subscribeNext { searchText in
                 self.search(searchText)
-        }.addDisposableTo(rx_disposeBag)
+            }.addDisposableTo(rx_disposeBag)
     }
     
     //MARK: hide keyboard
@@ -55,7 +55,7 @@ class SearchViewController: UIViewController {
         _ = self.vInstructors.asObservable().bindTo(self.clvInstructor.rx_itemsWithCellIdentifier("InstructorCell", cellType: InstructorCell.self)){
             row,data,cell in
             cell.instructor = data
-        }.addDisposableTo(rx_disposeBag)
+            }.addDisposableTo(rx_disposeBag)
         
         self.clvInstructor.rx_itemSelected.subscribeNext {
             indexPath in
@@ -64,7 +64,7 @@ class SearchViewController: UIViewController {
             let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddOrUpdateTeachingRecord") as! AddOrUpdateTeachingRecordViewController
             instructorDetailVC.instructor = instructor
             self.navigationController?.pushViewController(instructorDetailVC, animated: true);
-        }.addDisposableTo(rx_disposeBag)
+            }.addDisposableTo(rx_disposeBag)
     }
     
     func configUI() {
@@ -78,7 +78,7 @@ class SearchViewController: UIViewController {
         self.searchBar.backgroundColor = UIColor.clearColor()
         self.searchBar.tintColor = UIColor.clearColor()
         self.searchBar.backgroundImage = UIImage()
-            
+        
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.configLayout()
         self.view.layoutSubviews()
@@ -111,9 +111,10 @@ class SearchViewController: UIViewController {
                         let classes = dict[.classes]
                         
                         let classRoles = List<ClassRole>()
+                        print(classes)
                         for c in classes {
                             let role = c["role"].stringValue
-                            let code = c["code"].stringValue
+                            let code = c["title"].stringValue
                             classRoles.append(ClassRole.create(code, roleCode: role))
                         }
                         instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code, classRoles: classRoles))

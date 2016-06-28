@@ -12,12 +12,12 @@ import RxCocoa
 import Foundation
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tbvHistory: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar!
     @IBOutlet weak var vSearch: UIView!
     @IBOutlet weak var aivWait: UIActivityIndicatorView!
-
+    
     var teachingRecordGroups : [TeachingRecordGroup] = []
     var teachingRecordsVar : Variable<[TeachingRecord]> = Variable([])
     
@@ -27,26 +27,33 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         // Do any additional setup after loading the view.
         self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
         self.initLayout()
-        _ = self.tbvHistory.rx_itemSelected.subscribeNext {
-            indexPath in
-            let instructorClass = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].classCode
-            let instructorCode = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].code
-            let instructorRole = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].roleCode
-            let date = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].date
-                    
-            let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddOrUpdateTeachingRecord") as! AddOrUpdateTeachingRecordViewController
-            instructorDetailVC.instructor = DB.getInstructorByCode(instructorCode)
-            instructorDetailVC.instructorRole = instructorRole
-            instructorDetailVC.instructrClass = instructorClass
-            instructorDetailVC.dateUpdate = String(date)
-            instructorDetailVC.isUpdate = true
-            self.navigationController?.pushViewController(instructorDetailVC, animated: true)
-        }
-
+        self.followClickOnTableViewCell()
     }
     
     override func viewDidAppear(animated: Bool) {
         self.fetchTeachingRecords()
+    }
+    
+    func followClickOnTableViewCell() {
+        _ = self.tbvHistory.rx_itemSelected.subscribeNext {
+            indexPath in
+            let userName = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].userName
+            if userName == DB.getUser()?.userName {
+                let instructorClass = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].classCode
+                let instructorCode = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].code
+                let instructorRole = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].roleCode
+                let date = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].date
+                
+                let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddOrUpdateTeachingRecord") as! AddOrUpdateTeachingRecordViewController
+                instructorDetailVC.instructor = DB.getInstructorByCode(instructorCode)
+                instructorDetailVC.instructorRole = instructorRole
+                instructorDetailVC.instructrClass = instructorClass
+                instructorDetailVC.dateUpdate = String(date)
+                instructorDetailVC.isUpdate = true
+                self.navigationController?.pushViewController(instructorDetailVC, animated: true)
+            }
+        }
+
     }
     
     func initLayout() {
@@ -122,7 +129,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                         self!.teachingRecordsVar.value.removeAtIndex(self!.teachingRecordsVar.value.indexOf(teachingRecord)!)
                     }
                     self!.aivWait.stopAnimating()
-                })
+                    })
             })
             let noAction = UIAlertAction.init(title: "No", style: UIAlertActionStyle.Cancel, handler: {action in })
             alert.addAction(noAction)

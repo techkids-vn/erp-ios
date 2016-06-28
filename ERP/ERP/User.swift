@@ -26,18 +26,19 @@ class User: Object {
 }
 
 extension User {
-    
     static func checkLogin(username : String, password : String, requestDone: RequestDone) {
-        let loginRequest = [
-            "username" : username,
-            "password" : password
+        let headers = [
+            "Content-Type": "application/x-www-form-urlencoded"
         ]
-        
-        Alamofire.request(.POST, LOGIN_API, parameters: loginRequest, encoding: .URL, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) -> Void in
-            if let reportData = response.result.value {
-                let statusLogin = reportData["result_code"] as! Int
-                requestDone(statusLogin, "Login done")
-            }
+        let parameters = [
+            "login" : username,
+            "pass" : password,
+            "dbId" : "1"
+        ]
+        let url = NSURL(string: LOGIN_API)!
+        Alamofire.request(.POST, url, parameters: parameters, headers: headers, encoding: .URL)
+            .responseString { response in
+                requestDone(1,response.description)
         }
         
     }

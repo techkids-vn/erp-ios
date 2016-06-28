@@ -12,7 +12,7 @@ import RxCocoa
 import SlideMenuControllerSwift
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var imvIcon: UIImageView!
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     @IBOutlet weak var btnLogin: UIButton!
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
         self.login()
         self.hideKeyboardWhenTappedAround()
     }
-        
+    
     func setupUI() {
         /* imv shadow */
         self.imvIcon.layer.cornerRadius = self.imvIcon.frame.width/2
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         
         self.btnLogin.layer.cornerRadius = 6.0
         self.txtUsername.text = "admin"
-        self.txtPassword.text = "admin"
+        self.txtPassword.text = "111111"
         self.waitIndicator.hidesWhenStopped = true
         self.waitIndicator.activityIndicatorViewStyle = .Gray
         
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
     
     func checkLogin(statusLogin : Int, message: String) {
         self.waitIndicator.stopAnimating()
-        if statusLogin == 1 {
+        if message.containsString("OK") {
             User.create(self.txtUsername.text!, password: self.txtPassword.text!)
             
             let leftVC = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController")
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
             let slideVC = SlideMenuController(mainViewController: navVC, leftMenuViewController: leftVC)
             
             self.view.window!.rootViewController = slideVC
-            self.view.window!.makeKeyAndVisible()
+            //self.view.window!.makeKeyAndVisible()
         }
         else {
             let alert = UIAlertController(title: "", message: "Login Failed", preferredStyle: .Alert)
@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
             alert.addAction(OKAction)
         }
     }
-
+    
 }
 
 

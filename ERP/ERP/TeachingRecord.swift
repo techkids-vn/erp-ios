@@ -41,9 +41,9 @@ class TeachingRecord : Object {
         let classCode = json[.classCode]
         let roleCode = json[.roleCode]
         let date = json[.date].date // MARK: Add code to secure date conversion
-        let recordId = json[.id][.oid]
+        let recordId = json[.id]
         let userName = json[.userName]
-
+        
         let record = create(
             code,
             classCode: classCode,
@@ -53,7 +53,7 @@ class TeachingRecord : Object {
             userName: userName)
         return record
     }
-  
+    
     static func groupByDate(teachingRecords: [TeachingRecord]) -> [TeachingRecordGroup] {
         var retValue : [TeachingRecordGroup] = []
         for teachingRecord in teachingRecords {
@@ -61,7 +61,7 @@ class TeachingRecord : Object {
             let groupOpt = retValue.filter {
                 group in
                 return group.dateString! == date
-            }.first
+                }.first
             if let group = groupOpt {
                 group.teachingRecords!.append(teachingRecord)
             } else {
@@ -76,11 +76,11 @@ extension TeachingRecord {
     var Dict : [String : String] {
         get {
             return [
-                "code" : self.code,
-                "class" : self.classCode,
-                "role" : self.roleCode,
+                "instructor_code" : self.code,
+                "class_code" : self.classCode,
+                "role_code" : self.roleCode,
                 "date" : self.date.string,
-                "record_id" : self.recordId
+                "_id" : self.recordId
             ]
         }
     }

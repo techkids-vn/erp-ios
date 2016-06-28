@@ -13,7 +13,7 @@ class ResponseMessageWithRecordId: ResponseMessage {
     let recordId : String?
     
     override init(json: JSON) {
-        self.recordId = json[.recordId]
+        self.recordId = json[._id]
         super.init(json: json)
     }
     
