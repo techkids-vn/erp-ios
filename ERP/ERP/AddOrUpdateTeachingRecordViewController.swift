@@ -17,6 +17,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     var instructrClass = ""
     var instructorRole = ""
     var dateUpdate = ""
+    var teachingRecordId = ""
     var isUpdate = false
     
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
@@ -139,7 +140,15 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         else {
             date = dateFormatter.dateFromString(time)!
         }
-        let record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+        var record : TeachingRecord!
+        if requestType == RequestType.CREATE {
+             record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+        }
+        else if requestType == RequestType.UPDATE {
+            let userName = DB.getUser()?.userName
+            record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date, recordId: self.teachingRecordId, userName: userName!)
+        }
+        
         let request = TeachingRecordRequest.create(record, requestType: requestType)
         NetworkContext.sendTeachingRecordRequest(request, requestDone: {
             code, message in

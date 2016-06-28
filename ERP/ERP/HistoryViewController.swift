@@ -43,6 +43,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 let instructorCode = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].code
                 let instructorRole = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].roleCode
                 let date = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].date
+                let teachingRecordId = self.teachingRecordGroups[indexPath.section].teachingRecords![indexPath.row].recordId
                 
                 let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddOrUpdateTeachingRecord") as! AddOrUpdateTeachingRecordViewController
                 instructorDetailVC.instructor = DB.getInstructorByCode(instructorCode)
@@ -50,6 +51,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 instructorDetailVC.instructrClass = instructorClass
                 instructorDetailVC.dateUpdate = String(date)
                 instructorDetailVC.isUpdate = true
+                instructorDetailVC.teachingRecordId = teachingRecordId
                 self.navigationController?.pushViewController(instructorDetailVC, animated: true)
             }
         }
