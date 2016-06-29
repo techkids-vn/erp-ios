@@ -9,8 +9,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Alamofire
 
-class LeftViewController: UIViewController {
+class LeftViewController: UIViewController, UIAlertViewDelegate {
 
     
     @IBOutlet weak var imvLogo: UIImageView!
@@ -44,13 +45,22 @@ class LeftViewController: UIViewController {
             row, data, cell in
             cell.menuItem = data
         }.addDisposableTo(self.rx_disosebag)
+
         
         _ = self.tbvMenu.rx_itemSelected.subscribeNext {
             indexPath in
-            let menuItem = self.menuItemsVar.value[indexPath.row]
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier(menuItem.vcStoryBoardId!)
+            if self.menuItemsVar.value[indexPath.row].title == "Logout" {
+                let alertView = UIAlertView(title: "", message: "Do you want to logout?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+                alertView.show() 
+            }
+            else {
+                let menuItem = self.menuItemsVar.value[indexPath.row]
+                let vc = self.storyboard?.instantiateViewControllerWithIdentifier(menuItem.vcStoryBoardId!)
+                self.slideMenuController()?.changeMainViewController(vc!, close: true)
+            }
             
-            self.slideMenuController()?.changeMainViewController(vc!, close: true)
+            self.tbvMenu.deselectRowAtIndexPath(indexPath, animated: false)
+            
         }.addDisposableTo(self.rx_disosebag)
     }
     
@@ -62,6 +72,36 @@ class LeftViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - UIAlertView delegate
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 0 {
+            self.closeLeft()
+        }
+        else if buttonIndex == 1 {
+            self.logout()
+        }
+    }
+    
+    func logout() {
+        Alamofire.request(.GET,LOGOUT_API)
+            .validate()
+            .responseJASON { response in
+                if let json = response.result.value {
+                    let responseMessage = ResponseMessageWithRecordId.init(json: json)
+                    if responseMessage.isSuccess {
+                        DB.logout(DB.getUser()!)
+                        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+                        self.presentViewController(vc, animated: true, completion: {
+                        })
+                    }
+                    else {
+                        let alertView = UIAlertView(title: "", message: "Logout failed. Please check your internet!", delegate: nil, cancelButtonTitle: "Cancel")
+                        alertView.show()
+                    }
+                }
+        }
     }
     
 

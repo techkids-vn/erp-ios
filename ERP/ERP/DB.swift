@@ -19,6 +19,12 @@ class DB: Object {
         }
     }
     
+    static func logout(user : User) {
+        try! realm.write {
+            user.didLogin = 0
+        }
+    }
+    
     static func getUser() -> User? {
         return realm.objects(User).first
     }

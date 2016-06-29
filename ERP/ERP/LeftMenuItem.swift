@@ -23,7 +23,8 @@ class LeftMenuItem: NSObject {
         get {
             return [
                 LeftMenuItem(title: "Search", vcStoryBoardId: "NavigationController", imvIcon: "img-search"),
-                LeftMenuItem(title: "History", vcStoryBoardId: "NavigationControllerForHistory", imvIcon: "img-history")
+                LeftMenuItem(title: "History", vcStoryBoardId: "NavigationControllerForHistory", imvIcon: "img-history"),
+                LeftMenuItem(title: "Logout", vcStoryBoardId: "", imvIcon: "img-logout")
             ]
         }
     }

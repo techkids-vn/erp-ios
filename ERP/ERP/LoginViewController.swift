@@ -55,8 +55,7 @@ class LoginViewController: UIViewController {
         if message.containsString("OK") {
             User.create(self.txtUsername.text!, password: self.txtPassword.text!)
             
-            let leftVC = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController")
-            
+            let leftVC = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController")            
             let navVC = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController
             
             let slideVC = SlideMenuController(mainViewController: navVC, leftMenuViewController: leftVC)
