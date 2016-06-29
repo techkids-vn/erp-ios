@@ -570,6 +570,14 @@
                                     <constraint firstAttribute="height" constant="48" id="szt-kr-myf"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lYt-fS-foO" userLabel="aivWait">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="aWz-r1-yUZ"/>
+                                    <constraint firstAttribute="height" constant="20" id="tRr-Xt-SuM"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gdu-nP-4vO" userLabel="tbvHistory">
                                 <rect key="frame" x="0.0" y="112" width="600" height="488"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -590,7 +598,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62q-qC-1ae" userLabel="lblInstructorName">
-                                                    <rect key="frame" x="64" y="34" width="180" height="17"/>
+                                                    <rect key="frame" x="64" y="27" width="180" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="8F9-it-jjT"/>
                                                         <constraint firstAttribute="width" constant="180" id="ClH-mD-7ge"/>
@@ -600,9 +608,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qei-a6-gtk" userLabel="lblRoleName">
-                                                    <rect key="frame" x="412" y="44" width="180" height="14"/>
+                                                    <rect key="frame" x="492" y="44" width="100" height="14"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="180" id="IvR-A1-P0O"/>
+                                                        <constraint firstAttribute="width" constant="100" id="IvR-A1-P0O"/>
                                                         <constraint firstAttribute="height" constant="14" id="X44-Z9-blZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -626,6 +634,12 @@
                                                         <constraint firstAttribute="height" constant="1" id="NiL-uh-YN0"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="716-uj-OCp" userLabel="lblRecordTime">
+                                                    <rect key="frame" x="64" y="45" width="418" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -634,10 +648,13 @@
                                                 <constraint firstAttribute="top" secondItem="62q-qC-1ae" secondAttribute="top" id="3aH-de-r8R"/>
                                                 <constraint firstItem="62q-qC-1ae" firstAttribute="leading" secondItem="oTK-f3-Ym2" secondAttribute="trailing" constant="2" id="EJR-on-eMu"/>
                                                 <constraint firstItem="Qei-a6-gtk" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" constant="8" id="EZQ-s4-u14"/>
+                                                <constraint firstItem="716-uj-OCp" firstAttribute="leading" secondItem="oTK-f3-Ym2" secondAttribute="trailing" constant="2" id="JA4-21-Smp"/>
+                                                <constraint firstItem="Qei-a6-gtk" firstAttribute="leading" secondItem="716-uj-OCp" secondAttribute="trailing" constant="10" id="JZp-nv-u7P"/>
                                                 <constraint firstItem="jfP-lT-2oz" firstAttribute="leading" secondItem="zuu-ro-M86" secondAttribute="leading" id="NfA-O5-hbF"/>
-                                                <constraint firstItem="62q-qC-1ae" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" id="WOO-yk-pZE"/>
+                                                <constraint firstItem="62q-qC-1ae" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" constant="-8" id="WOO-yk-pZE"/>
                                                 <constraint firstAttribute="bottom" secondItem="jfP-lT-2oz" secondAttribute="bottom" id="d2c-dR-Qhq"/>
                                                 <constraint firstItem="B5d-rq-Yrd" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" constant="-8" id="ekN-Yr-x35"/>
+                                                <constraint firstItem="716-uj-OCp" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" constant="8" id="fG2-zy-S1n"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="B5d-rq-Yrd" secondAttribute="trailing" id="jQ4-eq-SWQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="jfP-lT-2oz" secondAttribute="trailing" id="yBi-FJ-uTz"/>
                                                 <constraint firstItem="oTK-f3-Ym2" firstAttribute="centerY" secondItem="zuu-ro-M86" secondAttribute="centerY" id="yyd-xF-etg"/>
@@ -653,20 +670,13 @@
                                             <outlet property="imvAvatar" destination="oTK-f3-Ym2" id="oWf-Mc-vSO"/>
                                             <outlet property="lblClassName" destination="B5d-rq-Yrd" id="5Jc-jZ-mjJ"/>
                                             <outlet property="lblInstructorName" destination="62q-qC-1ae" id="gL1-jF-3fb"/>
+                                            <outlet property="lblRecordTime" destination="716-uj-OCp" id="oUU-Xm-YSr"/>
                                             <outlet property="lblRoleName" destination="Qei-a6-gtk" id="h37-tl-3S0"/>
                                             <outlet property="vRoot" destination="zuu-ro-M86" id="16N-Rn-xl6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lYt-fS-foO" userLabel="aivWait">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="aWz-r1-yUZ"/>
-                                    <constraint firstAttribute="height" constant="20" id="tRr-Xt-SuM"/>
-                                </constraints>
-                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

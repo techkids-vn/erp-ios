@@ -26,7 +26,7 @@ class TeachingRecordRequestTest: NSObject {
         
         let now = NSDate.init(timeIntervalSinceNow: 0)
         
-        let record = TeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now)
+        let record = TeachingRecord.create("002004", classCode: "ios4", roleCode: "coach", date: now,recordTime: String(now))
         
         let recordRequest = TeachingRecordRequest.create(record, requestType: RequestType.CREATE)
         

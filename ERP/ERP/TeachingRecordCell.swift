@@ -15,6 +15,7 @@ class TeachingRecordCell: UITableViewCell {
     @IBOutlet weak var lblClassName: UILabel!
     @IBOutlet weak var lblRoleName: UILabel!
     @IBOutlet weak var vRoot: UIView!
+    @IBOutlet weak var lblRecordTime: UILabel!
     
     var teachingRecord : TeachingRecord? {
         didSet {
@@ -28,6 +29,7 @@ class TeachingRecordCell: UITableViewCell {
                 self.lblInstructorName.text = instructor.name
                 self.lblClassName.text = teachingRecord.classTitle
                 self.lblRoleName.text = teachingRecord.roleTitle
+                self.lblRecordTime.text = teachingRecord.recordTime
                 LazyImage.showForImageView(self.imvAvatar, url: instructor.imgUrl)
             }
             if teachingRecord.editable {

@@ -15,6 +15,12 @@ extension NSDate {
         return formater.stringFromDate(self)
     }
     
+    var fullString : String {
+        let formater = NSDateFormatter()
+        formater.dateFormat = "yyyy-MM-dd, HH:mm"
+        return formater.stringFromDate(self)
+    }
+    
     var dateString : String {
         let formater = NSDateFormatter()
         formater.dateFormat = "yyyy-MM-dd"
@@ -30,4 +36,12 @@ extension String {
         formater.dateFormat = "yyyy-MM-dd"
         return formater.dateFromString(self)!
     }
+    var fullDate : NSDate {
+        let formater = NSDateFormatter()
+        formater.dateFormat = "yyyy-MM-dd, HH:mm"
+        return formater.dateFromString(self)!
+    }
+
+    
+    
 }

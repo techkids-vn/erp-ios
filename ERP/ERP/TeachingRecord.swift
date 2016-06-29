@@ -17,8 +17,9 @@ class TeachingRecord : Object {
     dynamic var date = NSDate()
     dynamic var recordId = ""
     dynamic var userName = ""
+    dynamic var recordTime = ""
     
-    static func create(code: String, classCode: String, roleCode: String, date: NSDate, recordId : String, userName : String) -> TeachingRecord {
+    static func create(code: String, classCode: String, roleCode: String, date: NSDate, recordTime : String, recordId : String, userName : String) -> TeachingRecord {
         let teachingRecord = TeachingRecord()
         teachingRecord.code = code
         teachingRecord.classCode = classCode
@@ -26,13 +27,14 @@ class TeachingRecord : Object {
         teachingRecord.date = date
         teachingRecord.recordId = recordId
         teachingRecord.userName = userName
+        teachingRecord.recordTime = recordTime
         DB.addOrUpdateTeachingRecord(teachingRecord)
         return teachingRecord
     }
     
-    static func create(code: String, classCode: String, roleCode: String, date: NSDate) -> TeachingRecord {
+    static func create(code: String, classCode: String, roleCode: String, date: NSDate, recordTime : String) -> TeachingRecord {
         
-        return create(code, classCode: classCode, roleCode: roleCode, date: date, recordId: "", userName: "")
+        return create(code, classCode: classCode, roleCode: roleCode, date: date,recordTime: recordTime, recordId: "", userName: "")
     }
     
     static func create(json : JSON) -> TeachingRecord {
@@ -43,12 +45,14 @@ class TeachingRecord : Object {
         let date = json[.date].date // MARK: Add code to secure date conversion
         let recordId = json[.id]
         let userName = json[.userName]
+        let recordTime = json[.recordTime]
         
         let record = create(
             code,
             classCode: classCode,
             roleCode: roleCode,
             date: date,
+            recordTime: recordTime,
             recordId: recordId,
             userName: userName)
         return record
@@ -80,7 +84,8 @@ extension TeachingRecord {
                 "class_code" : self.classCode,
                 "role_code" : self.roleCode,
                 "date" : self.date.string,
-                "_id" : self.recordId
+                "_id" : self.recordId,
+                "record_time" : self.recordTime
             ]
         }
     }

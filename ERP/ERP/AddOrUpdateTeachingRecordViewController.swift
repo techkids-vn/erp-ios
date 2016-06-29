@@ -131,22 +131,30 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     }
     
     func requestDataToServer(classCode: String, roleCode : String, time : String, requestType : RequestType) {
+        let today = NSDate();
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        //To prevent displaying either date or time, set the desired style to NoStyle.
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle //Set time style
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle //Set date style
+        dateFormatter.timeZone = NSTimeZone()
+        let localDate = dateFormatter.stringFromDate(today)
+        
         var date : NSDate!
         if time == "" {
-            date = NSDate.init(timeIntervalSinceNow: 0)
+            date = today
         }
         else {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
             date = dateFormatter.dateFromString(time)!
         }
         var record : TeachingRecord!
         if requestType == RequestType.CREATE {
-             record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date)
+             record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date,recordTime: localDate)
         }
         else if requestType == RequestType.UPDATE {
             let userName = DB.getUser()?.userName
-            record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date, recordId: self.teachingRecordId, userName: userName!)
+            record = TeachingRecord.create(self.instructor!.code, classCode: classCode, roleCode: roleCode, date: date,recordTime:localDate, recordId: self.teachingRecordId, userName: userName!)
         }
         
         let request = TeachingRecordRequest.create(record, requestType: requestType)
