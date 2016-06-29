@@ -19,7 +19,6 @@ class RoleSelector: UIView {
             self.layout()
         }
     }
-    
     var roleSelected : Variable<String> = Variable("")
     
     func layout() {
@@ -43,8 +42,5 @@ class RoleSelector: UIView {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
-
-
 }

@@ -41,7 +41,6 @@
 		84F3F3A81D1E4D3E0051EBFD /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3F3A71D1E4D3E0051EBFD /* Role.swift */; };
 		90DE35E23F139959F9FC7890 /* Pods_ERP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB9367B2732EEC35309EB43 /* Pods_ERP.framework */; };
 		99023D4B1D1D8EFA00EEE621 /* InstructorInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99023D4A1D1D8EFA00EEE621 /* InstructorInfo.xib */; };
-		992846DB1D1055A600C7FC3F /* RequestInstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992846DA1D1055A600C7FC3F /* RequestInstructor.swift */; };
 		992846DE1D105D2600C7FC3F /* LazyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992846DD1D105D2600C7FC3F /* LazyImage.swift */; };
 		99422DDD1D0F10BD006BD11E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99422DDC1D0F10BD006BD11E /* NavigationController.swift */; };
 		99422DDF1D0F1665006BD11E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99422DDE1D0F1665006BD11E /* UIColorExtension.swift */; };
@@ -102,7 +101,6 @@
 		84F3F3A51D1E4CFA0051EBFD /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		84F3F3A71D1E4D3E0051EBFD /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		99023D4A1D1D8EFA00EEE621 /* InstructorInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructorInfo.xib; sourceTree = "<group>"; };
-		992846DA1D1055A600C7FC3F /* RequestInstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestInstructor.swift; sourceTree = "<group>"; };
 		992846DD1D105D2600C7FC3F /* LazyImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyImage.swift; sourceTree = "<group>"; };
 		99422DDC1D0F10BD006BD11E /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		99422DDE1D0F1665006BD11E /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -155,14 +153,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8417C4AC1D1D995300A77D20 /* TeachingRecord Cell */ = {
-			isa = PBXGroup;
-			children = (
-				8417C4B31D1D9DE300A77D20 /* TeachingRecordCell.swift */,
-			);
-			name = "TeachingRecord Cell";
-			sourceTree = "<group>";
-		};
 		845D77C61D103E09007064EF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,26 +171,11 @@
 			name = Contants;
 			sourceTree = "<group>";
 		};
-		846FBA1D1D1BDC1D0097B6E7 /* Menu Cell */ = {
-			isa = PBXGroup;
-			children = (
-				846FBA1E1D1BDC3D0097B6E7 /* LeftMenuCell.swift */,
-			);
-			name = "Menu Cell";
-			sourceTree = "<group>";
-		};
 		847C2F1A1D126C62002A8DD9 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Rx;
-			sourceTree = "<group>";
-		};
-		84E33D811D13E81A00938600 /* StringFormats */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = StringFormats;
 			sourceTree = "<group>";
 		};
 		84EB369D1D0D63E00032F0F9 = {
@@ -225,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				84EB36A91D0D63E00032F0F9 /* AppDelegate.swift */,
-				845D77CE1D11120A007064EF /* Contants */,
 				845D77C61D103E09007064EF /* Tests */,
 				995319F81D0D68F500097E42 /* Libs */,
 				99422DE51D0F2F24006BD11E /* Utilities */,
@@ -241,7 +215,6 @@
 		992846D91D10556900C7FC3F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				992846DA1D1055A600C7FC3F /* RequestInstructor.swift */,
 				847C2F211D1276EB002A8DD9 /* NetworkContext.swift */,
 				8413843A1D12BBDC00D84B17 /* ResponseMessage.swift */,
 				84E33D841D13F68800938600 /* ResponseMessageWithRecordId.swift */,
@@ -258,18 +231,10 @@
 			name = "Lazy Image";
 			sourceTree = "<group>";
 		};
-		99422DE01D0F1E17006BD11E /* Instructor Cell */ = {
-			isa = PBXGroup;
-			children = (
-				99422DE11D0F2A6E006BD11E /* InstructorCell.swift */,
-			);
-			name = "Instructor Cell";
-			sourceTree = "<group>";
-		};
 		99422DE51D0F2F24006BD11E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				84E33D811D13E81A00938600 /* StringFormats */,
+				845D77CE1D11120A007064EF /* Contants */,
 				992846D91D10556900C7FC3F /* Networking */,
 			);
 			name = Utilities;
@@ -290,10 +255,11 @@
 				84EB36AD1D0D63E00032F0F9 /* Main.storyboard */,
 				84EB36B21D0D63E00032F0F9 /* LaunchScreen.storyboard */,
 				8417C4B01D1D9B6700A77D20 /* TeachingRecordViewController.xib */,
-				8417C4AC1D1D995300A77D20 /* TeachingRecord Cell */,
-				99422DE01D0F1E17006BD11E /* Instructor Cell */,
-				846FBA1D1D1BDC1D0097B6E7 /* Menu Cell */,
-				99EE6EC61D1DE4C200594AF7 /* Class Cell */,
+				8417C4B31D1D9DE300A77D20 /* TeachingRecordCell.swift */,
+				99422DE11D0F2A6E006BD11E /* InstructorCell.swift */,
+				846FBA1E1D1BDC3D0097B6E7 /* LeftMenuCell.swift */,
+				99EE6EC81D1DE4ED00594AF7 /* ClassCell.xib */,
+				99EE6EC71D1DE4ED00594AF7 /* ClassCell.swift */,
 				99023D4A1D1D8EFA00EEE621 /* InstructorInfo.xib */,
 				84162E7A1D15B95100CF6319 /* InstructorDetailView.swift */,
 				84162E781D15B61F00CF6319 /* InstructorDetailView.xib */,
@@ -376,15 +342,6 @@
 				9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */,
 			);
 			name = "Alamofire Extension";
-			sourceTree = "<group>";
-		};
-		99EE6EC61D1DE4C200594AF7 /* Class Cell */ = {
-			isa = PBXGroup;
-			children = (
-				99EE6EC71D1DE4ED00594AF7 /* ClassCell.swift */,
-				99EE6EC81D1DE4ED00594AF7 /* ClassCell.xib */,
-			);
-			name = "Class Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,7 +512,6 @@
 				846FB4221D1ABC14007BBB34 /* HistoryViewController.swift in Sources */,
 				847C2F201D1272CA002A8DD9 /* TeachingRecord.swift in Sources */,
 				846FBA1C1D1BDA920097B6E7 /* LeftMenuItem.swift in Sources */,
-				992846DB1D1055A600C7FC3F /* RequestInstructor.swift in Sources */,
 				846FBA1F1D1BDC3D0097B6E7 /* LeftMenuCell.swift in Sources */,
 				998278691D0DE489004F6846 /* SearchViewController.swift in Sources */,
 				99422DDD1D0F10BD006BD11E /* NavigationController.swift in Sources */,

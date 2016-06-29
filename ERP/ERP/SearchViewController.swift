@@ -20,7 +20,6 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var vSearch: UIView!
     
-    
     var vInstructors : Variable<[Instructor]> = Variable([])
     var instructorBackup = [Instructor]()
     var rx_disposeBag = DisposeBag()
@@ -29,8 +28,6 @@ class SearchViewController: UIViewController {
         self.configUI()
         self.getInstructor()
         self.configCollectionView()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         _ = self.searchBar
             .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
@@ -52,19 +49,26 @@ class SearchViewController: UIViewController {
     
     //MARK: config UI, UICollectionView
     func configCollectionView() {
-        _ = self.vInstructors.asObservable().bindTo(self.clvInstructor.rx_itemsWithCellIdentifier("InstructorCell", cellType: InstructorCell.self)){
-            row,data,cell in
-            cell.instructor = data
-            }.addDisposableTo(rx_disposeBag)
-        
+        _ = self.vInstructors.asObservable()
+            .bindTo(self.clvInstructor.rx_itemsWithCellIdentifier("InstructorCell", cellType: InstructorCell.self)){
+                row,data,cell in
+                    cell.instructor = data
+            }
+            .addDisposableTo(rx_disposeBag)
+        /* Get the selected instructor and open detail instructor view */
         self.clvInstructor.rx_itemSelected.subscribeNext {
             indexPath in
-            /* Get the selected instructor and open detail instructor view */
             let instructor = self.vInstructors.value[indexPath.row]
             let instructorDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddOrUpdateTeachingRecord") as! AddOrUpdateTeachingRecordViewController
+            
             instructorDetailVC.instructor = instructor
             self.navigationController?.pushViewController(instructorDetailVC, animated: true);
-            }.addDisposableTo(rx_disposeBag)
+            }
+            .addDisposableTo(rx_disposeBag)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+
     }
     
     func configUI() {
@@ -81,8 +85,6 @@ class SearchViewController: UIViewController {
         
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.configLayout()
-        self.view.layoutSubviews()
-        self.view.layoutIfNeeded()
     }
     
     func configLayout() {

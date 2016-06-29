@@ -21,31 +21,32 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI()
         self.login()
         self.hideKeyboardWhenTappedAround()
     }
     
+    override func viewDidLayoutSubviews() {
+        self.setupUI()
+    }
+    
     func setupUI() {
-        /* imv shadow */
         self.imvIcon.layer.cornerRadius = self.imvIcon.frame.width/2
         self.imvIcon.layer.shadowColor = UIColor.blackColor().CGColor;
         self.imvIcon.layer.shadowOffset = CGSizeMake(0, 1);
         self.imvIcon.layer.shadowOpacity = 1;
         self.imvIcon.layer.shadowRadius = 1.0;
         self.imvIcon.clipsToBounds = false;
-        
         self.btnLogin.layer.cornerRadius = 6.0
         self.txtUsername.text = "admin"
         self.txtPassword.text = "111111"
         self.waitIndicator.hidesWhenStopped = true
         self.waitIndicator.activityIndicatorViewStyle = .Gray
-        
     }
     
     func login() {
         _ = self.btnLogin.rx_tap.subscribeNext {
-            User.checkLogin(self.txtUsername.text!, password: self.txtPassword.text!, requestDone: self.checkLogin)
+            User.checkLogin(self.txtUsername.text!, password: self.txtPassword.text!,
+                requestDone: self.checkLogin)
             self.waitIndicator.startAnimating()
         }
     }
@@ -59,22 +60,16 @@ class LoginViewController: UIViewController {
             else {
                 User.create(self.txtUsername.text!, password: self.txtPassword.text!)
             }
-            
-            
             let leftVC = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController")            
-            let navVC = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController
-            
+            let navVC = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController")
+                as! NavigationController
             let slideVC = SlideMenuController(mainViewController: navVC, leftMenuViewController: leftVC)
-            
             self.view.window!.rootViewController = slideVC
-            //self.view.window!.makeKeyAndVisible()
         }
         else {
-            let alert = UIAlertController(title: "", message: "Login Failed", preferredStyle: .Alert)
-            self.presentViewController(alert, animated: true, completion: nil)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction) in
-            }
-            alert.addAction(OKAction)
+            let alertView = UIAlertView(title: "", message: "Login Failed", delegate: nil,
+                                        cancelButtonTitle: "OK")
+            alertView.show()
         }
     }
     

@@ -46,7 +46,6 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
             cell.menuItem = data
         }.addDisposableTo(self.rx_disosebag)
 
-        
         _ = self.tbvMenu.rx_itemSelected.subscribeNext {
             indexPath in
             if self.menuItemsVar.value[indexPath.row].title == "Logout" {
@@ -58,15 +57,12 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
                 let vc = self.storyboard?.instantiateViewControllerWithIdentifier(menuItem.vcStoryBoardId!)
                 self.slideMenuController()?.changeMainViewController(vc!, close: true)
             }
-            
             self.tbvMenu.deselectRowAtIndexPath(indexPath, animated: false)
-            
         }.addDisposableTo(self.rx_disosebag)
     }
     
     
     override func viewDidAppear(animated: Bool) {
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,16 +99,6 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
                 }
         }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
