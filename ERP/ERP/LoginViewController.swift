@@ -53,7 +53,13 @@ class LoginViewController: UIViewController {
     func checkLogin(statusLogin : Int, message: String) {
         self.waitIndicator.stopAnimating()
         if message.containsString("OK") {
-            User.create(self.txtUsername.text!, password: self.txtPassword.text!)
+            if DB.getUserByName(self.txtUsername.text!)?.userName == self.txtUsername.text!  {
+                DB.login(DB.getUserByName(self.txtUsername.text!)!)
+            }
+            else {
+                User.create(self.txtUsername.text!, password: self.txtPassword.text!)
+            }
+            
             
             let leftVC = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController")            
             let navVC = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! NavigationController

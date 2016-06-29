@@ -25,8 +25,19 @@ class DB: Object {
         }
     }
     
+    static func login(user : User) {
+        try! realm.write {
+            user.didLogin = 1
+        }
+    }
+    
     static func getUser() -> User? {
         return realm.objects(User).first
+    }
+    
+    static func getUserByName(name : String) -> User?{
+        let predicate = NSPredicate(format: "userName = %@",name)
+        return realm.objects(User).filter(predicate).first
     }
     
     static func getLogin() -> User? {

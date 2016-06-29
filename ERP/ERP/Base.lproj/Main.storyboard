@@ -190,7 +190,6 @@
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="dEF-82-K93">
                                         <rect key="frame" x="0.0" y="4" width="600" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.40253547205471124" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="GCV-45-fNR"/>
                                         </constraints>
