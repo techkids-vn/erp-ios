@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
 
 class Instructor: Object {
     
@@ -15,9 +16,8 @@ class Instructor: Object {
     dynamic var name = ""
     dynamic var code = ""
     dynamic var team = ""
-    dynamic var numberAttendance = 0
-    var classRoles : List<ClassRole> = List<ClassRole>()
     
+    var classRoles : List<ClassRole> = List<ClassRole>()
     static func create(imgUrl : String, name : String, team : String, code : String, classRoles : List<ClassRole>) -> Instructor {
         
         let instructor = Instructor()
@@ -59,10 +59,4 @@ extension Instructor {
         }
     }
     
-    var recordCountToDay : Int  {
-        get {
-            return DB.getInstructorTeachingRecordCountForToday(self)
-//            return 3
-        }
-    }
 }

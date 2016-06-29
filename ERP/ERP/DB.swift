@@ -136,28 +136,6 @@ class DB: Object {
         }
     }
     
-    static func getInstructorTeachingRecordCountForToday(instructor : Instructor) -> Int {
-        // get today NSDate
-        // get code
-        // get from realm
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
-        let year = components.year - components.year/1000
-        let month = components.month
-        let day = components.day
-        let currentTime = "\(year)-\(month)-\(day)"
-        
-        var count = 0
-        for instRecord in getAllInstructorTeachingRecords() {
-            if instructor.code == instRecord.code && instRecord.date == currentTime{
-                count += 1
-            }
-        }
-        
-        return count
-    }
-    
     // MARK: TeachingRecord
     static func addOrUpdateTeachingRecord(record: TeachingRecord) {
         let foundRecordOpt = realm.objects(TeachingRecord).filter("recordId = '\(record.recordId)'").first
@@ -176,6 +154,7 @@ class DB: Object {
             realm.add(request)
         }
     }
+
     
     static func getAllTeachingRecordRequests() -> [TeachingRecordRequest] {
         return realm.objects(TeachingRecordRequest).map {

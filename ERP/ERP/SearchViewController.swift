@@ -41,6 +41,10 @@ class SearchViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.clvInstructor.reloadData()
+    }
+    
     func keyboardWillHide(notification: NSNotification) {
         for recognizer in view.gestureRecognizers ?? [] {
             view.removeGestureRecognizer(recognizer)

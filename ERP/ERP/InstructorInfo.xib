@@ -27,15 +27,26 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OL7-gq-4kF">
                     <rect key="frame" x="0.0" y="63" width="617" height="274"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4D-Om-vIH">
-                    <rect key="frame" x="10" y="309" width="597" height="20"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-NK-3gy">
+                    <rect key="frame" x="0.0" y="278" width="617" height="59"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4D-Om-vIH">
+                            <rect key="frame" x="12" y="20" width="597" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Rdx-Wl-4GT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.14509803921568626" green="0.21568627450980393" blue="0.23921568627450979" alpha="0.51551682692307688" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="TZ2-nT-CY6"/>
+                        <constraint firstAttribute="trailing" secondItem="G4D-Om-vIH" secondAttribute="trailing" constant="8" id="NA1-KN-Sxz"/>
+                        <constraint firstItem="G4D-Om-vIH" firstAttribute="centerY" secondItem="Ade-NK-3gy" secondAttribute="centerY" id="ywS-pz-ldF"/>
+                        <constraint firstItem="G4D-Om-vIH" firstAttribute="leading" secondItem="Ade-NK-3gy" secondAttribute="leading" constant="12" id="yxK-AI-LFh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tr-fr-sNN">
                     <rect key="frame" x="0.0" y="0.0" width="617" height="63"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -146,21 +157,22 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="FI0-cw-HqF" firstAttribute="top" secondItem="G4D-Om-vIH" secondAttribute="bottom" constant="8" id="2c2-Lc-73F"/>
+                <constraint firstItem="Ade-NK-3gy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0Sk-BK-pLa"/>
                 <constraint firstItem="7Tr-fr-sNN" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.15" id="7GN-zF-u4B"/>
                 <constraint firstAttribute="trailing" secondItem="FI0-cw-HqF" secondAttribute="trailing" id="Abl-hG-ZTw"/>
-                <constraint firstItem="G4D-Om-vIH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Kv7-5F-6f2"/>
                 <constraint firstAttribute="trailing" secondItem="OL7-gq-4kF" secondAttribute="trailing" id="LKP-JB-hbd"/>
                 <constraint firstItem="7Tr-fr-sNN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ldc-UX-vyi"/>
-                <constraint firstAttribute="trailing" secondItem="G4D-Om-vIH" secondAttribute="trailing" constant="10" id="Nlj-56-oRe"/>
                 <constraint firstAttribute="trailing" secondItem="7Tr-fr-sNN" secondAttribute="trailing" id="RHS-DL-cfW"/>
                 <constraint firstItem="FI0-cw-HqF" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="SXt-MR-9WN"/>
                 <constraint firstAttribute="bottom" secondItem="FI0-cw-HqF" secondAttribute="bottom" id="T5F-2a-1dr"/>
                 <constraint firstItem="OL7-gq-4kF" firstAttribute="top" secondItem="7Tr-fr-sNN" secondAttribute="bottom" id="a0A-xx-gw9"/>
                 <constraint firstItem="FI0-cw-HqF" firstAttribute="top" secondItem="OL7-gq-4kF" secondAttribute="bottom" id="bsn-6S-RcG"/>
+                <constraint firstItem="Ade-NK-3gy" firstAttribute="height" secondItem="FI0-cw-HqF" secondAttribute="height" multiplier="0.7" id="dSp-V5-XFd"/>
                 <constraint firstItem="7Tr-fr-sNN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fL0-fX-nSA"/>
                 <constraint firstItem="OL7-gq-4kF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jbA-Eq-OX1"/>
+                <constraint firstItem="FI0-cw-HqF" firstAttribute="top" secondItem="Ade-NK-3gy" secondAttribute="bottom" id="mUT-PM-r8O"/>
                 <constraint firstItem="FI0-cw-HqF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xNs-xd-Kki"/>
+                <constraint firstItem="Ade-NK-3gy" firstAttribute="width" secondItem="FI0-cw-HqF" secondAttribute="width" id="y89-5p-coH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="352.5" y="270.5"/>
