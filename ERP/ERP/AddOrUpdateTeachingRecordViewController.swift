@@ -47,8 +47,8 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.hideKeyboardWhenTappedAround()
             }.addDisposableTo(self.rx_disposeBag)
         
-        self.loadClass()
         self.view.addGestureRecognizer(tapGesture)
+        self.loadClass()
         self.choseStep()
         self.nextStep()
         for recognizer in self.view.gestureRecognizers ?? [] {
@@ -110,9 +110,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
                 self.vInstructorDetail.lblDate.text = date
             }
             else {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                self.vInstructorDetail.lblDate.text = String(NSDate.init(timeIntervalSinceNow: 0))
+                self.vInstructorDetail.lblDate.text = NSDate.init(timeIntervalSinceNow:0).string
             }
         }
         
@@ -161,7 +159,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         NetworkContext.sendTeachingRecordRequest(request, requestDone: {
             code, message in
             
-            if message.containsString("Requested sucessfully") {
+            if code == NetworkContext.RESULT_CODE_SUCCESS {
                 //                self.waitIndicator.stopAnimating()
                 let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
                 alert.show()
@@ -212,34 +210,45 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     }
     
     func choseStep() {
-        /*
-         self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
-         self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
-         self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
-         
-         */
         _ = vInstructorDetail.btnClass.rx_tap.subscribeNext {
             self.loadClass()
-            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x71BA51)
-            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0xF29B34)
-            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.configButtonColor(self.vInstructorDetail.btnClass,
+                otherButton1: self.vInstructorDetail.btnRole,
+                otherButton2: self.vInstructorDetail.btnCalendar)
+            
         }
         
         _ = vInstructorDetail.btnRole.rx_tap.subscribeNext {
             self.loadRole()
-            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0xF29B34)
-            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0xF29B34)
-            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x71BA51)
+            self.configButtonColor(self.vInstructorDetail.btnRole,
+                otherButton1: self.vInstructorDetail.btnClass,
+                otherButton2: self.vInstructorDetail.btnCalendar)
         }
         
         _ = vInstructorDetail.btnCalendar.rx_tap.subscribeNext {
             self.loadCalendar()
-            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0xF29B34)
-            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
-            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.configButtonColor(self.vInstructorDetail.btnCalendar,
+                otherButton1: self.vInstructorDetail.btnRole,
+                otherButton2: self.vInstructorDetail.btnClass)
         }
         
-        
+    }
+    
+    func configButtonColor(selectedButton : UIButton, otherButton1 : UIButton, otherButton2 : UIButton) {
+        selectedButton.backgroundColor = UIColor(netHex: 0x71BA51)
+        if otherButton1.userInteractionEnabled {
+            otherButton1.backgroundColor = UIColor(netHex: 0xF29B34)
+        }
+        else {
+            otherButton1.backgroundColor = UIColor.grayColor()
+        }
+        if otherButton2.userInteractionEnabled {
+            otherButton2.backgroundColor = UIColor(netHex: 0xF29B34)
+        }
+        else {
+            otherButton2.backgroundColor = UIColor.grayColor()
+        }
+
     }
     
     

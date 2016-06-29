@@ -24,16 +24,9 @@ class InstructorDetailView: UIView{
     @IBOutlet weak var btnClass: UIButton!
     @IBOutlet weak var imvAvatar: UIImageView!
     @IBOutlet weak var lblIntructorName: UILabel!
-    @IBOutlet weak var txfClass: UITextField!
-    @IBOutlet weak var txfRole: UITextField!
-    @IBOutlet weak var txfDate: UITextField!
     @IBOutlet weak var vDetailContainer: UIView!
     
     var classData : Variable<[String]> = Variable([])
-    // MARK: Pickers
-    var pcvClass : UIPickerView!
-    var pcvRole : UIPickerView!
-    var dpvDate : UIDatePicker!
     
     // MARK: Updated data
     var selectedClassCode : String?
@@ -41,7 +34,6 @@ class InstructorDetailView: UIView{
     var selectedDate : NSDate?
     
     // Used to save the original frame of the detail view
-    var originalDetailFrame : CGRect!
     var rx_disposeBag = DisposeBag()
     var instructor : Instructor? {
         didSet {

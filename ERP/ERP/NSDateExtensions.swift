@@ -41,7 +41,5 @@ extension String {
         formater.dateFormat = "yyyy-MM-dd, HH:mm"
         return formater.dateFromString(self)!
     }
-
-    
     
 }
