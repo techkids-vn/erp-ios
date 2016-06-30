@@ -24,4 +24,4 @@ let GET_ROLE_API = "\(ROOT_API)/roles"
 
 let TOP_BACKGROUND_COLOR       =  UIColor(netHex: 0x1b5e20)
 let MIDDLE_BACKGROUND_COLOR    =  UIColor(netHex: 0x388e3c)
-let CONTENT_BACKGROUND_COLOR   =  UIColor(netHex: 0x4caf50)
+let CONTENT_BACKGROUND_COLOR   =  UIColor(netHex: 0x81c784)

@@ -60,6 +60,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
         }
         else{
+            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x71BA51)
             self.vInstructorDetail.btnRole.backgroundColor = UIColor.grayColor()
             self.vInstructorDetail.btnRole.userInteractionEnabled = false
             self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()

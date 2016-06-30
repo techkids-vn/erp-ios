@@ -84,8 +84,9 @@ class SearchViewController: UIViewController {
         
         self.vSearch.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.searchBar.backgroundColor = UIColor.clearColor()
-        self.searchBar.tintColor = UIColor.clearColor()
-        self.searchBar.backgroundImage = UIImage()
+//        self.searchBar.tintColor = UIColor.clearColor()
+//        self.searchBar.backgroundImage = UIImage()
+        
         
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.configLayout()
