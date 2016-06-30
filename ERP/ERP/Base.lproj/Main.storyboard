@@ -633,14 +633,6 @@
                                     <constraint firstAttribute="height" constant="48" id="szt-kr-myf"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lYt-fS-foO" userLabel="aivWait">
-                                <rect key="frame" x="282" y="281" width="37" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="37" id="aWz-r1-yUZ"/>
-                                    <constraint firstAttribute="height" constant="37" id="tRr-Xt-SuM"/>
-                                </constraints>
-                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gdu-nP-4vO" userLabel="tbvHistory">
                                 <rect key="frame" x="0.0" y="112" width="600" height="488"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -749,6 +741,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sql-dE-tk8">
+                                <rect key="frame" x="278" y="334" width="44" height="44"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sql-dE-tk8" secondAttribute="height" multiplier="1:1" id="fyL-uw-5cH"/>
+                                    <constraint firstAttribute="width" constant="44" id="h3Q-fU-KbU"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -756,16 +756,16 @@
                             <constraint firstItem="gdu-nP-4vO" firstAttribute="top" secondItem="I7a-pv-20Q" secondAttribute="bottom" id="BHJ-bB-MB1"/>
                             <constraint firstItem="yXT-Dw-Q1O" firstAttribute="top" secondItem="gdu-nP-4vO" secondAttribute="bottom" id="F50-lI-uCf"/>
                             <constraint firstItem="I7a-pv-20Q" firstAttribute="top" secondItem="VAI-7z-qkc" secondAttribute="bottom" id="JDX-SO-Xrd"/>
+                            <constraint firstItem="sql-dE-tk8" firstAttribute="centerY" secondItem="gdu-nP-4vO" secondAttribute="centerY" id="LyH-Ye-Fwx"/>
                             <constraint firstItem="gdu-nP-4vO" firstAttribute="leading" secondItem="eXd-nY-EE5" secondAttribute="leading" id="Ot9-9f-ZJl"/>
-                            <constraint firstItem="lYt-fS-foO" firstAttribute="centerY" secondItem="eXd-nY-EE5" secondAttribute="centerY" id="Q7Q-tS-i4b"/>
                             <constraint firstItem="I7a-pv-20Q" firstAttribute="leading" secondItem="eXd-nY-EE5" secondAttribute="leading" id="RNW-Ac-Y1F"/>
                             <constraint firstAttribute="trailing" secondItem="I7a-pv-20Q" secondAttribute="trailing" id="RhK-3s-z8a"/>
-                            <constraint firstItem="lYt-fS-foO" firstAttribute="centerX" secondItem="eXd-nY-EE5" secondAttribute="centerX" id="m5L-FM-7AE"/>
+                            <constraint firstItem="sql-dE-tk8" firstAttribute="centerX" secondItem="gdu-nP-4vO" secondAttribute="centerX" id="oWV-mo-MZs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vsc-5k-nRj"/>
                     <connections>
-                        <outlet property="aivWait" destination="lYt-fS-foO" id="odH-Uu-yVn"/>
+                        <outlet property="aivWait" destination="sql-dE-tk8" id="JuE-1v-ui8"/>
                         <outlet property="sbSearch" destination="MS6-y5-m7R" id="wK2-5p-F65"/>
                         <outlet property="tbvHistory" destination="gdu-nP-4vO" id="hMh-eA-xPq"/>
                         <outlet property="vSearch" destination="I7a-pv-20Q" id="xP3-a5-Ou8"/>

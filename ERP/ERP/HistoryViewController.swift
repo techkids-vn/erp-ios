@@ -31,7 +31,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.fetchTeachingRecords()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+           self.fetchTeachingRecords()
+        })
     }
     
     func followClickOnTableViewCell() {
@@ -81,12 +83,15 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Background
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
+        self.aivWait.hidesWhenStopped = true
+        self.aivWait.startAnimating()
     }
     
     func fetchTeachingRecords() {
         NetworkContext.fetchAllTeachingRecords( {
             teachingRecords in
             self.teachingRecordsVar.value = teachingRecords
+            self.aivWait.stopAnimating()
         })
     }
     
