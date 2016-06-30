@@ -59,8 +59,15 @@ extension Instructor {
         }
     }
     
-//    func roleInClass(classCode : String) -> String {
-//        //MARK: For Vu
-//    }
+    func roleInClass(classCode : String) -> [String] {
+        //MARK: For Vu
+        var roleCode = [String]()
+        for classRole in self.classRoles {
+            if classRole.classCode == classCode {
+                roleCode.append(classRole.roleCode)
+            }
+        }
+        return roleCode
+    }
     
 }

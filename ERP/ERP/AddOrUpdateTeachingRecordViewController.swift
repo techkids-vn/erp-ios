@@ -171,12 +171,10 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             code, message in
             
             if code == NetworkContext.RESULT_CODE_SUCCESS {
-                //                self.waitIndicator.stopAnimating()
                 let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
                 alert.show()
             }
             else {
-                //    self.waitIndicator.stopAnimating()
                 let alert = UIAlertView(title: "", message: "Record Fail", delegate: nil,
                     cancelButtonTitle: "Ok")
                 alert.show()
@@ -194,7 +192,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     
     func loadRole() {
         let view = NSBundle.mainBundle().loadNibNamed("RoleSelector", owner: self, options: nil)[0] as! RoleSelector
-        view.instructor = self.instructor
+        view.roleData.value = (self.instructor?.roleInClass(self.classSelected.value))!
         view.frame = self.vMaskView.bounds
         view.roleSelected = self.roleSelected
         self.addSubViewToSuperView(view)

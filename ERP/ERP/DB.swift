@@ -86,10 +86,11 @@ class DB: Object {
     }
     
     static func getInstructorByCode(code : String) -> Instructor? {
-        for instructor in DB.getAllInstructors() {
-            print("\(instructor.code) == \(code)")
-        }
-        return realm.objects(Instructor).filter("code == '\(code)'").first
+//        for instructor in DB.getAllInstructors() {
+//            print("\(instructor.code) == \(code)")
+//        }
+        let predicate = NSPredicate(format: "code = %@", code)
+        return realm.objects(Instructor).filter(predicate).first
     }
     
     static func deleteAllInstructors() {

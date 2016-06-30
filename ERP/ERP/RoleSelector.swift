@@ -14,6 +14,7 @@ class RoleSelector: UIView {
 
     @IBOutlet weak var tbvRole: UITableView!
     var roleData : Variable<[String]> = Variable([])
+    var classCode = ""
     var instructor : Instructor! {
         didSet {
             self.layout()
@@ -22,7 +23,7 @@ class RoleSelector: UIView {
     var roleSelected : Variable<String> = Variable("")
     
     func layout() {
-        roleData.value = instructor.roles
+        //roleData.value = instructor.roleInClass(classCode)
     }
     
     override func awakeFromNib() {

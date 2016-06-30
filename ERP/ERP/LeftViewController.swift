@@ -35,7 +35,6 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
     
     func initLayout() {
         self.view.layoutIfNeeded()
-        
         self.imvLogo.layoutIfNeeded()
         self.imvLogo.layer.cornerRadius = self.imvLogo.frame.size.width / 2;
         self.imvLogo.clipsToBounds = true
@@ -76,7 +75,16 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
             self.closeLeft()
         }
         else if buttonIndex == 1 {
-            self.logout()
+            let screen = UIScreen.mainScreen().bounds
+            let waitIndicator = UIActivityIndicatorView(frame: CGRectMake(screen.width/2,screen.height/2,30,30))
+            waitIndicator.center = self.view.center
+            waitIndicator.activityIndicatorViewStyle = .Gray
+            self.view.addSubview(waitIndicator)
+            waitIndicator.startAnimating()
+           
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                 self.logout()
+            })
         }
     }
     

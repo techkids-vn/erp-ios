@@ -92,6 +92,7 @@ extension TeachingRecord {
     
     var instructor : Instructor? {
         get {
+            print(self.code)
             return DB.getInstructorByCode(self.code)
         }
     }
