@@ -421,13 +421,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-Ac-IDr" userLabel="vInstructorDetail" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="62" width="600" height="270"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-nh-JDs">
-                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="332" width="600" height="268"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="rXx-1D-Mq0">
-                                        <rect key="frame" x="267" y="117" width="66" height="66"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="rXx-1D-Mq0">
+                                        <rect key="frame" x="267" y="102" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="66" id="Muf-Mr-W0w"/>
@@ -445,10 +445,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lvB-nh-JDs" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leading" id="22f-3p-yxj"/>
-                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="height" secondItem="ye2-UM-Fxt" secondAttribute="height" multiplier="0.5" id="917-sk-qrA"/>
+                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="height" secondItem="ye2-UM-Fxt" secondAttribute="height" multiplier="0.45" id="917-sk-qrA"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="bottom" secondItem="ye2-UM-Fxt" secondAttribute="bottomMargin" id="92O-XK-V1N"/>
                             <constraint firstItem="lvB-nh-JDs" firstAttribute="top" secondItem="yoR-Ac-IDr" secondAttribute="bottom" id="Azg-w0-X2k"/>
-                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="ye2-UM-Fxt" secondAttribute="topMargin" id="f0A-dc-BZu"/>
+                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="ye2-UM-Fxt" secondAttribute="topMargin" constant="62" id="f0A-dc-BZu"/>
                             <constraint firstAttribute="trailing" secondItem="yoR-Ac-IDr" secondAttribute="trailing" id="gbq-BM-4Iq"/>
                             <constraint firstAttribute="trailing" secondItem="lvB-nh-JDs" secondAttribute="trailing" id="oK9-sr-ojX"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leading" id="oxc-xi-nZo"/>

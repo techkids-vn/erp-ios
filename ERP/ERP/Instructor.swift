@@ -59,4 +59,8 @@ extension Instructor {
         }
     }
     
+//    func roleInClass(classCode : String) -> String {
+//        //MARK: For Vu
+//    }
+    
 }
