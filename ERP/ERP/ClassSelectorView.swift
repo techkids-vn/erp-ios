@@ -33,7 +33,7 @@ class ClassSelectorView: UIView {
         
         _ = classData.asObservable().bindTo(tbvClass.rx_itemsWithCellIdentifier("Cell", cellType: ClassCell.self)) {
             row, data, cell in
-            cell.lblText!.text = data
+            cell.lblText!.text = data.firstCharacterUpperCase()
         }
         
         _ = self.tbvClass.rx_itemSelected.subscribeNext {

@@ -53,6 +53,7 @@
 		998278691D0DE489004F6846 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998278681D0DE489004F6846 /* SearchViewController.swift */; };
 		9982786C1D0DEF35004F6846 /* JASON+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */; };
 		99C505EF1D16E234000D0EDC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C505EE1D16E234000D0EDC /* UIViewControllerExtension.swift */; };
+		99E4F1AA1D265ED100ACC604 /* NSString Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E4F1A91D265ED100ACC604 /* NSString Extension.swift */; };
 		99EE6EBB1D1DC51400594AF7 /* ClassSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EE6EBA1D1DC51400594AF7 /* ClassSelector.xib */; };
 		99EE6EC51D1DCF1100594AF7 /* ClassSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EE6EC41D1DCF1100594AF7 /* ClassSelectorView.swift */; };
 		99EE6EC91D1DE4ED00594AF7 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EE6EC71D1DE4ED00594AF7 /* ClassCell.swift */; };
@@ -113,6 +114,7 @@
 		998278681D0DE489004F6846 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9982786B1D0DEF35004F6846 /* JASON+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JASON+Alamofire.swift"; sourceTree = "<group>"; };
 		99C505EE1D16E234000D0EDC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		99E4F1A91D265ED100ACC604 /* NSString Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString Extension.swift"; sourceTree = "<group>"; };
 		99EE6EBA1D1DC51400594AF7 /* ClassSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassSelector.xib; sourceTree = "<group>"; };
 		99EE6EC41D1DCF1100594AF7 /* ClassSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassSelectorView.swift; sourceTree = "<group>"; };
 		99EE6EC71D1DE4ED00594AF7 /* ClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassCell.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				99422DDE1D0F1665006BD11E /* UIColorExtension.swift */,
 				99C505EE1D16E234000D0EDC /* UIViewControllerExtension.swift */,
 				84E23E9E1D1E03EC0013E1BE /* UIIViewExtensions.swift */,
+				99E4F1A91D265ED100ACC604 /* NSString Extension.swift */,
 			);
 			name = Apple;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				847EF7F01D17B025008FAEE0 /* LaunchScreenViewController.swift in Sources */,
 				846FB4221D1ABC14007BBB34 /* HistoryViewController.swift in Sources */,
 				847C2F201D1272CA002A8DD9 /* TeachingRecord.swift in Sources */,
+				99E4F1AA1D265ED100ACC604 /* NSString Extension.swift in Sources */,
 				846FBA1C1D1BDA920097B6E7 /* LeftMenuItem.swift in Sources */,
 				846FBA1F1D1BDC3D0097B6E7 /* LeftMenuCell.swift in Sources */,
 				998278691D0DE489004F6846 /* SearchViewController.swift in Sources */,

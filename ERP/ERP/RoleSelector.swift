@@ -32,7 +32,7 @@ class RoleSelector: UIView {
         
         _ = roleData.asObservable().bindTo(tbvRole.rx_itemsWithCellIdentifier("Cell", cellType: ClassCell.self)) {
             row, data, cell in
-            cell.lblText!.text = data
+            cell.lblText!.text = data.firstCharacterUpperCase()
         }
         
         _ = tbvRole.rx_itemSelected.subscribeNext{
