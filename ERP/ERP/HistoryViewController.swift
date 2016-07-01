@@ -16,7 +16,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tbvHistory: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar!
     @IBOutlet weak var vSearch: UIView!
-    @IBOutlet weak var aivWait: UIActivityIndicatorView!
+    let aivWait = UIActivityIndicatorView(frame: CGRectMake(0,0,44,44))
     
     var teachingRecordGroups : [TeachingRecordGroup] = []
     var teachingRecordsVar : Variable<[TeachingRecord]> = Variable([])
@@ -25,6 +25,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.aivWait.hidesWhenStopped = true
+        self.aivWait.center = self.view.center
+        self.view.addSubview(aivWait)
+        self.aivWait.startAnimating()
         self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
         self.initLayout()
         self.followClickOnTableViewCell()
@@ -83,8 +87,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Background
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
-        self.aivWait.hidesWhenStopped = true
-        self.aivWait.startAnimating()
+
     }
     
     func fetchTeachingRecords() {
