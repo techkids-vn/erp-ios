@@ -39,10 +39,22 @@ class InstructorCell: UICollectionViewCell {
             let month = components.month
             let day = components.day
             if month >= 10 {
-                currentTime = "\(year)-\(month)-\(day)"
+                if day >= 10{
+                    currentTime = "\(year)-\(month)-\(day)"
+                }
+                else {
+                    currentTime = "\(year)-\(month)-0\(day)"
+                }
+                
             }
             else {
-                currentTime = "\(year)-0\(month)-\(day)"
+                if day >= 10{
+                    currentTime = "\(year)-0\(month)-\(day)"
+                }
+                else {
+                    currentTime = "\(year)-0\(month)-0\(day)"
+                }
+                
             }
 
             self.teachingRecordsVar.value = teachingRecords.filter{

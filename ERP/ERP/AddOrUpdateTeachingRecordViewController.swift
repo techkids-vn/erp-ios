@@ -13,7 +13,7 @@ import RxSwift
 
 class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDelegate {
     
-    @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var vMaskView: UIView!
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
     
@@ -59,7 +59,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0xF29B34)
             self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
         }
-        else{
+        else {
             self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x71BA51)
             self.vInstructorDetail.btnRole.backgroundColor = UIColor.grayColor()
             self.vInstructorDetail.btnRole.userInteractionEnabled = false
@@ -103,7 +103,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         
         _ = self.submitSelector.asObservable().subscribeNext {
             submit in
-            //self.waitIndicator.startAnimating()
             if submit != "" {
                 if !self.isUpdate {
                     self.requestDataToServer(self.classSelected.value, roleCode: self.roleSelected.value, time: self.timeSelector.value, requestType: RequestType.CREATE)
