@@ -425,21 +425,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-nh-JDs">
                                 <rect key="frame" x="0.0" y="332" width="600" height="268"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="rXx-1D-Mq0">
-                                        <rect key="frame" x="267" y="101" width="66" height="66"/>
-                                        <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="66" id="Muf-Mr-W0w"/>
-                                            <constraint firstAttribute="width" constant="66" id="raS-sr-3Iy"/>
-                                        </constraints>
-                                    </activityIndicatorView>
-                                </subviews>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="rXx-1D-Mq0" firstAttribute="centerX" secondItem="lvB-nh-JDs" secondAttribute="centerX" id="CFj-WP-Kw4"/>
-                                    <constraint firstItem="rXx-1D-Mq0" firstAttribute="centerY" secondItem="lvB-nh-JDs" secondAttribute="centerY" id="XRf-fy-DP5"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -740,14 +726,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sql-dE-tk8">
-                                <rect key="frame" x="278" y="334" width="44" height="44"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="sql-dE-tk8" secondAttribute="height" multiplier="1:1" id="fyL-uw-5cH"/>
-                                    <constraint firstAttribute="width" constant="44" id="h3Q-fU-KbU"/>
-                                </constraints>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -755,16 +733,13 @@
                             <constraint firstItem="gdu-nP-4vO" firstAttribute="top" secondItem="I7a-pv-20Q" secondAttribute="bottom" id="BHJ-bB-MB1"/>
                             <constraint firstItem="yXT-Dw-Q1O" firstAttribute="top" secondItem="gdu-nP-4vO" secondAttribute="bottom" id="F50-lI-uCf"/>
                             <constraint firstItem="I7a-pv-20Q" firstAttribute="top" secondItem="VAI-7z-qkc" secondAttribute="bottom" id="JDX-SO-Xrd"/>
-                            <constraint firstItem="sql-dE-tk8" firstAttribute="centerY" secondItem="gdu-nP-4vO" secondAttribute="centerY" id="LyH-Ye-Fwx"/>
                             <constraint firstItem="gdu-nP-4vO" firstAttribute="leading" secondItem="eXd-nY-EE5" secondAttribute="leading" id="Ot9-9f-ZJl"/>
                             <constraint firstItem="I7a-pv-20Q" firstAttribute="leading" secondItem="eXd-nY-EE5" secondAttribute="leading" id="RNW-Ac-Y1F"/>
                             <constraint firstAttribute="trailing" secondItem="I7a-pv-20Q" secondAttribute="trailing" id="RhK-3s-z8a"/>
-                            <constraint firstItem="sql-dE-tk8" firstAttribute="centerX" secondItem="gdu-nP-4vO" secondAttribute="centerX" id="oWV-mo-MZs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vsc-5k-nRj"/>
                     <connections>
-                        <outlet property="aivWait" destination="sql-dE-tk8" id="JuE-1v-ui8"/>
                         <outlet property="sbSearch" destination="MS6-y5-m7R" id="wK2-5p-F65"/>
                         <outlet property="tbvHistory" destination="gdu-nP-4vO" id="hMh-eA-xPq"/>
                         <outlet property="vSearch" destination="I7a-pv-20Q" id="xP3-a5-Ou8"/>

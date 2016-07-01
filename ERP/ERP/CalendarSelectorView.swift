@@ -27,6 +27,7 @@ class CalendarSelectorView: UIView ,CVCalendarViewDelegate, CVCalendarMenuViewDe
         self.calendarMenu.tintColor = UIColor.whiteColor()
         _ = self.btnSubmit.rx_tap.subscribeNext {
             self.submitFlag.value = "submmit"
+            self.btnSubmit.userInteractionEnabled = false
         }
 
     }

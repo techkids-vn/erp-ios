@@ -109,7 +109,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             if submit != "" {
                 self.view.addSubview(self.waitIndicator)
                 self.waitIndicator.startAnimating()
-                UIButton.appearance().userInteractionEnabled = false
                 if !self.isUpdate {
                     self.requestDataToServer(self.classSelected.value, roleCode: self.roleSelected.value, time: self.timeSelector.value, requestType: RequestType.CREATE)
                 }
