@@ -408,10 +408,10 @@
             </objects>
             <point key="canvasLocation" x="957" y="1080"/>
         </scene>
-        <!--Instructor Detail View Controller-->
+        <!--Add or Update Teaching Record View Controller-->
         <scene sceneID="pYv-pv-dgb">
             <objects>
-                <viewController storyboardIdentifier="AddOrUpdateTeachingRecord" id="1LV-Ed-OqF" userLabel="Instructor Detail View Controller" customClass="AddOrUpdateTeachingRecordViewController" customModule="ERP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddOrUpdateTeachingRecord" id="1LV-Ed-OqF" userLabel="Add or Update Teaching Record View Controller" customClass="AddOrUpdateTeachingRecordViewController" customModule="ERP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z4Q-YU-SkA"/>
                         <viewControllerLayoutGuide type="bottom" id="JQK-US-o7D"/>
@@ -465,7 +465,6 @@
                     <connections>
                         <outlet property="vInstructorDetail" destination="yoR-Ac-IDr" id="NWH-IJ-D4g"/>
                         <outlet property="vMaskView" destination="lvB-nh-JDs" id="TYl-tc-0fE"/>
-                        <outlet property="waitIndicator" destination="rXx-1D-Mq0" id="rug-Ha-mvS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbG-K4-Zxh" userLabel="First Responder" sceneMemberID="firstResponder"/>

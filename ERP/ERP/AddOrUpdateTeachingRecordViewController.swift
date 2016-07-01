@@ -16,6 +16,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     
     @IBOutlet weak var vMaskView: UIView!
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
+    let waitIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,44,44))
     
     var currentViewInMaskView : UIView?
     var rx_disposeBag = DisposeBag()
@@ -33,6 +34,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.waitIndicator.backgroundColor = UIColor.grayColor()
         self.loadInfoFromHistory()
         self.vInstructorDetail.instructor = self.instructor
         self.loadClass()
@@ -48,7 +50,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.vInstructorDetail.lblClass.text = self.instructrClass
             self.vInstructorDetail.lblRole.text = self.instructorRole
             self.vInstructorDetail.lblDate.text = self.dateUpdate
-
             self.classSelected.value = self.instructrClass
             self.roleSelected.value = self.instructorRole
             
@@ -103,7 +104,12 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         
         _ = self.submitSelector.asObservable().subscribeNext {
             submit in
+            self.waitIndicator.center = self.vMaskView.center
+            
             if submit != "" {
+                self.view.addSubview(self.waitIndicator)
+                self.waitIndicator.startAnimating()
+                UIButton.appearance().userInteractionEnabled = false
                 if !self.isUpdate {
                     self.requestDataToServer(self.classSelected.value, roleCode: self.roleSelected.value, time: self.timeSelector.value, requestType: RequestType.CREATE)
                 }
@@ -168,8 +174,9 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         let request = TeachingRecordRequest.create(record, requestType: requestType)
         NetworkContext.sendTeachingRecordRequest(request, requestDone: {
             code, message in
-            
+            UIButton.appearance().userInteractionEnabled = true
             if code == NetworkContext.RESULT_CODE_SUCCESS {
+                self.waitIndicator.stopAnimating()
                 let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
                 alert.show()
             }
