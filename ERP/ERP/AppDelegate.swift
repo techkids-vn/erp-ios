@@ -96,8 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         NetworkContext.sendTeachingRecordRequest(teachingRequest, requestDone: {
                             code, message in
                             if code == NetworkContext.RESULT_CODE_SUCCESS {
-                                let instructorName = DB.getInstructorByCode((teachingRequest.record?.code)!)
-                                let snackbar = TTGSnackbar.init(message: "\(instructorName) has been attendanceed!)", duration: .Middle, actionText: "")
+                                //let instructorName = DB.getInstructorByCode((teachingRequest.record?.code)!)
+                                let snackbar = TTGSnackbar.init(message: "Record has been requested to server", duration: .Middle, actionText: "")
                                 { (snackbar) -> Void in
                                 }      
                                 snackbar.show()
