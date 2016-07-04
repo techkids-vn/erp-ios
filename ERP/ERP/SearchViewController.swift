@@ -116,6 +116,7 @@ class SearchViewController: UIViewController {
                         let code = dict[.code]
                         let team = dict[.team]
                         let classes = dict[.classes]
+                        let phone = dict[.contact][.phoneNumber]
                         
                         let classRoles = List<ClassRole>()
                         //print(classes)
@@ -124,7 +125,7 @@ class SearchViewController: UIViewController {
                             let code = c["class_code"].stringValue
                             classRoles.append(ClassRole.create(code, roleCode: role))
                         }
-                        instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code, classRoles: classRoles))
+                        instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code,phone: phone, classRoles: classRoles))
                     }
                     self.vInstructors.value = instructors
                     self.instructorBackup = instructors

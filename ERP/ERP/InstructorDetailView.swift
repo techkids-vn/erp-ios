@@ -25,6 +25,7 @@ class InstructorDetailView: UIView{
     @IBOutlet weak var imvAvatar: UIImageView!
     @IBOutlet weak var lblIntructorName: UILabel!
     @IBOutlet weak var vDetailContainer: UIView!
+    @IBOutlet var btnCall: UIButton!
     
     var classData : Variable<[String]> = Variable([])
     
@@ -52,6 +53,9 @@ class InstructorDetailView: UIView{
         self.layoutIfNeeded()
         viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(viewInfo)
+        self.btnCall.layer.cornerRadius = self.btnCall.frame.size.height/2
+        self.btnCall.layer.borderWidth = 1
+        self.btnCall.layer.masksToBounds = true
     }
     
     override func layoutSubviews() {
@@ -85,6 +89,16 @@ class InstructorDetailView: UIView{
         }
 
     }
+    
+    @IBAction func CallforEverybody(sender: AnyObject) {
+        if let inst = self.instructor {
+            let phone = "tel://"+inst.phone;
+            let url:NSURL = NSURL(string:phone)!;
+            UIApplication.sharedApplication().openURL(url);
+            print(phone)
+        }
+    }
+    
 }
     
     

@@ -354,12 +354,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84EB36B81D0D63E00032F0F9 /* Build configuration list for PBXNativeTarget "ERP" */;
 			buildPhases = (
-				CDFEE4A0536B67DF29FCCC01 /* 📦 Check Pods Manifest.lock */,
+				CDFEE4A0536B67DF29FCCC01 /* [CP] Check Pods Manifest.lock */,
 				84EB36A21D0D63E00032F0F9 /* Sources */,
 				84EB36A31D0D63E00032F0F9 /* Frameworks */,
 				84EB36A41D0D63E00032F0F9 /* Resources */,
-				A86C25264CB76F99836F978A /* 📦 Embed Pods Frameworks */,
-				7AAB3E583258D3861D9A51BD /* 📦 Copy Pods Resources */,
+				A86C25264CB76F99836F978A /* [CP] Embed Pods Frameworks */,
+				7AAB3E583258D3861D9A51BD /* [CP] Copy Pods Resources */,
 				47E507326EC9F54EEBAA1FBA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -383,7 +383,7 @@
 				TargetAttributes = {
 					84EB36A51D0D63E00032F0F9 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 56YJ3N6KSG;
+						DevelopmentTeam = 6LXAHM492W;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -446,14 +446,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ERP/Pods-ERP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7AAB3E583258D3861D9A51BD /* 📦 Copy Pods Resources */ = {
+		7AAB3E583258D3861D9A51BD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,14 +461,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ERP/Pods-ERP-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A86C25264CB76F99836F978A /* 📦 Embed Pods Frameworks */ = {
+		A86C25264CB76F99836F978A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,14 +476,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ERP/Pods-ERP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CDFEE4A0536B67DF29FCCC01 /* 📦 Check Pods Manifest.lock */ = {
+		CDFEE4A0536B67DF29FCCC01 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,7 +661,7 @@
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vu.com;
+				PRODUCT_BUNDLE_IDENTIFIER = tribm.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -679,7 +679,7 @@
 				INFOPLIST_FILE = ERP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vu.com;
+				PRODUCT_BUNDLE_IDENTIFIER = tribm.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
