@@ -28,6 +28,8 @@ extension JSONKeys {
     static let userName = JSONKey<String>("user_name")
     static let id = JSONKey<String>("_id")
     static let _id = JSONKey<String>("_id")
+    static let contact    = JSONKey<JSON>("contact")
     static let recordTime = JSONKey<String>("record_time")
+    static let phoneNumber = JSONKey<String>("phone")
     //    static let oid = JSONKey<String>("$oid")
 }

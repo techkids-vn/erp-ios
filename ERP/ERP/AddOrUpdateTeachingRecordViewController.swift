@@ -67,6 +67,11 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
             self.vInstructorDetail.btnCalendar.userInteractionEnabled = false
         }
+        //Clear Image of NavigationBar
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.translucent = true
+
     }
     
     func nextStep() {

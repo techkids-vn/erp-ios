@@ -13,7 +13,6 @@ import Alamofire
 import JASON
 import RealmSwift
 import Foundation
-import ReachabilitySwift
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
@@ -24,13 +23,12 @@ class SearchViewController: UIViewController {
     var vInstructors : Variable<[Instructor]> = Variable([])
     var instructorBackup = [Instructor]()
     var rx_disposeBag = DisposeBag()
-    var reachability : Reachability?
     
     override func viewDidLoad() {
-        self.configCollectionView()
         self.configUI()
         self.getInstructor()
-        
+        self.configCollectionView()
+        print("xxxx \(DB.getAllTeachingRecordRequests())")
         _ = self.searchBar
             .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
             .subscribeNext { searchText in
@@ -61,7 +59,6 @@ class SearchViewController: UIViewController {
                 cell.instructor = data
             }
             .addDisposableTo(rx_disposeBag)
-        
         /* Get the selected instructor and open detail instructor view */
         self.clvInstructor.rx_itemSelected.subscribeNext {
             indexPath in
@@ -87,6 +84,10 @@ class SearchViewController: UIViewController {
         
         self.vSearch.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.searchBar.backgroundColor = UIColor.clearColor()
+        //        self.searchBar.tintColor = UIColor.clearColor()
+        //        self.searchBar.backgroundImage = UIImage()
+        
+        
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.configLayout()
     }
@@ -104,54 +105,34 @@ class SearchViewController: UIViewController {
     }
     
     func getInstructor() {
-                do {
-                    reachability = try! Reachability.reachabilityForInternetConnection()
-                }
-                reachability!.whenReachable = {
-                    reachability in
-                    dispatch_async(dispatch_get_main_queue()){
-                        var instructors = [Instructor]()
-                        Alamofire.request(.GET, INSTRUCTOR_API)
-                            .validate()
-                            .responseJASON { response in
-                                if let json = response.result.value {
-                                    for dict in json[.items] {
-                                        let imgUrl = dict[.image]
-                                        let name = dict[.name]
-                                        let code = dict[.code]
-                                        let team = dict[.team]
-                                        let classes = dict[.classes]
-                                        
-                                        let classRoles = List<ClassRole>()
-                                        for c in classes {
-                                            let role = c["role"].stringValue
-                                            let code = c["class_code"].stringValue
-                                            classRoles.append(ClassRole.create(code, roleCode: role))
-                                        }
-                                        instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code, classRoles: classRoles))
-                                    }
-                                    self.vInstructors.value = instructors
-                                    self.instructorBackup = instructors
-                                    self.waitIndicator.stopAnimating()
-                                }
+        var instructors = [Instructor]()
+        Alamofire.request(.GET, INSTRUCTOR_API)
+            .validate()
+            .responseJASON { response in
+                if let json = response.result.value {
+                    for dict in json[.items] {
+                        let imgUrl = dict[.image]
+                        let name = dict[.name]
+                        let code = dict[.code]
+                        let team = dict[.team]
+                        let classes = dict[.classes]
+                        let phone = dict[.contact][.phoneNumber]
+                        
+                        let classRoles = List<ClassRole>()
+                        //print(classes)
+                        for c in classes {
+                            let role = c["role"].stringValue
+                            let code = c["class_code"].stringValue
+                            classRoles.append(ClassRole.create(code, roleCode: role))
                         }
-
+                        instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code,phone: phone, classRoles: classRoles))
                     }
+                    self.vInstructors.value = instructors
+                    self.instructorBackup = instructors
+                    self.waitIndicator.stopAnimating()
                 }
+        }
         
-                reachability!.whenUnreachable = {
-                    [weak self] reachability in
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let instructors = DB.getAllInstructors()
-                        self!.vInstructors.value = instructors
-                        self!.instructorBackup = instructors
-                        self!.waitIndicator.stopAnimating()
-                        //print(self.vInstructors.value)
-                        print("Instructors loaded from db: \(self!.vInstructors.value.count)")
-                    }
-                }
-                try! reachability?.startNotifier()
     }
     
     //MARK: Search

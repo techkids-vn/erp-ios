@@ -25,7 +25,7 @@ class InstructorTest : NSObject {
         classRoles.append(classRole1)
         classRoles.append(classRole2)
         classRoles.append(classRole3)
-        let instructor = Instructor.create("ImageLink", name: "Nguyen Son Vu", team: "ios", code: "TEC0010", classRoles: classRoles)
+        let instructor = Instructor.create("ImageLink", name: "Nguyen Son Vu", team: "ios", code: "TEC0010",phone: "01629506048" ,classRoles: classRoles)
         
         DB.addInstructor(instructor);
         
@@ -37,6 +37,7 @@ class InstructorTest : NSObject {
         assert(insertedInstructor.name == "Nguyen Son Vu")
         assert(insertedInstructor.team == "ios")
         assert(insertedInstructor.code == "TEC0010")
+        assert(insertedInstructor.phone == "01629506048")
         assert(insertedInstructor.classRoles.count == 3)
     }
 }
