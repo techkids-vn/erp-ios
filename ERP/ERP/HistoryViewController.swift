@@ -20,6 +20,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var teachingRecordGroups : [TeachingRecordGroup] = []
     var teachingRecordsVar : Variable<[TeachingRecord]> = Variable([])
+    var teachingRecordBackUp = [TeachingRecord]()
+    var rx_disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         
@@ -32,12 +34,25 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
         self.initLayout()
         self.followClickOnTableViewCell()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-           self.fetchTeachingRecords()
+            self.fetchTeachingRecords()
         })
+    }
+    //MARK: hide keyboard
+    func keyboardWillShow(notification: NSNotification) {
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        for recognizer in view.gestureRecognizers ?? [] {
+            view.removeGestureRecognizer(recognizer)
+        }
     }
     
     func followClickOnTableViewCell() {
@@ -61,7 +76,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.navigationController?.pushViewController(instructorDetailVC, animated: true)
             }
         }
-
+        
     }
     
     func initLayout() {
@@ -79,6 +94,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.sbSearch.tintColor = UIColor.clearColor()
         self.sbSearch.backgroundImage = UIImage()
         
+        
+        _ = self.sbSearch
+            .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
+            .subscribeNext { searchText in
+                self.search(searchText)
+            }.addDisposableTo(rx_disposeBag)
+        
+        
         _ = teachingRecordsVar.asObservable().subscribeNext {
             records in
             self.teachingRecordGroups = TeachingRecord.groupByDate(records)
@@ -87,16 +110,44 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Background
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
-
+        
     }
     
     func fetchTeachingRecords() {
         NetworkContext.fetchAllTeachingRecords( {
             teachingRecords in
             self.teachingRecordsVar.value = teachingRecords
+            self.teachingRecordBackUp = teachingRecords
             self.aivWait.stopAnimating()
         })
     }
+    //MARK: Search
+    func search(searchText : String) {
+        if searchText == "" {
+            self.teachingRecordsVar.value = self.teachingRecordBackUp
+        }
+        else {
+            var searchPool = [TeachingRecord]()
+            for teachingRecord in self.teachingRecordBackUp {
+                let instructorName = String.convertUnicodeToASCII((teachingRecord.instructor?.name.lowercaseString)!)
+                let searchString = String.convertUnicodeToASCII(searchText)
+                //print(teachingRecord.code)
+                if ( instructorName.containsString(searchString) || (teachingRecord.code.lowercaseString.containsString(searchText.lowercaseString))){
+                    searchPool.append(teachingRecord)
+                }
+                self.teachingRecordsVar.value = searchPool
+            }
+        }
+    }
+    //MARK: Convert string 
+//    func convert(string : String)->String?{
+//        var newString = string.lowercaseString
+//        newString = newString.stringByReplacingOccurrencesOfString("đ", withString: "d")
+//        let data = newString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
+//        newString = String.init(data: data!, encoding: NSASCIIStringEncoding)!
+//               return newString
+//    }
+  
     
     // MARK: TableView
     
@@ -136,7 +187,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 NetworkContext.sendTeachingRecordRequest( request, requestDone: {
                     [weak self] code, message in
                     if code == NetworkContext.RESULT_CODE_SUCCESS {
-                        self!.teachingRecordsVar.value.removeAtIndex(self!.teachingRecordsVar.value.indexOf(teachingRecord)!)
+                        self!.teachingRecordsVar.value.removeAtIndex((self?.teachingRecordsVar.value.indexOf{$0 == teachingRecord})!)
                     }
                     self!.aivWait.stopAnimating()
                     })

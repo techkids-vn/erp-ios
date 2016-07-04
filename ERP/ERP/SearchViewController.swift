@@ -56,7 +56,7 @@ class SearchViewController: UIViewController {
         _ = self.vInstructors.asObservable()
             .bindTo(self.clvInstructor.rx_itemsWithCellIdentifier("InstructorCell", cellType: InstructorCell.self)){
                 row,data,cell in
-                    cell.instructor = data
+                cell.instructor = data
             }
             .addDisposableTo(rx_disposeBag)
         /* Get the selected instructor and open detail instructor view */
@@ -72,7 +72,7 @@ class SearchViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-
+        
     }
     
     func configUI() {
@@ -84,8 +84,8 @@ class SearchViewController: UIViewController {
         
         self.vSearch.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.searchBar.backgroundColor = UIColor.clearColor()
-//        self.searchBar.tintColor = UIColor.clearColor()
-//        self.searchBar.backgroundImage = UIImage()
+        //        self.searchBar.tintColor = UIColor.clearColor()
+        //        self.searchBar.backgroundImage = UIImage()
         
         
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
@@ -118,7 +118,7 @@ class SearchViewController: UIViewController {
                         let classes = dict[.classes]
                         
                         let classRoles = List<ClassRole>()
-                        print(classes)
+                        //print(classes)
                         for c in classes {
                             let role = c["role"].stringValue
                             let code = c["class_code"].stringValue
@@ -142,8 +142,10 @@ class SearchViewController: UIViewController {
         else {
             var searchPool = [Instructor]()
             for instructor in self.instructorBackup {
-                let instructorName = instructor.name.lowercaseString
-                if instructorName.containsString(searchText.lowercaseString) {
+                let instructorName = String.convertUnicodeToASCII(instructor.name.lowercaseString)
+                let instructCode = instructor.code.lowercaseString;
+                let searchString = String.convertUnicodeToASCII(searchText)
+                if (instructorName.containsString(searchString)||instructCode.containsString(searchString)) {
                     searchPool.append(instructor)
                 }
                 self.vInstructors.value = searchPool
