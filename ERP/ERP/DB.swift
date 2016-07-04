@@ -156,6 +156,11 @@ class DB: Object {
         }
     }
 
+    static func deleteTeachingRecordRequest(request : TeachingRecordRequest) {
+        try! realm.write {
+            realm.delete(request)
+        }
+    }
     
     static func getAllTeachingRecordRequests() -> [TeachingRecordRequest] {
         return realm.objects(TeachingRecordRequest).map {

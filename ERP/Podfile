@@ -15,4 +15,5 @@ pod 'ReachabilitySwift'
 pod 'STZPopupView'
 pod 'SlideMenuControllerSwift'
 pod 'CVCalendar'
+pod 'TTGSnackbar'
 end

@@ -28,7 +28,7 @@ class SearchViewController: UIViewController {
         self.configUI()
         self.getInstructor()
         self.configCollectionView()
-        
+        print("xxxx \(DB.getAllTeachingRecordRequests())")
         _ = self.searchBar
             .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
             .subscribeNext { searchText in

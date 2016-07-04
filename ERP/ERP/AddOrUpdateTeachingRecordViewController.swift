@@ -176,11 +176,12 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             UIButton.appearance().userInteractionEnabled = true
             if code == NetworkContext.RESULT_CODE_SUCCESS {
                 self.waitIndicator.stopAnimating()
-                let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
+                let alert = UIAlertView(title: "", message: "Action Successfully", delegate: self, cancelButtonTitle: "Ok")
                 alert.show()
             }
             else {
-                let alert = UIAlertView(title: "", message: "Record Fail", delegate: nil,
+                self.waitIndicator.stopAnimating()
+                let alert = UIAlertView(title: "", message:"Action failed. We will automatically check your attendance when your devices connect to the internet.", delegate: nil,
                     cancelButtonTitle: "Ok")
                 alert.show()
             }

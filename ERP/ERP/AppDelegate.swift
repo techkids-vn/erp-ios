@@ -8,8 +8,10 @@
 
 import UIKit
 import SlideMenuControllerSwift
+import ReachabilitySwift
 
 let TEST = true
+var reachability : Reachability?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+        self.checkInternet()
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -67,6 +69,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = TOP_BACKGROUND_COLOR
         UISearchBar.appearance().setImage(UIImage(named: "img-searchbar"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+    }
+    
+    func checkInternet() {
+        do {
+            reachability = try! Reachability.reachabilityForInternetConnection()
+        }
+        reachability!.whenUnreachable = {
+            reachability in
+            dispatch_async(dispatch_get_main_queue()) {
+               print("disconected the internet")
+
+            }
+        }
+        
+        reachability!.whenReachable = {
+            reachability in
+            dispatch_async(dispatch_get_main_queue()){
+                let teachingRequests = DB.getAllTeachingRecordRequests()
+                for teachingRequest in teachingRequests {
+                    if teachingRequest.record != nil {
+                        NetworkContext.sendTeachingRecordRequest(teachingRequest, requestDone: {
+                            code, message in
+                            if code == NetworkContext.RESULT_CODE_SUCCESS {
+                                //self.waitIndicator.stopAnimating()
+                                let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
+                                alert.show()
+                                DB.deleteTeachingRecordRequest(teachingRequest)
+                            }
+                            else {
+                                let alert = UIAlertView(title: "", message: "Record Fail", delegate: nil,
+                                    cancelButtonTitle: "Ok")
+                                alert.show()
+                            }
+                        })
+
+                    }
+                }
+            }
+        }
+
+        
+        try! reachability?.startNotifier()
+
     }
     
     func addTapped() {}
