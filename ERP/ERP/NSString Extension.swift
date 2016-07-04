@@ -14,4 +14,12 @@ extension String {
         
         return lowercaseString.stringByReplacingCharactersInRange(lowercaseString.startIndex...lowercaseString.startIndex, withString: String(lowercaseString[lowercaseString.startIndex]).uppercaseString)
     }
+    
+    static func convertUnicodeToASCII(s:String) -> String{
+        var newString:String = s.lowercaseString
+        newString = newString.stringByReplacingOccurrencesOfString("đ", withString: "d")
+        let data = newString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
+        newString = String.init(data: data!, encoding: NSASCIIStringEncoding)!
+        return newString
+    }
 }
