@@ -27,9 +27,9 @@ class SearchViewController: UIViewController {
     var reachability : Reachability?
     
     override func viewDidLoad() {
+        self.configCollectionView()
         self.configUI()
         self.getInstructor()
-        self.configCollectionView()
         
         _ = self.searchBar
             .rx_text.throttle(0.3, scheduler: MainScheduler.instance)
@@ -132,17 +132,23 @@ class SearchViewController: UIViewController {
                                     }
                                     self.vInstructors.value = instructors
                                     self.instructorBackup = instructors
-                                    self.waitIndicator.stopAnimating()                                }
+                                    self.waitIndicator.stopAnimating()
+                                }
                         }
 
                     }
                 }
         
                 reachability!.whenUnreachable = {
-                    reachability in
+                    [weak self] reachability in
+                    
                     dispatch_async(dispatch_get_main_queue()) {
-                       self.vInstructors.value = DB.getAllInstructors()
-                        print(self.vInstructors.value)
+                        let instructors = DB.getAllInstructors()
+                        self!.vInstructors.value = instructors
+                        self!.instructorBackup = instructors
+                        self!.waitIndicator.stopAnimating()
+                        //print(self.vInstructors.value)
+                        print("Instructors loaded from db: \(self!.vInstructors.value.count)")
                     }
                 }
                 try! reachability?.startNotifier()
