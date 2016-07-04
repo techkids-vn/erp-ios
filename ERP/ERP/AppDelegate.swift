@@ -9,6 +9,7 @@
 import UIKit
 import SlideMenuControllerSwift
 import ReachabilitySwift
+import TTGSnackbar
 
 let TEST = true
 var reachability : Reachability?
@@ -78,7 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reachability!.whenUnreachable = {
             reachability in
             dispatch_async(dispatch_get_main_queue()) {
-               print("disconected the internet")
+                let snackbar = TTGSnackbar.init(message: "Couldn't conect to the server. Check your network connection", duration: .Middle, actionText: "")
+                { (snackbar) -> Void in
+                }
+                snackbar.show()
 
             }
         }
@@ -92,9 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         NetworkContext.sendTeachingRecordRequest(teachingRequest, requestDone: {
                             code, message in
                             if code == NetworkContext.RESULT_CODE_SUCCESS {
-                                //self.waitIndicator.stopAnimating()
-                                let alert = UIAlertView(title: "", message: "Record Successfully", delegate: self, cancelButtonTitle: "Ok")
-                                alert.show()
+                                let instructorName = DB.getInstructorByCode((teachingRequest.record?.code)!)
+                                let snackbar = TTGSnackbar.init(message: "\(instructorName) has been attendanceed!)", duration: .Middle, actionText: "")
+                                { (snackbar) -> Void in
+                                }      
+                                snackbar.show()
                                 DB.deleteTeachingRecordRequest(teachingRequest)
                             }
                             else {
