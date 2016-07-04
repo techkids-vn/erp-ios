@@ -13,6 +13,7 @@ import Alamofire
 import JASON
 import RealmSwift
 import Foundation
+import ReachabilitySwift
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
@@ -23,6 +24,7 @@ class SearchViewController: UIViewController {
     var vInstructors : Variable<[Instructor]> = Variable([])
     var instructorBackup = [Instructor]()
     var rx_disposeBag = DisposeBag()
+    var reachability : Reachability?
     
     override func viewDidLoad() {
         self.configUI()
@@ -105,33 +107,55 @@ class SearchViewController: UIViewController {
     }
     
     func getInstructor() {
-        var instructors = [Instructor]()
-        Alamofire.request(.GET, INSTRUCTOR_API)
-            .validate()
-            .responseJASON { response in
-                if let json = response.result.value {
-                    for dict in json[.items] {
-                        let imgUrl = dict[.image]
-                        let name = dict[.name]
-                        let code = dict[.code]
-                        let team = dict[.team]
-                        let classes = dict[.classes]
-                        let phone = dict[.contact][.phoneNumber]
-                        
-                        let classRoles = List<ClassRole>()
-                        //print(classes)
-                        for c in classes {
-                            let role = c["role"].stringValue
-                            let code = c["class_code"].stringValue
-                            classRoles.append(ClassRole.create(code, roleCode: role))
-                        }
-                        instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code,phone: phone, classRoles: classRoles))
-                    }
-                    self.vInstructors.value = instructors
-                    self.instructorBackup = instructors
-                    self.waitIndicator.stopAnimating()
-                }
+        do {
+            reachability = try! Reachability.reachabilityForInternetConnection()
         }
+        
+        reachability!.whenReachable = {
+            reachability in
+            dispatch_async(dispatch_get_main_queue()){
+                var instructors = [Instructor]()
+                Alamofire.request(.GET, INSTRUCTOR_API)
+                    .validate()
+                    .responseJASON { response in
+                        if let json = response.result.value {
+                            for dict in json[.items] {
+                                let imgUrl = dict[.image]
+                                let name = dict[.name]
+                                let code = dict[.code]
+                                let team = dict[.team]
+                                let classes = dict[.classes]
+                                let phone = dict[.contact][.phoneNumber]
+                                
+                                let classRoles = List<ClassRole>()
+                                //print(classes)
+                                for c in classes {
+                                    let role = c["role"].stringValue
+                                    let code = c["class_code"].stringValue
+                                    classRoles.append(ClassRole.create(code, roleCode: role))
+                                }
+                                instructors.append(Instructor.create(imgUrl, name: name, team: team, code: code,phone: phone, classRoles: classRoles))
+                            }
+                            self.vInstructors.value = instructors
+                            self.instructorBackup = instructors
+                            self.waitIndicator.stopAnimating()
+                        }
+                }
+            }
+        }
+        
+        reachability!.whenUnreachable = {
+            reachability in
+            dispatch_async(dispatch_get_main_queue()) {
+                let instructors = DB.getAllInstructors()
+                self.vInstructors.value = instructors
+                self.instructorBackup = instructors
+                self.waitIndicator.stopAnimating()
+            }
+        }
+        
+        try! reachability?.startNotifier()
+        
         
     }
     
