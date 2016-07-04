@@ -79,10 +79,17 @@ class DB: Object {
     }
     
     static func getAllInstructors() -> [Instructor] {
-        return realm.objects(Instructor).map({
-            instructor in
-            return instructor
-        })
+//        return realm.objects(Instructor).map({
+//            instructor in
+//            return instructor
+//        })
+        var instructors = [Instructor]()
+        let result = realm.objects(Instructor.self)
+        for rs in result {
+            instructors.append(rs)
+        }
+        
+        return instructors
     }
     
     static func getInstructorByCode(code : String) -> Instructor? {
