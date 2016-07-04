@@ -26,8 +26,8 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="m0X-hC-yJI"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Submit">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="SUBMIT">
                         <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>

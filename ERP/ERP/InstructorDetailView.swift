@@ -60,13 +60,13 @@ class InstructorDetailView: UIView{
     
     func configUI() {
         self.btnClass.becomeRound()
-        self.btnClass.layer.borderWidth = 2.0
+        self.btnClass.layer.borderWidth = 1.0
         self.btnClass.layer.borderColor = UIColor.whiteColor().CGColor
         self.btnRole.becomeRound()
-        self.btnRole.layer.borderWidth = 2.0
+        self.btnRole.layer.borderWidth = 1.0
         self.btnRole.layer.borderColor = UIColor.whiteColor().CGColor
         self.btnCalendar.becomeRound()
-        self.btnCalendar.layer.borderWidth = 2.0
+        self.btnCalendar.layer.borderWidth = 1.0
         self.btnCalendar.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
