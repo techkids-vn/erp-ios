@@ -16,7 +16,6 @@
                 <outlet property="imvAvatar" destination="OL7-gq-4kF" id="lIF-Ss-2AA"/>
                 <outlet property="lblClass" destination="3oc-qJ-ZHu" id="gy8-nL-8Ne"/>
                 <outlet property="lblDate" destination="y7f-RT-EEb" id="8el-kr-ZZw"/>
-                <outlet property="lblIntructorName" destination="G4D-Om-vIH" id="f6C-Oi-Gdb"/>
                 <outlet property="lblRole" destination="4mp-zt-ADP" id="ly6-bb-Bbc"/>
             </connections>
         </placeholder>
@@ -134,39 +133,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-NK-3gy">
                     <rect key="frame" x="0.0" y="278" width="617" height="59"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFq-rs-ag2">
-                            <rect key="frame" x="305" y="0.0" width="7" height="59"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaP-i4-I1F">
-                            <rect key="frame" x="362" y="8" width="148" height="44"/>
-                            <color key="backgroundColor" red="1" green="0.64909680179999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Call"/>
+                            <rect key="frame" x="0.0" y="0.0" width="617" height="59"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="Call">
+                                <color key="titleColor" red="0.07287733565" green="0.36679293169999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="CallforEverybody:" destination="-1" eventType="touchUpInside" id="G55-Sm-Jl8"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4D-Om-vIH">
-                            <rect key="frame" x="0.0" y="0.0" width="305" height="59"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.14509803921568626" green="0.21568627450980393" blue="0.23921568627450979" alpha="0.51551682692307688" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="AaP-i4-I1F" firstAttribute="leading" secondItem="DFq-rs-ag2" secondAttribute="trailing" constant="50" id="CAo-aq-G8d"/>
-                        <constraint firstItem="AaP-i4-I1F" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" multiplier="3:4" id="HBX-u6-hb3"/>
-                        <constraint firstItem="DFq-rs-ag2" firstAttribute="centerX" secondItem="Ade-NK-3gy" secondAttribute="centerX" id="MxF-qC-KIl"/>
-                        <constraint firstItem="DFq-rs-ag2" firstAttribute="leading" secondItem="G4D-Om-vIH" secondAttribute="trailing" id="OME-DU-sRX"/>
-                        <constraint firstItem="G4D-Om-vIH" firstAttribute="centerY" secondItem="DFq-rs-ag2" secondAttribute="centerY" id="Seh-yn-zTZ"/>
-                        <constraint firstItem="AaP-i4-I1F" firstAttribute="width" secondItem="Ade-NK-3gy" secondAttribute="width" multiplier="48:200" id="hF1-bF-dfS"/>
-                        <constraint firstItem="DFq-rs-ag2" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" id="iOm-E4-W16"/>
-                        <constraint firstItem="DFq-rs-ag2" firstAttribute="width" secondItem="Ade-NK-3gy" secondAttribute="width" multiplier="2:200" id="j1U-dK-QwD"/>
-                        <constraint firstItem="AaP-i4-I1F" firstAttribute="centerY" secondItem="DFq-rs-ag2" secondAttribute="centerY" id="nFp-CG-elI"/>
-                        <constraint firstItem="DFq-rs-ag2" firstAttribute="centerY" secondItem="Ade-NK-3gy" secondAttribute="centerY" id="nTE-DD-sP7"/>
-                        <constraint firstItem="G4D-Om-vIH" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" id="p78-IS-f2I"/>
-                        <constraint firstItem="G4D-Om-vIH" firstAttribute="width" secondItem="Ade-NK-3gy" secondAttribute="width" multiplier="99:200" id="s2L-IB-u3C"/>
+                        <constraint firstItem="AaP-i4-I1F" firstAttribute="width" secondItem="Ade-NK-3gy" secondAttribute="width" id="jDm-e6-Wlo"/>
+                        <constraint firstItem="AaP-i4-I1F" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" id="jfm-le-aDs"/>
+                        <constraint firstItem="AaP-i4-I1F" firstAttribute="centerX" secondItem="Ade-NK-3gy" secondAttribute="centerX" id="pIF-FO-hFs"/>
+                        <constraint firstItem="AaP-i4-I1F" firstAttribute="centerY" secondItem="Ade-NK-3gy" secondAttribute="centerY" id="tY1-8S-7bj"/>
                     </constraints>
                 </view>
             </subviews>

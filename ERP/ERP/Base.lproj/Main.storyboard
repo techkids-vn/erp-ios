@@ -421,17 +421,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-Ac-IDr" userLabel="vInstructorDetail" customClass="InstructorDetailView" customModule="ERP" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="360"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-nh-JDs">
-                                <rect key="frame" x="0.0" y="420" width="600" height="180"/>
+                                <rect key="frame" x="0.0" y="360" width="600" height="240"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lvB-nh-JDs" firstAttribute="leading" secondItem="ye2-UM-Fxt" secondAttribute="leading" id="22f-3p-yxj"/>
-                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="height" secondItem="ye2-UM-Fxt" secondAttribute="height" multiplier="0.7" id="917-sk-qrA"/>
+                            <constraint firstItem="yoR-Ac-IDr" firstAttribute="height" secondItem="ye2-UM-Fxt" secondAttribute="height" multiplier="0.6" id="917-sk-qrA"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="bottom" secondItem="ye2-UM-Fxt" secondAttribute="bottomMargin" id="92O-XK-V1N"/>
                             <constraint firstItem="lvB-nh-JDs" firstAttribute="top" secondItem="yoR-Ac-IDr" secondAttribute="bottom" id="Azg-w0-X2k"/>
                             <constraint firstItem="yoR-Ac-IDr" firstAttribute="top" secondItem="ye2-UM-Fxt" secondAttribute="topMargin" id="f0A-dc-BZu"/>

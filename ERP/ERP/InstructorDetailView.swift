@@ -23,7 +23,6 @@ class InstructorDetailView: UIView{
     @IBOutlet weak var btnRole: UIButton!
     @IBOutlet weak var btnClass: UIButton!
     @IBOutlet weak var imvAvatar: UIImageView!
-    @IBOutlet weak var lblIntructorName: UILabel!
     @IBOutlet weak var vDetailContainer: UIView!
     @IBOutlet var btnCall: UIButton!
     
@@ -53,9 +52,6 @@ class InstructorDetailView: UIView{
         self.layoutIfNeeded()
         viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(viewInfo)
-        self.btnCall.layer.cornerRadius = self.btnCall.frame.size.height/2
-        self.btnCall.layer.borderWidth = 1
-        self.btnCall.layer.masksToBounds = true
     }
     
     override func layoutSubviews() {
@@ -79,7 +75,7 @@ class InstructorDetailView: UIView{
     func viewInstructorInfo() {
         if let inst = self.instructor {
             LazyImage.showForImageView(imvAvatar, url: inst.imgUrl)
-            self.lblIntructorName.text = inst.name
+            self.btnCall.setTitle( inst.name, forState: .Normal)
             if inst.classes.count > 0 {
                 //self.txfClass.text = inst.classes[0]
             }
