@@ -136,7 +136,7 @@
                     <rect key="frame" x="0.0" y="278" width="617" height="59"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYj-yc-QaK">
-                            <rect key="frame" x="41" y="13" width="418" height="18"/>
+                            <rect key="frame" x="41" y="13" width="484" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -146,8 +146,11 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaP-i4-I1F">
-                            <rect key="frame" x="459" y="12" width="148" height="35"/>
+                            <rect key="frame" x="525" y="9" width="82" height="41"/>
                             <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="AaP-i4-I1F" secondAttribute="height" multiplier="4:2" id="W8v-r5-d1g"/>
+                            </constraints>
                             <state key="normal" image="img-call">
                                 <color key="titleColor" red="0.059050727040000001" green="0.063092417270000006" blue="0.069166490230000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -156,7 +159,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfB-cY-QOs">
-                            <rect key="frame" x="41" y="35" width="418" height="14"/>
+                            <rect key="frame" x="41" y="35" width="484" height="14"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -165,7 +168,6 @@
                     <color key="backgroundColor" red="0.14509803921568626" green="0.21568627450980393" blue="0.23921568627450979" alpha="0.51551682692307688" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="SYj-yc-QaK" firstAttribute="leading" secondItem="Ade-NK-3gy" secondAttribute="leading" constant="41" id="5YX-0k-X0f"/>
-                        <constraint firstItem="AaP-i4-I1F" firstAttribute="width" secondItem="Ade-NK-3gy" secondAttribute="width" multiplier="48:200" id="6cx-Ss-N7R"/>
                         <constraint firstItem="AaP-i4-I1F" firstAttribute="leading" secondItem="SYj-yc-QaK" secondAttribute="trailing" id="BI5-kx-FLd"/>
                         <constraint firstItem="z2N-P8-C5w" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" id="NU3-dd-2qh"/>
                         <constraint firstItem="AaP-i4-I1F" firstAttribute="centerY" secondItem="z2N-P8-C5w" secondAttribute="centerY" id="WER-Mz-bVO"/>
@@ -173,7 +175,7 @@
                         <constraint firstAttribute="trailing" secondItem="AaP-i4-I1F" secondAttribute="trailing" constant="10" id="Xeq-fy-s63"/>
                         <constraint firstItem="SYj-yc-QaK" firstAttribute="centerY" secondItem="Ade-NK-3gy" secondAttribute="centerY" constant="-8" id="gBo-Xx-Q91"/>
                         <constraint firstItem="LfB-cY-QOs" firstAttribute="leading" secondItem="Ade-NK-3gy" secondAttribute="leading" constant="41" id="nEx-QQ-Ika"/>
-                        <constraint firstItem="AaP-i4-I1F" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" multiplier="0.6" id="otP-Kp-FkM"/>
+                        <constraint firstItem="AaP-i4-I1F" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" multiplier="0.7" id="otP-Kp-FkM"/>
                         <constraint firstItem="AaP-i4-I1F" firstAttribute="leading" secondItem="LfB-cY-QOs" secondAttribute="trailing" id="rfk-qQ-dlo"/>
                         <constraint firstItem="z2N-P8-C5w" firstAttribute="width" secondItem="Ade-NK-3gy" secondAttribute="width" multiplier="2:200" id="sTg-tL-tRG"/>
                         <constraint firstItem="z2N-P8-C5w" firstAttribute="centerY" secondItem="Ade-NK-3gy" secondAttribute="centerY" id="vUH-BL-JkL"/>
