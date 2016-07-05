@@ -72,7 +72,7 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
     // MARK: - UIAlertView delegate
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0 {
-            self.closeLeft()
+//            self.closeLeft()
         }
         else if buttonIndex == 1 {
             let screen = UIScreen.mainScreen().bounds
