@@ -54,10 +54,6 @@ class InstructorDetailView: UIView{
         self.layoutIfNeeded()
         viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(viewInfo)
-        
-        self.btnCall.layer.cornerRadius = 0.5
-        self.btnCall.layer.masksToBounds = true
-        self.btnCall.layer.borderWidth = 1
     }
     
     override func layoutSubviews() {
@@ -74,6 +70,9 @@ class InstructorDetailView: UIView{
         self.btnCalendar.becomeRound()
         self.btnCalendar.layer.borderWidth = 1.0
         self.btnCalendar.layer.borderColor = UIColor.whiteColor().CGColor
+        self.btnCall.layer.cornerRadius = 10
+        self.btnCall.layer.masksToBounds = true
+
     }
     
         
