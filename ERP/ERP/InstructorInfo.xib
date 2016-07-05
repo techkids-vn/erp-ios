@@ -136,8 +136,8 @@
                     <rect key="frame" x="0.0" y="278" width="617" height="59"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYj-yc-QaK">
-                            <rect key="frame" x="41" y="13" width="484" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <rect key="frame" x="20" y="12" width="505" height="20"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -156,22 +156,22 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfB-cY-QOs">
-                            <rect key="frame" x="41" y="35" width="484" height="14"/>
+                            <rect key="frame" x="20" y="35" width="505" height="14"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.14509803921568626" green="0.21568627450980393" blue="0.23921568627450979" alpha="0.51551682692307688" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.14509803921568626" green="0.21568627450980393" blue="0.23921568627450979" alpha="0.69727163461538455" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="SYj-yc-QaK" firstAttribute="leading" secondItem="Ade-NK-3gy" secondAttribute="leading" constant="41" id="5YX-0k-X0f"/>
+                        <constraint firstItem="SYj-yc-QaK" firstAttribute="leading" secondItem="Ade-NK-3gy" secondAttribute="leading" constant="20" id="5YX-0k-X0f"/>
                         <constraint firstItem="AaP-i4-I1F" firstAttribute="leading" secondItem="SYj-yc-QaK" secondAttribute="trailing" id="BI5-kx-FLd"/>
                         <constraint firstItem="z2N-P8-C5w" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" id="NU3-dd-2qh"/>
                         <constraint firstItem="AaP-i4-I1F" firstAttribute="centerY" secondItem="z2N-P8-C5w" secondAttribute="centerY" id="WER-Mz-bVO"/>
                         <constraint firstItem="z2N-P8-C5w" firstAttribute="centerX" secondItem="Ade-NK-3gy" secondAttribute="centerX" id="XGu-va-ovj"/>
                         <constraint firstAttribute="trailing" secondItem="AaP-i4-I1F" secondAttribute="trailing" constant="10" id="Xeq-fy-s63"/>
                         <constraint firstItem="SYj-yc-QaK" firstAttribute="centerY" secondItem="Ade-NK-3gy" secondAttribute="centerY" constant="-8" id="gBo-Xx-Q91"/>
-                        <constraint firstItem="LfB-cY-QOs" firstAttribute="leading" secondItem="Ade-NK-3gy" secondAttribute="leading" constant="41" id="nEx-QQ-Ika"/>
+                        <constraint firstItem="LfB-cY-QOs" firstAttribute="leading" secondItem="Ade-NK-3gy" secondAttribute="leading" constant="20" id="nEx-QQ-Ika"/>
                         <constraint firstItem="AaP-i4-I1F" firstAttribute="height" secondItem="Ade-NK-3gy" secondAttribute="height" multiplier="0.7" id="otP-Kp-FkM"/>
                         <constraint firstItem="AaP-i4-I1F" firstAttribute="leading" secondItem="LfB-cY-QOs" secondAttribute="trailing" id="rfk-qQ-dlo"/>
                         <constraint firstItem="z2N-P8-C5w" firstAttribute="width" secondItem="Ade-NK-3gy" secondAttribute="width" multiplier="2:200" id="sTg-tL-tRG"/>
