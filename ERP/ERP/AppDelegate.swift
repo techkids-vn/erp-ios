@@ -103,11 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 snackbar.show()
                                 DB.deleteTeachingRecordRequest(teachingRequest)
                             }
-                            else {
-                                let alert = UIAlertView(title: "", message: "Record Fail", delegate: nil,
-                                    cancelButtonTitle: "Ok")
-                                alert.show()
-                            }
                         })
 
                     }

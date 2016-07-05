@@ -54,6 +54,14 @@ class InstructorDetailView: UIView{
         self.layoutIfNeeded()
         viewInfo.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
         self.addSubview(viewInfo)
+        _ = self.btnCall.rx_tap.subscribeNext {
+            if let inst = self.instructor {
+                let phone = "tel://"+inst.phone;
+                let url:NSURL = NSURL(string:phone)!;
+                UIApplication.sharedApplication().openURL(url);
+                print(phone)
+            }
+        }
     }
     
     override func layoutSubviews() {
@@ -90,15 +98,6 @@ class InstructorDetailView: UIView{
             }
         }
 
-    }
-    
-    @IBAction func CallforEverybody(sender: AnyObject) {
-        if let inst = self.instructor {
-            let phone = "tel://"+inst.phone;
-            let url:NSURL = NSURL(string:phone)!;
-            UIApplication.sharedApplication().openURL(url);
-            print(phone)
-        }
     }
     
 }

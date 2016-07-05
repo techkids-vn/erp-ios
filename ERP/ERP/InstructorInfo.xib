@@ -154,9 +154,6 @@
                             <state key="normal" image="img-call">
                                 <color key="titleColor" red="0.059050727040000001" green="0.063092417270000006" blue="0.069166490230000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="CallforEverybody:" destination="-1" eventType="touchUpInside" id="G55-Sm-Jl8"/>
-                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfB-cY-QOs">
                             <rect key="frame" x="41" y="35" width="484" height="14"/>
