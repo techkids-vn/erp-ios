@@ -74,6 +74,15 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
 
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.translucent = false
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
+    }
+
+    
     func nextStep() {
         _ = self.classSelected.asObservable().subscribeNext {
             classSelect in
