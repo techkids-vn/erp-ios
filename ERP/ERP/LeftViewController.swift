@@ -72,13 +72,13 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
     // MARK: - UIAlertView delegate
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0 {
-//            self.closeLeft()
+            self.closeLeft()
         }
         else if buttonIndex == 1 {
             let screen = UIScreen.mainScreen().bounds
             let waitIndicator = UIActivityIndicatorView(frame: CGRectMake(screen.width/2,screen.height/2,30,30))
             waitIndicator.activityIndicatorViewStyle = .Gray
-            self.view.addSubview(waitIndicator)
+            //self.view.addSubview(waitIndicator)
             waitIndicator.startAnimating()
            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {

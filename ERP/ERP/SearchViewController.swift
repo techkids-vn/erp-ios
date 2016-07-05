@@ -38,14 +38,17 @@ class SearchViewController: UIViewController {
             }.addDisposableTo(rx_disposeBag)
     }
     
-    //MARK: hide keyboard
+       //MARK: hide keyboard
     func keyboardWillShow(notification: NSNotification) {
         self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(animated: Bool) {
         self.clvInstructor.reloadData()
+        self.closeLeft()
     }
+    
+    
     
     func keyboardWillHide(notification: NSNotification) {
         for recognizer in view.gestureRecognizers ?? [] {
