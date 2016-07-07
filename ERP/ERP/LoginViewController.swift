@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
             self.view.window!.rootViewController = slideVC
         }
         else {
-            let alertView = UIAlertView(title: "", message: "Login Failed", delegate: nil,
+            let alertView = UIAlertView(title: "", message: "Login Failed. Please check your Username or Password", delegate: nil,
                                         cancelButtonTitle: "OK")
             alertView.show()
         }
