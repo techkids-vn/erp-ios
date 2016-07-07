@@ -37,8 +37,6 @@ class LoginViewController: UIViewController {
         self.imvIcon.layer.shadowRadius = 1.0;
         self.imvIcon.clipsToBounds = false;
         self.btnLogin.layer.cornerRadius = 6.0
-        self.txtUsername.text = "admin"
-        self.txtPassword.text = "111111"
         self.waitIndicator.hidesWhenStopped = true
         self.waitIndicator.activityIndicatorViewStyle = .Gray
     }
