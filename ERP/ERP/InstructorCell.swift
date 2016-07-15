@@ -25,6 +25,13 @@ class InstructorCell: UICollectionViewCell {
     }
     
     func layout() {
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOpacity = 0.8
+        self.layer.shadowOffset = CGSizeZero
+        self.layer.shadowRadius = 10
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
+        
         self.lblName.text = "\(instructor!.name)"
         self.lblCode.text = "\(instructor!.code)"
         

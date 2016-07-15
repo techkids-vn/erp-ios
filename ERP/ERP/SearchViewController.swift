@@ -86,14 +86,17 @@ class SearchViewController: UIViewController {
         self.waitIndicator.activityIndicatorViewStyle = .White
         self.waitIndicator.center = self.clvInstructor.center
         self.waitIndicator.startAnimating()
-        
         self.vSearch.backgroundColor = CONTENT_BACKGROUND_COLOR
         self.searchBar.backgroundColor = UIColor.clearColor()
-        //        self.searchBar.tintColor = UIColor.clearColor()
-        //        self.searchBar.backgroundImage = UIImage()
-        
-        
         self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
+        self.navigationController?.navigationBar.translucent = false
+        for parent in self.navigationController!.navigationBar.subviews {
+            for childView in parent.subviews {
+                if(childView is UIImageView) {
+                    childView.removeFromSuperview()
+                }
+            }
+        }
         self.configLayout()
     }
     
@@ -108,7 +111,7 @@ class SearchViewController: UIViewController {
         self.clvInstructor.setCollectionViewLayout(layout, animated: true)
         self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
     }
-    
+    //MARK: - Get instructor
     func getInstructor() {
         do {
             reachability = try! Reachability.reachabilityForInternetConnection()
@@ -156,10 +159,7 @@ class SearchViewController: UIViewController {
                 self.waitIndicator.stopAnimating()
             }
         }
-        
         try! reachability?.startNotifier()
-        
-        
     }
     
     //MARK: Search
@@ -181,8 +181,4 @@ class SearchViewController: UIViewController {
         }
     }
     
-    // MARK: Test - Remove in production
-    func dumpTeachingRecord() {
-        
-    }
 }

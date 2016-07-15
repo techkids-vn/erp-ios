@@ -37,9 +37,14 @@ class LeftViewController: UIViewController, UIAlertViewDelegate {
         self.view.layoutIfNeeded()
         self.imvLogo.layoutIfNeeded()
         self.imvLogo.layer.cornerRadius = self.imvLogo.frame.size.width / 2;
+        self.imvLogo.layer.shadowColor = UIColor.blackColor().CGColor
+        self.imvLogo.layer.shadowOpacity = 0.8
+        self.imvLogo.layer.shadowOffset = CGSizeZero
+        self.imvLogo.layer.shadowRadius = 10
+        
         self.imvLogo.clipsToBounds = true
         self.tbvMenu.separatorStyle = .None
-        self.view.backgroundColor = UIColor(netHex: 0xE0E4CC)
+        self.view.backgroundColor = UIColor(netHex: 0xf7f7f7)
          _ = self.menuItemsVar.asObservable().bindTo(self.tbvMenu.rx_itemsWithCellIdentifier("Cell", cellType: LeftMenuCell.self)) {
             row, data, cell in
             cell.menuItem = data

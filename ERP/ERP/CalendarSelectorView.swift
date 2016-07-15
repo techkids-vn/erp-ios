@@ -41,6 +41,10 @@ class CalendarSelectorView: UIView ,CVCalendarViewDelegate, CVCalendarMenuViewDe
         super.layoutSubviews()
         self.calendarView.commitCalendarViewUpdate()
         self.calendarMenu.commitMenuViewUpdate()
+        self.btnSubmit.layer.cornerRadius = 5
+//        self.btnSubmit.layer.shadowColor = UIColor.blackColor().CGColor
+//        self.btnSubmit.layer.shadowOffset = CGSizeZero
+//        self.btnSubmit.layer.shadowOpacity = 0.3
     }
     
     

@@ -27,11 +27,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.aivWait.hidesWhenStopped = true
-        self.aivWait.center = self.view.center
-        self.view.addSubview(aivWait)
-        self.aivWait.startAnimating()
-        self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
+        
         self.initLayout()
         self.followClickOnTableViewCell()
         
@@ -80,7 +76,21 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func initLayout() {
-        self.navigationItem.title = "RECORD HISTORY"
+        self.navigationItem.title = "History"
+        self.navigationController?.navigationBar.translucent = false
+        for parent in self.navigationController!.navigationBar.subviews {
+            for childView in parent.subviews {
+                if(childView is UIImageView) {
+                    childView.removeFromSuperview()
+                }
+            }
+        }
+        //Activity Indicator
+        self.aivWait.hidesWhenStopped = true
+        self.aivWait.center = self.view.center
+        self.view.addSubview(aivWait)
+        self.aivWait.startAnimating()
+        self.addLeftBarButtonWithImage(UIImage(named: "img-menu")!)
         
         // TableView
         self.tbvHistory.backgroundView = nil
@@ -91,8 +101,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Search bar
         self.vSearch.backgroundColor = CONTENT_BACKGROUND_COLOR
-        self.sbSearch.tintColor = UIColor.clearColor()
-        self.sbSearch.backgroundImage = UIImage()
+        self.vSearch.backgroundColor = UIColor.clearColor()
         
         
         _ = self.sbSearch
@@ -109,7 +118,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         // Background
-        self.view.backgroundColor = CONTENT_BACKGROUND_COLOR
+        self.view.backgroundColor = HISTORY_BACKGROUND_COLOR
         
     }
     

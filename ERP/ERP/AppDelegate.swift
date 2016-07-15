@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         UINavigationBar.appearance().barTintColor = TOP_BACKGROUND_COLOR
-        UISearchBar.appearance().setImage(UIImage(named: "img-searchbar"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
+        UISearchBar.appearance().setImage(UIImage(named: "img-search"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
     

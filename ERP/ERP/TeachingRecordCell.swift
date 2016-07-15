@@ -31,9 +31,12 @@ class TeachingRecordCell: UITableViewCell {
                 self.lblRoleName.text = teachingRecord.roleTitle
                 self.lblRecordTime.text = teachingRecord.recordTime
                 LazyImage.showForImageView(self.imvAvatar, url: instructor.imgUrl)
+                self.imvAvatar.layer.cornerRadius = self.imvAvatar.frame.width/2
+                self.imvAvatar.layer.borderWidth = 1.0
+                self.imvAvatar.layer.borderColor = UIColor.blackColor().CGColor
             }
             if teachingRecord.editable {
-                vRoot.backgroundColor = CONTENT_BACKGROUND_COLOR
+                vRoot.backgroundColor = HISTORY_BACKGROUND_COLOR
             } else {
                 vRoot.backgroundColor = UIColor.init(netHex: 0x7f8c8d)
             }

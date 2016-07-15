@@ -78,7 +78,7 @@ class InstructorDetailView: UIView{
         self.btnCalendar.becomeRound()
         self.btnCalendar.layer.borderWidth = 1.0
         self.btnCalendar.layer.borderColor = UIColor.whiteColor().CGColor
-        self.btnCall.layer.cornerRadius = 10
+        self.btnCall.layer.cornerRadius = 5
         self.btnCall.layer.masksToBounds = true
 
     }

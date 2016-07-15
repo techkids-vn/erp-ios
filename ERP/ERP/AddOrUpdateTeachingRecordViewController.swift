@@ -13,7 +13,6 @@ import RxSwift
 
 class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDelegate {
     
-    
     @IBOutlet weak var vMaskView: UIView!
     @IBOutlet weak var vInstructorDetail: InstructorDetailView!
     let waitIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,44,44))
@@ -53,15 +52,15 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             self.classSelected.value = self.instructrClass
             self.roleSelected.value = self.instructorRole
             
-            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x71BA51)
+            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x04BF25)
             self.vInstructorDetail.btnClass.userInteractionEnabled = true
-            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x5AC8FA)
             self.vInstructorDetail.btnRole.userInteractionEnabled = true
-            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0xF29B34)
+            self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x5AC8FA)
             self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
         }
         else {
-            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x71BA51)
+            self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x04BF25)
             self.vInstructorDetail.btnRole.backgroundColor = UIColor.grayColor()
             self.vInstructorDetail.btnRole.userInteractionEnabled = false
             self.vInstructorDetail.btnCalendar.backgroundColor = UIColor.grayColor()
@@ -82,16 +81,16 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         super.viewWillDisappear(animated)
     }
 
-    
+    //MARK: - Handle chose step
     func nextStep() {
         _ = self.classSelected.asObservable().subscribeNext {
             classSelect in
             if classSelect != "" {
                 self.loadRole()
                 self.vInstructorDetail.lblClass.text = classSelect
-                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x71BA51)
+                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x04BF25)
                 self.vInstructorDetail.btnRole.userInteractionEnabled = true
-                self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0xF29B34)
+                self.vInstructorDetail.btnClass.backgroundColor = UIColor(netHex: 0x5AC8FA)
             }
         }
         
@@ -100,9 +99,9 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
             if role != "" {
                 self.loadCalendar()
                 self.vInstructorDetail.lblRole.text = role
-                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x71BA51)
+                self.vInstructorDetail.btnCalendar.backgroundColor = UIColor(netHex: 0x04BF25)
                 self.vInstructorDetail.btnCalendar.userInteractionEnabled = true
-                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0xF29B34)
+                self.vInstructorDetail.btnRole.backgroundColor = UIColor(netHex: 0x5AC8FA)
             }
         }
         
@@ -156,8 +155,57 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         }
         
     }
-
     
+    func loadClass() {
+        let view = NSBundle.mainBundle().loadNibNamed("ClassSelector", owner: self, options: nil)[0] as! ClassSelectorView
+        view.instructor = self.instructor
+        view.frame = self.vMaskView.bounds
+        view.classSelected = self.classSelected
+        self.addSubViewToSuperView(view)
+    }
+    
+    func loadRole() {
+        let view = NSBundle.mainBundle().loadNibNamed("RoleSelector", owner: self, options: nil)[0] as! RoleSelector
+        view.roleData.value = (self.instructor?.roleInClass(self.classSelected.value))!
+        view.frame = self.vMaskView.bounds
+        view.roleSelected = self.roleSelected
+        self.addSubViewToSuperView(view)
+    }
+    
+    func loadCalendar() {
+        let view = NSBundle.mainBundle().loadNibNamed("CalendarSelectorView", owner: self, options: nil)[0] as! CalendarSelectorView
+        view.frame = self.vMaskView.bounds
+        view.time = self.timeSelector
+        view.submitFlag = self.submitSelector
+        self.addSubViewToSuperView(view)
+    }
+    
+    func addSubViewToSuperView(subview : UIView) {
+        for v in self.vMaskView.subviews {
+            v.removeFromSuperview()
+        }
+        self.vMaskView.addSubview(subview)
+        self.currentViewInMaskView = subview
+    }
+    
+    func configButtonColor(selectedButton : UIButton, otherButton1 : UIButton, otherButton2 : UIButton) {
+        selectedButton.backgroundColor = UIColor(netHex: 0x04BF25)
+        if otherButton1.userInteractionEnabled {
+            otherButton1.backgroundColor = UIColor(netHex: 0x5AC8FA)
+        } else {
+            otherButton1.backgroundColor = UIColor.grayColor()
+        }
+        
+        if otherButton2.userInteractionEnabled {
+            otherButton2.backgroundColor = UIColor(netHex: 0x5AC8FA)
+        } else {
+            otherButton2.backgroundColor = UIColor.grayColor()
+        }
+    }
+
+
+
+    //MARK: - Request record to server
     func requestDataToServer(classCode: String, roleCode : String, time : String, requestType : RequestType) {
         let today = NSDate();
         let dateFormatter = NSDateFormatter()
@@ -200,53 +248,6 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
                 alert.show()
             }
         })
-    }
-    
-    func loadClass() {
-        let view = NSBundle.mainBundle().loadNibNamed("ClassSelector", owner: self, options: nil)[0] as! ClassSelectorView
-        view.instructor = self.instructor
-        view.frame = self.vMaskView.bounds
-        view.classSelected = self.classSelected
-        self.addSubViewToSuperView(view)
-    }
-    
-    func loadRole() {
-        let view = NSBundle.mainBundle().loadNibNamed("RoleSelector", owner: self, options: nil)[0] as! RoleSelector
-        view.roleData.value = (self.instructor?.roleInClass(self.classSelected.value))!
-        view.frame = self.vMaskView.bounds
-        view.roleSelected = self.roleSelected
-        self.addSubViewToSuperView(view)
-    }
-    
-    func loadCalendar() {
-        let view = NSBundle.mainBundle().loadNibNamed("CalendarSelectorView", owner: self, options: nil)[0] as! CalendarSelectorView
-        view.frame = self.vMaskView.bounds
-        view.time = self.timeSelector
-        view.submitFlag = self.submitSelector
-        self.addSubViewToSuperView(view)
-    }
-    
-    func addSubViewToSuperView(subview : UIView) {
-        for v in self.vMaskView.subviews {
-            v.removeFromSuperview()
-        }
-        self.vMaskView.addSubview(subview)
-        self.currentViewInMaskView = subview
-    }
-    
-    func configButtonColor(selectedButton : UIButton, otherButton1 : UIButton, otherButton2 : UIButton) {
-        selectedButton.backgroundColor = UIColor(netHex: 0x71BA51)
-        if otherButton1.userInteractionEnabled {
-            otherButton1.backgroundColor = UIColor(netHex: 0xF29B34)
-        } else {
-            otherButton1.backgroundColor = UIColor.grayColor()
-        }
-        
-        if otherButton2.userInteractionEnabled {
-            otherButton2.backgroundColor = UIColor(netHex: 0xF29B34)
-        } else {
-            otherButton2.backgroundColor = UIColor.grayColor()
-        }
     }
     
     //MARK: - UIAlertView Delegate
