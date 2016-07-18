@@ -211,7 +211,7 @@ class AddOrUpdateTeachingRecordViewController: UIViewController, UIAlertViewDele
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeZone = NSTimeZone()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
         let localDate = dateFormatter.stringFromDate(today)
         
         var date : NSDate!
